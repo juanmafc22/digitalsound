@@ -1,6 +1,7 @@
 /* Familias de las fuentes
-Para todos los textos:  font-family: 'Archivo', sans-serif;
-Para el logo:           font-family: 'Archivo Black', sans-serif;
+Para todos los textos: font-family: 'Archivo', sans-serif;
+Para el logo: font-family: 'Archivo Black', sans-serif;
+Para los textos "angostos": font-family: 'Archivo Narrow', sans-serif;
 */
 
 /* declaracion de colores por variables */
@@ -85,10 +86,10 @@ header {
     font-weight: 200;
     color: #000;
     margin-left: 25px;
-    margin-top: -10px;
+    margin-top: -20px;
 }
 
-.main-flex {
+.main-listar-secciones {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -105,7 +106,7 @@ header {
     width: 100%;
 }
 
-.article-guittaras__titulo {
+.article-titulo {
     background-color: var(--color-bgWhite);
     font-size: 15px;
     position: absolute;
@@ -115,7 +116,7 @@ header {
     border: 1px solid #FFF;
 }
 
-.article-guittaras__button {
+.article-button {
     background-color: var(--color-coralRed);
     color: #FFF;
     font-size: 11px;
@@ -130,3 +131,62 @@ header {
 .header-links {
     color: #FFF;
 }
+
+.main-titulos-destacados {
+    font-family: 'Archivo Narrow', sans-serif;;
+    font-size: 19px;
+    font-weight: 700;
+    margin: 15px 0 10px 14px;
+}
+
+.main-destacados-img {
+    width: 100%;
+    max-width: 400px;
+}
+
+@media (min-width: 450px) {
+
+    .main-article {
+        width: 43%
+    }
+
+    .main-listar-secciones {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    }
+
+    .article-titulo {
+        font-size: 11px;
+    }
+
+    .article-button {
+        font-size: 10px;
+    }
+}
+
+@media (min-width: 759px) {
+
+    .main-article {
+        width: 23%;
+    }
+
+    .main-listar-secciones {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    }
+
+    .article-titulo {
+        font-size: 11px;
+    }
+
+    .article-button {
+        font-size: 10px;
+        top: 47px;
+    }
+
+}
+
