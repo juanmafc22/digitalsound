@@ -1,0 +1,35 @@
+// -------| express()
+const express = require("express");
+const app = express();
+const serverPort = 3030;
+
+
+// -------| server start
+app.listen(serverPort, () => {
+    console.log("Servidor corriendo OK en el puerto", serverPort);
+    console.log("Visitar Digital Sound en el siguiente link: http://localhost:" + serverPort + "/");
+});
+
+
+// -------| requires
+const path = require("path");
+const mainRouter = require("./routers/main.router");
+
+
+// -------| middlewares (app.use)
+app.use(express.static(path.join(__dirname, "../public")));  // ubicación de la carpeta "public/static" con las img/css/js, etc
+
+
+// -------| template engines: ejs y path a ejs
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "./views"));
+
+
+// -------| route system, requires and app.use
+app.use("/", mainRouter);
+
+
+// Seteo inicial de error 404
+app.use((req, res, next) => {
+    res.status(404).send("Page not found");
+});
