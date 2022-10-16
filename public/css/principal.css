@@ -96,6 +96,28 @@ header {
     margin-top: -20px;
 }
 
+.header-navDesktop {
+    display: none;
+}
+
+.header-navText {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 14px;
+    color: #636363;
+}
+
+.header-navText a {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 14px;
+    color: #636363;
+    text-decoration: none;
+}
+
+.header-navText a:hover {
+    color: #000;
+}
+
+
 /* COMIENZA LOS ESTILOS DE LA SECCION MAIN */
 
 .main-listar-secciones {
@@ -322,6 +344,22 @@ footer {
     width: 38%;
     }
 
-  
+    .header-superior {
+        height: 37px;
+    }
+ 
+    .header-navDesktop {
+        display: block;
+        border-bottom: 1px solid #DDD;
+        box-shadow: 0px 15px 10px -15px rgb(107, 106, 106);
+        height: 42px;
+        padding-top: 10px;
+        padding-left: 5px;
+        margin-bottom: 8px;
+    } 
+
+    .header-burgerMenu {
+        visibility: hidden;
+    }
    
 }
