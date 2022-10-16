@@ -23,6 +23,8 @@ body {
     margin: auto;
 }
 
+/* COMIENZA LOS ESTILOS DEL HEADER */
+
 header {
     width: 100%;
     margin-top: 10px;
@@ -68,6 +70,11 @@ header {
     margin-left: 24px;
 }
 
+.header-links {
+    color: #FFF;
+}
+
+/* los dos colores del logo rojo y nergo */
 .logo-digital {
     color: var(--color-coralRed)
 }
@@ -89,6 +96,8 @@ header {
     margin-top: -20px;
 }
 
+/* COMIENZA LOS ESTILOS DE LA SECCION MAIN */
+
 .main-listar-secciones {
     display: flex;
     flex-direction: column;
@@ -106,6 +115,8 @@ header {
     width: 100%;
 }
 
+/* los dos estilos de los botones adentro de las imagenes */
+
 .article-titulo {
     background-color: var(--color-bgWhite);
     font-size: 15px;
@@ -122,32 +133,118 @@ header {
     font-size: 11px;
     font-weight: bold;
     position: absolute;
-    top: 56px;
+    top: 51px; 
     left: 20px;
     padding: 5px;
     border: 1px solid var(--color-coralRed);
 }
 
-.header-links {
-    color: #FFF;
-}
 
-.main-titulos-destacados {
+
+.main-titulo-destacado {
     font-family: 'Archivo Narrow', sans-serif;;
-    font-size: 19px;
+    font-size: 22px;
     font-weight: 700;
-    margin: 15px 0 10px 14px;
+    margin: 15px 0 0 14px;
 }
 
-.main-destacados-img {
-    width: 100%;
-    max-width: 400px;
+/* COMIENZA LOS ESTILOS DE LOS PRODUCTOS DESTACADOS */
+
+.prods-destacados {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 22px;
 }
+
+.articulo-destacado {
+    width: 90%;
+    margin-top: 13px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #DDD;
+}
+
+.div-interno-art-destacado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+
+}
+
+.prod-dectacado__titulo {
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.prod-dectacado__precio {
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.prod-destacado__detalle {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 12px;
+}
+
+.prod-destacado__button {
+    background-color: var(--color-coralRed);
+    color: #FFF;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 5px;
+    border: 1px solid var(--color-coralRed);
+}
+
+.prod-destacdo__img {
+    width: 100px;
+}
+
+.prod-links {
+    text-decoration: none;
+}
+
+.prod-destacado__link {
+    text-decoration: none;
+}
+
+/* COMIENZA LOS ESTILOS DEL FOOTER */ 
+
+footer {
+    width: 100%;
+    box-shadow: 0px 15px 10px -15px rgb(46, 46, 46);
+    padding: 7px 0 7px 0;
+    border-bottom: 1px solid rgb(194, 194, 194);
+}
+
+
+.footer-fila-arriba {
+    font-size: 13px;
+    text-align: center;
+    font-family: 'Archivo Narrow', sans-serif;
+    padding: 7px;
+}
+
+.footer-fila-abajo {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 17px;
+    padding: 7px;
+}
+
+/* COMIENZAN LOS MEDIA QUIERIES */
+
 
 @media (min-width: 450px) {
 
     .main-article {
         width: 43%
+    }
+
+    .main-prod-destacado {
+    width: 43%;
     }
 
     .main-listar-secciones {
@@ -162,8 +259,9 @@ header {
     }
 
     .article-button {
-        font-size: 10px;
+        top: 47px;
     }
+
 }
 
 @media (min-width: 759px) {
@@ -172,6 +270,9 @@ header {
         width: 23%;
     }
 
+    .main-prod-destacado {
+    width: 43%;
+    }
     .main-listar-secciones {
     display: flex;
     flex-direction: row;
@@ -185,7 +286,6 @@ header {
 
     .article-button {
         font-size: 10px;
-        top: 47px;
     }
 
 }
