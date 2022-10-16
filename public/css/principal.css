@@ -308,4 +308,20 @@ footer {
    .footer-espacios-iconos {
         margin: 20px;
     }
+    
+    .prods-destacados {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 22px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: stretch;
+    }
+
+    .articulo-destacado {
+    width: 38%;
+    }
+
+  
+   
 }
