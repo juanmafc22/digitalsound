@@ -273,9 +273,11 @@ footer {
         width: 43%
     }
 
+    /*
     .main-prod-destacado {
     width: 43%;
     }
+    */
 
     .main-listar-secciones {
     display: flex;
@@ -306,12 +308,15 @@ footer {
 @media (min-width: 759px) {
 
     .main-article {
-        width: 23%;
+        width: 24%;
     }
 
+    /*
     .main-prod-destacado {
     width: 43%;
     }
+    */
+
     .main-listar-secciones {
     display: flex;
     flex-direction: row;
@@ -341,7 +346,7 @@ footer {
     }
 
     .articulo-destacado {
-    width: 38%;
+    width: 24%;
     }
 
     .header-superior {
@@ -360,6 +365,10 @@ footer {
 
     .header-burgerMenu {
         visibility: hidden;
+    }
+
+    .header-otrosIconos {
+        font-size: 15px;
     }
    
 }
