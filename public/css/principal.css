@@ -265,12 +265,12 @@ header {
 
 .boton-comprar {
     font-family: 'Archivo Narrow', sans-serif;
-    background-color: #BD332A;
+    background-color: #03A646;
     color: #FFF;
     font-size: 22px;
     font-weight: bold;
     padding: 1px 9px 1px 9px;
-    border: 1px solid #BD332A;
+    border: 1px solid #03A646;
 }
 
 
