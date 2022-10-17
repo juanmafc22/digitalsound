@@ -23,7 +23,7 @@ body {
     margin: auto;
 }
 
-/* COMIENZA LOS ESTILOS DEL HEADER */
+/* COMIENZAN LOS ESTILOS DEL HEADER */
 
 header {
     width: 100%;
@@ -118,7 +118,7 @@ header {
 }
 
 
-/* COMIENZA LOS ESTILOS DE LA SECCION MAIN */
+/* COMIENZAN LOS ESTILOS DE LA SECCION MAIN */
 
 .main-listar-secciones {
     display: flex;
@@ -167,8 +167,6 @@ header {
     border: 1px solid var(--color-coralRed);
 }
 
-
-
 .main-titulo-destacado {
     font-family: 'Archivo Narrow', sans-serif;;
     font-size: 22px;
@@ -176,7 +174,13 @@ header {
     margin: 15px 0 0 24px;
 }
 
-/* COMIENZA LOS ESTILOS DE LOS PRODUCTOS DESTACADOS */
+.main-titulo-destacado-detalleProd {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* COMIENZAN LOS ESTILOS DE LOS PRODUCTOS DESTACADOS */
 
 .prods-destacados {
     display: flex;
@@ -243,7 +247,34 @@ header {
     text-decoration: none;
 }
 
-/* COMIENZA LOS ESTILOS DEL FOOTER */ 
+/* COMIENZAN LOS ESTILOS DE DETALLE DE 1 PRODUCTO */
+
+.div-titulo-boton-comprar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+    gap: 15px;
+    margin: 15px 10px 0 24px;
+}
+
+.div-titulo-boton-comprar a{
+    text-decoration: none;
+    color: #FFF;
+}
+
+.boton-comprar {
+    font-family: 'Archivo Narrow', sans-serif;
+    background-color: #BD332A;
+    color: #FFF;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 1px 9px 1px 9px;
+    border: 1px solid #BD332A;
+}
+
+
+/* COMIENZAN LOS ESTILOS DEL FOOTER */ 
 
 footer {
     display: flex;
@@ -272,7 +303,6 @@ footer {
 }
 
 /* COMIENZAN LOS MEDIA QUIERIES */
-
 
 @media (min-width: 450px) {
 
@@ -353,7 +383,7 @@ footer {
     }
 
     .articulo-destacado {
-        width: 25%;
+        width: 42%;
     }
 
     .header-superior {
