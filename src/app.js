@@ -14,6 +14,7 @@ app.listen(serverPort, () => {
 // -------| requires
 const path = require("path");
 const mainRouter = require("./routers/main.router");
+const productRouter = require("./routers/product.router");
 
 
 // -------| middlewares (app.use)
@@ -27,6 +28,7 @@ app.set("views", path.join(__dirname, "./views"));
 
 // -------| route system, requires and app.use
 app.use("/", mainRouter);
+app.use("/productos", productRouter);
 
 
 // Seteo inicial de error 404

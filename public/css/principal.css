@@ -133,6 +133,12 @@ header {
     position: relative;
 }
 
+.main-article-seccion-ppal {
+    width: 90%;
+    margin-top: 23px;
+    position: relative;
+}
+
 .main-article__img {
     width: 100%;
 }
@@ -167,7 +173,7 @@ header {
     font-family: 'Archivo Narrow', sans-serif;;
     font-size: 22px;
     font-weight: 700;
-    margin: 15px 0 0 14px;
+    margin: 15px 0 0 24px;
 }
 
 /* COMIENZA LOS ESTILOS DE LOS PRODUCTOS DESTACADOS */
@@ -183,6 +189,7 @@ header {
 .articulo-destacado {
     width: 90%;
     margin-top: 13px;
+    margin-left: 2px;
     padding-bottom: 8px;
     border-bottom: 1px solid #DDD;
 }
@@ -346,7 +353,7 @@ footer {
     }
 
     .articulo-destacado {
-    width: 24%;
+        width: 25%;
     }
 
     .header-superior {
