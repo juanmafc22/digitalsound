@@ -263,6 +263,19 @@ header {
     color: #FFF;
 }
 
+.titulo-detalle-prod {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.texto-detalle-prod {
+    font-size: 17px;
+    font-family: 'Archivo Narrow', sans-serif;
+    padding-right: 19px;
+
+}
+
 .boton-comprar {
     font-family: 'Archivo Narrow', sans-serif;
     background-color: #03A646;
@@ -302,6 +315,29 @@ footer {
     margin: 7px;
 }
 
+/* COMIENZAN LOS ESTILOS DE LA PAG DE DETALLE DE PRODUCTO */
+
+.articulo-detalle-desktop {
+    width: 95%;
+    margin-top: 5px;
+}
+
+.art-detalle-desktop-columnas {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.art-detalle-desktop-columnas div {
+    width: 50%;
+}
+
+.img-detalle-prod {
+    width: 50%;
+}
+
+
+
 /* COMIENZAN LOS MEDIA QUIERIES */
 
 @media (min-width: 450px) {
@@ -340,6 +376,7 @@ footer {
     }
 
 }
+
 
 
 @media (min-width: 759px) {
