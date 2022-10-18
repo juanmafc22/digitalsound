@@ -1,5 +1,11 @@
-// -------| express()
+// -------| requires
 const express = require("express");
+const path = require("path");
+const mainRouter = require("./routers/main.router");
+const productRouter = require("./routers/product.router");
+
+
+// -------| express()
 const app = express();
 const serverPort = 3030;
 
@@ -9,12 +15,6 @@ app.listen(serverPort, () => {
     console.log("Servidor corriendo OK en el puerto", serverPort);
     console.log("Visitar Digital Sound en el siguiente link: http://localhost:" + serverPort + "/");
 });
-
-
-// -------| requires
-const path = require("path");
-const mainRouter = require("./routers/main.router");
-const productRouter = require("./routers/product.router");
 
 
 // -------| middlewares (app.use)
