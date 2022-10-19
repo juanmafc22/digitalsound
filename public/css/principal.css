@@ -263,14 +263,27 @@ header {
     color: #FFF;
 }
 
+.titulo-detalle-prod {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.texto-detalle-prod {
+    font-size: 17px;
+    font-family: 'Archivo Narrow', sans-serif;
+    padding-right: 19px;
+    padding-top: 25px;
+}
+
 .boton-comprar {
     font-family: 'Archivo Narrow', sans-serif;
-    background-color: #03A646;
+    background-color: var(--color-coralRed);
     color: #FFF;
     font-size: 22px;
     font-weight: bold;
-    padding: 1px 9px 1px 9px;
-    border: 1px solid #03A646;
+    padding: 1px 9px 3px 9px;
+    border: 1px solid var(--color-coralRed);
 }
 
 
@@ -302,11 +315,46 @@ footer {
     margin: 7px;
 }
 
-/* COMIENZAN LOS ESTILOS DEL FORMULARIO LOGIN */
+/* COMIENZAN LOS ESTILOS DE LA PAG DE DETALLE DE PRODUCTO */
 
+.articulo-detalle-desktop {
+    width: 95%;
+    margin-top: 5px;
+}
 
+.art-detalle-desktop-columnas {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
 
-/* COMIENZAN LOS ESTILOS DEL FORMULARIO REGISTRO */
+.art-detalle-desktop-columnas div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.img-detalle-prod {
+    width: 50%;
+}
+
+.prod-destacado__titulo-mobile {
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-left: 15px;
+    margin-bottom: 9px;
+}
+
+.prod-destacado__precio {
+    font-size: 23px;
+    font-weight: 400;
+    margin-top: 5px;
+    margin-left: 15px;
+    margin-bottom: 9px;
+}
 
 
 /* COMIENZAN LOS MEDIA QUIERIES */
@@ -347,6 +395,7 @@ footer {
     }
 
 }
+
 
 
 @media (min-width: 759px) {
@@ -390,7 +439,7 @@ footer {
     }
 
     .articulo-destacado {
-        width: 42%;
+        width: 21%;
     }
 
     .header-superior {
@@ -414,5 +463,12 @@ footer {
     .header-otrosIconos {
         font-size: 15px;
     }
-   
+    
+    .art-detalle-desktop-columnas {
+        flex-direction: row;
+    }
+    
+    .texto-detalle-prod {
+    padding-top: 0px;
+} 
 }
