@@ -3,6 +3,7 @@ const express = require("express");
 const path = require("path");
 const mainRouter = require("./routers/main.router");
 const productRouter = require("./routers/product.router");
+const userRouter = require("./routers/user.routers")
 
 
 // -------| express()
@@ -29,6 +30,7 @@ app.set("views", path.join(__dirname, "./views"));
 // -------| route system, requires and app.use
 app.use("/", mainRouter);
 app.use("/productos", productRouter);
+app.use("/user", userRouter);
 
 
 // Seteo inicial de error 404

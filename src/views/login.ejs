@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Digital Sound 🎶</title>
+    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo+Narrow:wght@400;700&family=Archivo:wght@200;400;700;900&display=swap" rel="stylesheet">
+    
+
+        <link rel="stylesheet" href="/css/principal.css">
+    
+        <script src="https://kit.fontawesome.com/be2f25d2d7.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+
+        <%- include("./partials/header") %>
+
+        <main>
+            <div class="login-block">
+                <h2>Iniciar sesión o <a href="/registro">crear una cuenta</a></h2>
+                <form action="#" method="GET" class="form-ingreso">
+                    <div class="control-formulario">
+                        <input type="email" name="email" placeholder="Email" >
+                    </div>
+                    <div class="control-formulario">
+                        <input type="password" name="password" placeholder="Contraseña">
+                    </div>
+                    <div class="control-formulario control-formulario--remember">
+                        <label>Recuérdame</label>
+                        <input type="checkbox" name="remember">
+                    </div>
+                    <div class="control-formulario">
+                        <button type="submit" class="button button--submit">Continuar</button>
+                    </div>
+                    <div>
+                        <p class="legend legend--tyc"><a href=#>¿Olvidaste tu contraseña?</a></p>
+                    </div>
+                </form>
+            </div>
+            <div class="login-block">
+                <h3>O ingresá con tus redes sociales</h3>
+                <hr>
+                <div class="social-networks">
+                    <button class="button button--facebook">Continuar con Facebook</button>
+                    <button class="button button--google">Continuar con Google</button>
+                    <button class="button button--apple">Continuar con Apple</button>
+                </div>
+            </div>
+        </main>
+      
+        <%- include("./partials/footer") %>
+
+    </body>
+</html>
