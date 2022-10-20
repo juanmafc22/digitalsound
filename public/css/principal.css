@@ -356,6 +356,122 @@ footer {
     margin-bottom: 9px;
 }
 
+/* COMIENZAN LOS ESTILOS DE FORMULARIO DE LOGIN Y REGISTRO*/
+
+.main-formularios {
+    display: flex;
+    margin: auto;
+    margin-top: 55px;
+    padding: 0px 10px;
+    width: 90%;
+    text-align: center;
+    max-width: 400px;
+    flex-direction: column;
+}
+
+.legend-box{
+    display: none;
+}
+
+
+.legend {
+    font-size: 10px
+}
+
+.login-block {
+    margin-bottom: 20px;
+}
+
+.login-block h2{
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.login-block h3 {
+    padding-bottom: 10px;
+}
+
+.login-block hr {
+    width: 80%;
+    margin: auto;
+}
+
+.form-ingreso {
+    display: block;
+    width: 100%;
+    margin: 10px 0px;
+}
+
+.social-networks {
+    padding-top: 10px;
+}
+
+div.control-formulario input,button{
+    margin: 2px;
+    width: 60%;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+.control-formulario--remember {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0px
+}
+
+div.control-formulario--remember input, label{
+    font-size: 12px;
+    color: #666;
+    width: 20%;
+    text-align: left;
+    margin: 0px -2px;
+}
+
+.button {
+    border: none;
+    border-radius: 15px;
+    width: 60%;
+    padding: 2px;
+    margin: 2px;
+    font-weight: bold;
+    color: var(--color-bgWhite)
+}
+
+
+.button--submit {
+    background-color: #666;
+    height: 25px;
+}
+
+.button--facebook {
+    background-color: var(--color-charcoal);
+}
+
+.button--google {
+    background-color: var(--color-coralRed);
+}
+
+.button--apple {
+    background-color: #000;
+}
+
+.control-formulario--name-surname{
+    display: flex;
+    width:60%;
+    margin: auto;
+    justify-content: space-between;
+}
+
+div.control-formulario--name-surname input{
+    margin: 2px 0px;
+    width: 49%;
+}
+
+.vertical-line{
+    display: none;
+}
+
+
 
 /* COMIENZAN LOS MEDIA QUIERIES */
 
@@ -395,7 +511,6 @@ footer {
     }
 
 }
-
 
 
 @media (min-width: 759px) {
