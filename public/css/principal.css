@@ -19,8 +19,11 @@ Para los textos "angostos": font-family: 'Archivo Narrow', sans-serif;
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     position: relative;
     width: 95%;
+    height: 100vh;
     margin: auto;
 }
 
@@ -120,6 +123,10 @@ header {
 
 
 /* COMIENZAN LOS ESTILOS DE LA SECCION MAIN */
+
+main{
+    flex: 1 0 auto
+}
 
 .main-listar-secciones {
     display: flex;
@@ -298,6 +305,8 @@ footer {
     width: 100%;
     box-shadow: 0px 15px 10px -15px rgb(46 46 46);
     border-bottom: 1px solid rgb(194, 194, 194);
+    /*sticky footer*/
+    flex-shrink: 0;
 }
 
 
@@ -525,13 +534,6 @@ div.control-formulario--name-surname input{
 .section-resumen-compra__boton form button{
     margin: auto;
     width: 100%;
-    height: 30px;
-    background-color: #FF9900;
-    border: solid 1px #000;
-    border-radius: 5px;
-    flex-grow: 1;
-    font-size: 18px;
-    font-weight: bold;
 }
 
 
