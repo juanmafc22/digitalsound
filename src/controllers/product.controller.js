@@ -5,7 +5,6 @@ const productsController = {
         res.render("guitarras-y-bajos")
     },
 
-
     // Responde para el producto/item que viene por ruta parametrizada con req.params ID
     item: (req, res) => {
         const id = req.params.id;
@@ -16,8 +15,6 @@ const productsController = {
     carrito: (req, res) => {
         res.render("carrito.ejs")
     }
-
-
 
 };
 
