@@ -17,8 +17,8 @@ const productsController = {
     },
 
     // Response para la creacion de un producto
-    creacion: (req, res) => {
-        res.render("products/creacion-producto.ejs")
+    abm: (req, res) => {
+        res.render("products/landing-abm.ejs")
     }
 
 };

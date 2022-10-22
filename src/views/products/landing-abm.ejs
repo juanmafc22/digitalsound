@@ -1,0 +1,103 @@
+<!-- PAGINA DE EJEMPLO DE UN PRODUCTO INDIVIDUAL -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Sound 🎶</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo+Narrow:wght@400;700&family=Archivo:wght@200;400;700;900&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="/css/principal.css">
+
+    <script src="https://kit.fontawesome.com/be2f25d2d7.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <%- include("../partials/header-modulo-admin") %>
+
+    <main>
+        <!-- Seccion del main para listar las diferentes categorias
+            1. Guitarras y bajos
+            2. Baterias
+            3. Amplificadores
+            4. Accesorios
+        -->
+
+        <div class="div-titulo-boton-comprar">
+            <h2 class="titulo-abm-prods">ABM productos</h2>
+        </div>
+
+        <section class="prods-destacados">
+
+            <article class="articulo-detalle-desktop">
+            
+                <form action="" method="">
+                    <div>
+                        <button type="submit">Dar de Alta un Producto</button>
+                    </div>
+                </form>
+
+                <p>Elegir un producto para Modificar o Dar de Baja</p>
+
+                <form action="" method="">
+                    <div>
+                        <select name="guitarras-y-bajos" id="guitarras-y-bajos">
+                            <option>Elegir una Guitarra o Bajo --- </option>
+                            <option value="01">ID 01 - Guitarra Fender xs</option>
+                            <option value="02">ID 02 - Bajo Especial RRH</option>
+                            <option value="03">ID 03 - Guitarra Ford Sierra</option>
+                            <option value="04">ID 04 - Guitarra clasica </option>
+                          </select>
+                    </div>
+                    <div>
+                        <select name="baterias" id="baterias">
+                            <option>Elegir una Bateria --- </option>
+                            <option value="01">ID 01 - Bateria 1</option>
+                            <option value="02">ID 02 - Bateria SFF 2</option>
+                            <option value="03">ID 03 - Bateria 3 LRRA</option>
+                            <option value="04">ID 04 - Bateria 4 RARH Top Hat </option>
+                        </select>
+                    </div>
+                    <div>
+                        <select name="amplificadores" id="amplificadores">
+                            <option>Elegir un Amplificador --- </option>
+                            <option value="01">ID 01 - Amplificador 1</option>
+                            <option value="02">ID 02 - Amplificafor AER 2</option>
+                            <option value="03">ID 03 - Amplificaodr 3</option>
+                            <option value="04">ID 04 - ARGF Ampli 4 </option>
+                        </select>
+                    </div>
+                    <div>
+                        <select name="accesorios" id="accesorios">
+                            <option>Elegir un Accesorio --- </option>
+                            <option value="01">ID 01 - ....</option>
+                            <option value="02">ID 02 - ....</option>
+                            <option value="03">ID 03 - ....</option>
+                            <option value="04">ID 04 - .... </option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="submit">Modificar un Producto</button>
+                        <button type="submit">Dar de BAJA un Producto</button>
+                    </div>
+                </form>
+
+               
+                
+            </article>
+
+          
+        </section>
+        
+    </main>
+
+    <%- include("../partials/footer") %>
+    
+</body>
+</html>
