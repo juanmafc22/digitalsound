@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Sound 🎶</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo+Narrow:wght@400;700&family=Archivo:wght@200;400;700;900&display=swap" rel="stylesheet">
+
+    <!-- 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@200;400;700;900&display=swap" rel="stylesheet"> 
+    -->
+
+    <link rel="stylesheet" href="/css/principal.css">
+
+    <script src="https://kit.fontawesome.com/be2f25d2d7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <%- include("./partials/header") %>
+
+    <!-- inicio del cuerpo del carrito de compras-->
+    <main>         
+        <!-- section para el resumen del carrito
+                1. en la version mobile está encolumnada con el resto de la info
+                2. en la versión desktop está en una columan a la derecha
+        -->
+        <h2 class="main-titulo-destacado h2-carrito">Carrito de Compras</h2>
+        <section class="cart-columns-head">
+            <div class="product-info">
+                <h4>Producto</h4>
+            </div>
+            <div class="price-quantity">
+                <div class="price-quantity-div"><h4>Precio</h4></div>
+                <div class="price-quantity-div"><h4>Cant.</h4></div>
+                <div class="price-quantity-div"><h4>Subtotal</h4></div>
+            </div>
+        </section>
+        <section class="section-resumen-compra">
+            <!-- div 1/3 del resumen del carrito, solo el título-->
+            <div>
+                <h4 class="main-titulo-destacado section-resumen-compra__titulo">Carrito de Compras</h4>
+            </div>
+            <!-- div 2/3 del resumen del carrito, precio y cant de items-->
+            <div class="section-precio-cant">
+                <div class="section-precio-cant__contenedor-precio">
+                    <p class="section-precio-cant__contenedor-precio--txt-precio">Subtotal </p>
+                    <p class="section-precio-cant__contenedor-precio--txt-precio">$10.300,00</p>
+                </div>
+                <div class="section-precio-cant__contenedor-iva">
+                    <p class="section-precio-cant__contenedor-precio--txt-iva">IVA </p>
+                    <p class="section-precio-cant__contenedor-precio--txt-iva">$400</p>
+                </div>
+                <div class="section-precio-cant__contenedor-grand-total">
+                    <p class="section-precio-cant__contenedor-precio--grand-total">Total </p>
+                    <p class="section-precio-cant__contenedor-precio--grand-total">$10.700,00</p>
+                </div>
+                <div class="section-precio-cant__contenedor-cant">
+                    <p class="section-precio-cant__contenedor-precio--txt-cant" >3 items cargados</p>
+                </div>
+            </div>              
+            <!-- div 3/3 del resumen del carrito, botón de compra-->
+            <div class="section-resumen-compra__boton">
+                <form>
+                    <button type="submit" class="">Comprar Ahora</button>
+                </form>
+            </div>
+        </section>
+        <!-- section principal del carrito donde se muestra la info de los productos-->
+        <section class="products">
+            <article class="cart-product">
+                <div class="product-info">
+                    <div class="product-image">
+                        <img src="img\fender-jazz-bass.jpg">
+                    </div>
+                    <div class="product-details">
+                        <h4>Fender Jazz Bass 60th Aniversary</h4>
+                        <p class="sku">SKU #XXX</p>
+                        <div class="product-description">
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit dolorum libero eligendi sequi quos consequatur neque? Laborum, veritatis! Deleniti facere obcaecati dolorem hic similique sequi, nobis repudiandae aperiam vel modi?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="price-quantity">
+                    <div class="price-quantity-div">
+                        $1.234
+                    </div>
+                    <div class="product-quantity-div">
+                        <i class="fa-solid fa-square-minus"></i>
+                        <input type="tel" name="shopping-cart-quantity" class="quantity-input">
+                        <i class="fa-solid fa-square-plus"></i>
+                    </div>
+                    <div class="price-x-quantity">
+                        $1.234 * Q
+                    </div>
+                </div>
+            </article>
+            <article class="cart-product">
+                <div class="product-info">
+                    <div class="product-image">
+                        <img src="img/tama-dynasync.jpg">
+                    </div>
+                    <div class="product-details">
+                        <h4>Tama HSSd1 Dyna-Sync</h4>
+                        <p class="sku">SKU #XXX</p>
+                        <div class="product-description">
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit dolorum libero eligendi sequi quos consequatur neque? Laborum, veritatis! Deleniti facere obcaecati dolorem hic similique sequi, nobis repudiandae aperiam vel modi?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="price-quantity">
+                    <div class="price-quantity-div">
+                        $1.234
+                    </div>
+                    <div class="product-quantity-div">
+                        <i class="fa-solid fa-square-minus"></i>
+                        <input type="tel" name="shopping-cart-quantity" class="quantity-input">
+                        <i class="fa-solid fa-square-plus"></i>
+                    </div>
+                    <div class="price-x-quantity">
+                        $1.234 * Q
+                    </div>
+                </div>
+            </article>
+        </section>
+
+    </main>
+
+    <%- include("./partials/footer") %>
+
+</body>
+</html>
