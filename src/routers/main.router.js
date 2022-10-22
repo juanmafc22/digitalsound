@@ -3,10 +3,13 @@ const router = express.Router();
 
 const mainController = require("../controllers/main.controller");
 
-router.get("/", mainController.index)
+// Ruta para index.ejs
 router.get("/index", mainController.index)
+
+// Rutas extras que igual apuntan a index.ejs, para los distraidos que ingresan
+// "home" o que no ingresan nada "/"
+router.get("/", mainController.index)
 router.get("/home", mainController.index)
-router.get("/cart", mainController.carrito)
 
 
 module.exports = router;
