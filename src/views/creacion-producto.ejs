@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Sound 🎶</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo+Narrow:wght@400;700&family=Archivo:wght@200;400;700;900&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="/css/principal.css">
+
+    <script src="https://kit.fontawesome.com/be2f25d2d7.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <%- include("./partials/header") %>
+    <main>
+        <h2 class="main-titulo-destacado">Crear producto</h2>
+        <form action="/#" method="POST">
+            <label for="nombre">Nombre de producto:</label>
+            <input type="text" name="nombre">
+            <label for="descripcion">Descripción de producto:</label>
+            <textarea name="descripcion">Ingresa descripción del producto</textarea>
+            <label for="precio">Precio:</label>
+            <input type="tel" name="precio">
+            <label for="categoria">Categoria:</label>
+            <select name="categoria">
+                <option value="guitarras-y-bajos">Guitarras y bajos</option>
+                <option value="baterias">Baterias</option>
+                <option value="amplificadores">Amplificadores</option>
+                <option value="teclados">Teclados</option>
+                <option value="accesorios">Accesorios</option>
+            </select>
+            <label for="marca">Marca:</label>
+            <select name="marca">
+                <option value="zildjian">Zildjian</option>
+                <option value="fender">Fender</option>
+            </select>
+            <label for="lanzamiento">Lanzamiento</label>
+            Si<input type="radio" name="lanzamiento" value="si">
+            No<input type="radio" name="lanzamiento" value="no">
+            <label for="imagen-de-producto">Imagenes del producto</label>
+            <input type="file" name="imagen-de-producto" accept=".jpg" multiple>
+            <button type="submit">Publicar</button>
+            
+
+        </form>
+
+    </main>
+    <%- include("./partials/footer") %>
+    
+</body>
+</html>
