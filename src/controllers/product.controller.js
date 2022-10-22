@@ -5,15 +5,20 @@ const productsController = {
         res.render("products/guitarras-y-bajos")
     },
 
-    // Responde para el producto/item que viene por ruta parametrizada con req.params ID
+    // Response para el producto/item que viene por ruta parametrizada con req.params ID
     item: (req, res) => {
         const id = req.params.id;
         res.render("products/guitarras-y-bajos-23")
     },
     
-    // Respose para el carrito de compras 
+    // Response para el carrito de compras 
     carrito: (req, res) => {
         res.render("products/carrito.ejs")
+    },
+
+    // Response para la creacion de un producto
+    creacion: (req, res) => {
+        res.render("products/creacion-producto.ejs")
     }
 
 };

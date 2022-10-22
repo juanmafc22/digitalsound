@@ -12,4 +12,7 @@ router.get("/guitarras-y-bajos/:id", productController.item);
 // Ruta para el carrito de compras
 router.get("/carrito", productController.carrito)
 
+// Ruta para el la pag de creacion de productos
+router.get("/creacion", productController.creacion)
+
 module.exports = router;
