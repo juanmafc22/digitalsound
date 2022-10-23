@@ -13,17 +13,17 @@ const productsController = {
     
     // Response para el carrito de compras 
     carrito: (req, res) => {
-        res.render("products/carrito.ejs")
+        res.render("products/carrito")
     },
 
     // Response para la creacion de un producto
     abm: (req, res) => {
-        res.render("products/landing-abm.ejs")
+        res.render("products/landing-abm")
     },
 
     // Reponse para creat un producto
     creacion: (req, res) => {
-        res.render("products/creacion-producto");
+        res.render("products/landing-abm2");
     }
 
 };

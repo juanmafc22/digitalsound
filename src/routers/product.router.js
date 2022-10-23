@@ -18,5 +18,8 @@ router.get("/landing-abm", productController.abm);
 // Ruta para el la pag de creacion de productos, viene por POST del landing
 router.post("/creacion-producto", productController.creacion);
 
+// Ruta para el la pag de creacion de productos, viene por POST del landing
+router.get("/creacion-producto", productController.creacion);
+
 
 module.exports = router;

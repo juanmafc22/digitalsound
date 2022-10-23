@@ -689,6 +689,7 @@ div.product-quantity i{
 	border: 1px solid var(--color-charcoal);
 	width: 250px;
     border-radius: 0px;
+    cursor: pointer;
 }
 
 .boton-abm-baja {
@@ -700,6 +701,7 @@ div.product-quantity i{
 	border: 1px solid #f30101;
 	width: 250px;
     border-radius: 0px;
+    cursor: pointer;
 }
 
 .texto-abm {
@@ -713,14 +715,64 @@ div.product-quantity i{
     font-size: 14px;
     width: 250px;
     padding: 5px;
-    margin-left: 2px;
 }
 
 .div-select {
     margin-bottom: 14px;
 }
 
+.div-select-alta {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 14px;
+}
 
+.texto-span {
+    font-size: 14px;
+    color: #222;
+    margin-left: 13px;
+}
+
+.abm-radiobutton {
+    margin-left: 5px;
+
+}
+
+.titulo-alta-prod {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #000;
+    padding: 3px 5px 3px 5px;
+    margin-bottom: 5px;
+}
+
+.label-alta-prod {
+    font-size: 15px;
+    margin-bottom: 5px;
+    color: #222;
+}
+
+.input-abm {
+    font-size: 14px;
+    width: 250px;
+    padding: 5px;
+}
+
+.input-abm-precio {
+    font-size: 14px;
+    width: 120px;
+    padding: 5px;
+}
+
+.textarea-abm {
+    font-size: 14px;
+    width: 350px;
+    height: 133px;
+    padding: 5px;
+}
 /* COMIENZAN LOS MEDIA QUIERIES */
 
 @media (min-width: 450px) {

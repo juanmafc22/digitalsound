@@ -1,0 +1,83 @@
+<!-- PAGINA DE EJEMPLO DE UN PRODUCTO INDIVIDUAL -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Sound 🎶</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo+Narrow:wght@400;700&family=Archivo:wght@200;400;700;900&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="/css/principal.css">
+
+    <script src="https://kit.fontawesome.com/be2f25d2d7.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <%- include("../partials/header-modulo-admin") %>
+
+    <main>
+        <!-- Seccion del main para listar las diferentes categorias
+            1. Guitarras y bajos
+            2. Baterias
+            3. Amplificadores
+            4. Accesorios
+        -->
+
+        <div class="div-titulo-boton-comprar">
+            <h2 class="titulo-alta-prod">ABM de productos: Alta de un producto nuevo.</h2>
+        </div>
+
+        <section class="prods-destacados">
+
+            <article class="articulo-detalle-desktop">
+            
+                <form action="" method="post">
+                    <div class="div-select-alta">
+                        <label class="label-alta-prod" for="nombre-prod">Nombre del producto </label>
+                        <input class="input-abm" type="text" name="nombre-prod" placeholder="Ingresar el nombre del producto" required>
+                    </div>
+                    <div class="div-select-alta">
+                        <label class="label-alta-prod" for="precio-prod">Precio del producto </label>
+                        <input class="input-abm-precio" type="text" name="precio-prod" placeholder="Ingresar precio" required>
+                    </div>
+                    <div class="div-select-alta">
+                        <label class="label-alta-prod" for="subtitulo-prod">Subtitulo del producto </label>
+                        <input class="input-abm" type="text" name="subtitulo-prod" placeholder="Ingresar el subtitulo del producto" required>
+                    </div>
+                    <div class="div-select-alta">
+                        <label class="label-alta-prod" for="foto-prod">Foto del producto </label>
+                        <input class="input-abm" type="file"  name="foto-prod" accept=".jpg, .jpeg, .png" required>
+                    </div>
+                    <div class="div-select">
+                        <label class="label-alta-prod" for="nuevo-prod">El producto es nuevo?</label>
+                        <span class="texto-span">Si</span><input class="abm-radiobutton" type="radio" name="nuevo" value="si"><span class="texto-span">No</span><input class="abm-radiobutton" type="radio" name="nuevo" value="no">
+                    </div>
+                    <div class="div-select-alta">
+                        <label class="label-alta-prod" for="info-prod">Información adicional</label>
+                        <textarea class="textarea-abm" placeholder="Ingresar aquí la informaión adicional del producto" required></textarea>
+                    </div>
+                    <div class="div-select">
+                        <button class="boton-abm" type="submit">Dar de ALTA</button>
+                        <button class="boton-abm" type="reset">Borrar el formulario</button>
+                    </div>
+                </form>
+
+               
+                
+            </article>
+
+          
+        </section>
+        
+    </main>
+
+    <%- include("../partials/footer") %>
+    
+</body>
+</html>
