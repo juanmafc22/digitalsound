@@ -12,10 +12,11 @@ router.get("/guitarras-y-bajos/:id", productController.item);
 // Ruta para el carrito de compras
 router.get("/carrito", productController.carrito);
 
-// Ruta para el la pag de creacion de productos
-// router.get("/creacion", productController.creacion);
-
 // Ruta para el landing page del ABM de productos
 router.get("/landing-abm", productController.abm);
+
+// Ruta para el la pag de creacion de productos, viene por POST del landing
+router.post("/creacion-producto", productController.creacion);
+
 
 module.exports = router;
