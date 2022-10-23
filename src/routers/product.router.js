@@ -24,5 +24,8 @@ router.get("/creacion-producto", productController.creacion);
 // Ruta para el la pag de baja de productos, viene por POST del landing
 router.post("/baja-producto", productController.baja);
 
+// Ruta para el la pag de edicion de productos, viene por POST del landing
+router.post("/edicion-producto", productController.editar);
+
 
 module.exports = router;

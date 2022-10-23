@@ -29,7 +29,13 @@ const productsController = {
     // Reponse para baja de un producto
     baja: (req, res) => {
         res.render("products/baja-producto");
-    }
+    },
+
+    // Reponse para editar de un producto
+    editar: (req, res) => {
+        res.render("products/edicion-producto");
+    },
+
 
 };
 

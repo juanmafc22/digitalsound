@@ -30,23 +30,24 @@
         -->
 
         <div class="div-titulo-boton-comprar">
-            <h2 class="titulo-alta-prod">ABM de productos: confirmación de BAJA</h2>
+            <h2 class="titulo-alta-prod">ABM de productos: BAJA de producto</h2>
         </div>
 
         <section class="prods-destacados">
 
-            <h2 class="h2-confirmacion-baja">Está seguro que quiere dar de baja el siguiente producto?</h2>
-
             <article class="articulo-detalle-desktop">
 
-                <form>
+                <form action="landing-abm" method="get">
                     <div class="div-select">
-                        <button class="boton-abm" type="submit">Regresar al ABM</button>
+                        <h2 class="h2-confirmacion-baja">Confirma la baja de la Guitarra Fender XST 2022?</h2>
+                    </div>
+                    <div class="div-select">
+                        <button class="boton-abm" type="submit">Regresar</button>
                     </div>
                 </form>
-                <form>
+                <form action="landing-abm" method="post">
                     <div class="div-select">
-                        <button class="boton-abm-baja" type="submit">Confirmar la BAJA del Producto</button>
+                        <button class="boton-abm-baja" type="submit">Confirmar la BAJA</button>
                     </div>
                 </form>
             </article>

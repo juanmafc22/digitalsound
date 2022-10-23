@@ -704,6 +704,19 @@ div.product-quantity i{
     cursor: pointer;
 }
 
+.boton-abm-modificar {
+	background-color: var(--color-charcoal);
+	color: #FFF;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 5px;
+	border: 1px solid var(--color-charcoal);
+	width: 250px;
+    border-radius: 0px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
 .texto-abm {
     font-size: 17px;
     margin: 17px 0 12px 3px;
@@ -775,8 +788,12 @@ div.product-quantity i{
 }
 
 .h2-confirmacion-baja {
-    font-size: 14px;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 22px;
     font-weight: 700;
+    color: #f30101;
+    padding: 3px 5px 3px 0;
+    margin-bottom: 33px;
 }
 /* COMIENZAN LOS MEDIA QUIERIES */
 
