@@ -30,24 +30,24 @@
         -->
 
         <div class="div-titulo-boton-comprar">
-            <h2 class="titulo-abm-prods">ABM productos</h2>
+            <h2 class="titulo-abm-prods">ABM de productos: Alta, Baja o Modificación.</h2>
         </div>
 
         <section class="prods-destacados">
 
             <article class="articulo-detalle-desktop">
             
-                <form action="" method="">
+                <form action="products/creacion-producto" method="post">
                     <div>
-                        <button type="submit">Dar de Alta un Producto</button>
+                        <button class="boton-abm" type="submit">Dar de ALTA un producto nuevo</button>
                     </div>
                 </form>
 
-                <p>Elegir un producto para Modificar o Dar de Baja</p>
+                <p class="texto-abm">Elegir un producto para Modificar o Dar de Baja</p>
 
-                <form action="" method="">
-                    <div>
-                        <select name="guitarras-y-bajos" id="guitarras-y-bajos">
+                <form action="" method="post">
+                    <div class="div-select">
+                        <select class="select-abm" name="guitarras-y-bajos" id="guitarras-y-bajos">
                             <option>Elegir una Guitarra o Bajo --- </option>
                             <option value="01">ID 01 - Guitarra Fender xs</option>
                             <option value="02">ID 02 - Bajo Especial RRH</option>
@@ -55,8 +55,8 @@
                             <option value="04">ID 04 - Guitarra clasica </option>
                           </select>
                     </div>
-                    <div>
-                        <select name="baterias" id="baterias">
+                    <div class="div-select">
+                        <select class="select-abm" name="baterias" id="baterias">
                             <option>Elegir una Bateria --- </option>
                             <option value="01">ID 01 - Bateria 1</option>
                             <option value="02">ID 02 - Bateria SFF 2</option>
@@ -64,8 +64,8 @@
                             <option value="04">ID 04 - Bateria 4 RARH Top Hat </option>
                         </select>
                     </div>
-                    <div>
-                        <select name="amplificadores" id="amplificadores">
+                    <div class="div-select">
+                        <select class="select-abm" name="amplificadores" id="amplificadores">
                             <option>Elegir un Amplificador --- </option>
                             <option value="01">ID 01 - Amplificador 1</option>
                             <option value="02">ID 02 - Amplificafor AER 2</option>
@@ -73,8 +73,8 @@
                             <option value="04">ID 04 - ARGF Ampli 4 </option>
                         </select>
                     </div>
-                    <div>
-                        <select name="accesorios" id="accesorios">
+                    <div class="div-select">
+                        <select class="select-abm" name="accesorios" id="accesorios">
                             <option>Elegir un Accesorio --- </option>
                             <option value="01">ID 01 - ....</option>
                             <option value="02">ID 02 - ....</option>
@@ -82,9 +82,9 @@
                             <option value="04">ID 04 - .... </option>
                         </select>
                     </div>
-                    <div>
-                        <button type="submit">Modificar un Producto</button>
-                        <button type="submit">Dar de BAJA un Producto</button>
+                    <div class="div-select">
+                        <button class="boton-abm" type="submit">MODIFICAR el Producto</button>
+                        <button class="boton-abm-baja" type="submit">Dar de BAJA el Producto</button>
                     </div>
                 </form>
 

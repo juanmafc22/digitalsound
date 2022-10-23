@@ -646,6 +646,7 @@ div.product-quantity i{
     font-weight: 700;
     color: #000;
     padding: 3px 5px 3px 5px;
+    margin-bottom: 10px;
 }
 
 .header-otrosIconos-admin {
@@ -678,6 +679,47 @@ div.product-quantity i{
 .header-navDesktop-bottomNav {
     display: none;
 }
+
+.boton-abm {
+	background-color: var(--color-charcoal);
+	color: #FFF;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 5px;
+	border: 1px solid var(--color-charcoal);
+	width: 250px;
+    border-radius: 0px;
+}
+
+.boton-abm-baja {
+	background-color: #f30101;
+	color: #FFF;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 5px;
+	border: 1px solid #f30101;
+	width: 250px;
+    border-radius: 0px;
+}
+
+.texto-abm {
+    font-size: 17px;
+    margin: 17px 0 12px 3px;
+    border-top: 1px solid #ccc;
+    padding-top: 18px;
+}
+
+.select-abm {
+    font-size: 14px;
+    width: 250px;
+    padding: 5px;
+    margin-left: 2px;
+}
+
+.div-select {
+    margin-bottom: 14px;
+}
+
 
 /* COMIENZAN LOS MEDIA QUIERIES */
 
