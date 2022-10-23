@@ -773,6 +773,11 @@ div.product-quantity i{
     height: 133px;
     padding: 5px;
 }
+
+.h2-confirmacion-baja {
+    font-size: 14px;
+    font-weight: 700;
+}
 /* COMIENZAN LOS MEDIA QUIERIES */
 
 @media (min-width: 450px) {

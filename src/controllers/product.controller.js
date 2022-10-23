@@ -16,14 +16,19 @@ const productsController = {
         res.render("products/carrito")
     },
 
-    // Response para la creacion de un producto
+    // Response para la pag de ABM de productos 
     abm: (req, res) => {
         res.render("products/landing-abm")
     },
 
-    // Reponse para creat un producto
+    // Reponse para la creacion un producto
     creacion: (req, res) => {
-        res.render("products/landing-abm2");
+        res.render("products/alta-producto");
+    },
+
+    // Reponse para baja de un producto
+    baja: (req, res) => {
+        res.render("products/baja-producto");
     }
 
 };
