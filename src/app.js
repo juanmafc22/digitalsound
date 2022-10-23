@@ -30,7 +30,7 @@ app.set("views", path.join(__dirname, "./views"));
 // -------| route system, requires and app.use
 app.use("/", mainRouter);
 app.use("/productos", productRouter);
-app.use("/user", userRouter);
+app.use("/users", userRouter);
 
 
 // Seteo inicial de error 404
