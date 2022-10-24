@@ -20,6 +20,8 @@ app.listen(serverPort, () => {
 
 // -------| middlewares (app.use)
 app.use(express.static(path.join(__dirname, "../public")));  // ubicación de la carpeta "public/static" con las img/css/js, etc
+app.use(express.urlencoded({ extended: false})); // preparar la app para que trabaje con metodo POST
+app.use(express.json());
 
 
 // -------| template engines: ejs y path a ejs
