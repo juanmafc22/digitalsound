@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1666985756083,
+        "titulo": "Guitarra eléctrica Les Paul Standard",
+        "categoria": 1,
+        "precio": 74800,
+        "subtitulo": "",
+        "imagen": "img-prod-guiYbaj-1666985430204.png",
+        "nuevo": true,
+        "descripcion": ""
+    },
+    {
+        "id": 1666986321968,
+        "titulo": "Guit. Elec Jazzmaster Vintage Modified RWN, Olympic White",
+        "categoria": 1,
+        "precio": 300000,
+        "subtitulo": "",
+        "imagen": "img-prod-guiYbaj-1666986402096.png",
+        "nuevo": false,
+        "descripcion": ""
+    },
+    {
+        "id": 1666986690235,
+        "titulo": "Bajo YAMAHA TRBX174-OVS",
+        "categoria": 1,
+        "precio": 119000,
+        "subtitulo": "",
+        "imagen": "img-prod-guiYbaj-1666986737515.png",
+        "nuevo": true,
+        "descripcion": ""
+    },
+    {
+        "id": 1666987149191,
+        "titulo": "Bateria YAMAHA Serie Ryden",
+        "categoria": 2,
+        "precio": 230000,
+        "subtitulo": "",
+        "imagen": "img-prod-bat-1666987068778.png",
+        "nuevo": true,
+        "descripcion": ""
+    },
+    {
+        "id": 1666987405200,
+        "titulo": "Pedal de Bombo Demonator",
+        "categoria": 2,
+        "precio": 37380,
+        "subtitulo": "",
+        "imagen": "img-prod-bat-1666987337325.png",
+        "nuevo": true,
+        "descripcion": ""
+    },
+    {
+        "id": 1666994358980,
+        "titulo": "Bateria 5 Cuerpos 22 12 13 16 Redoblante 14X5 1/2 Soportes",
+        "categoria": 2,
+        "precio": 119000,
+        "subtitulo": "",
+        "imagen": "img-prod-bat-1666994272534.png",
+        "nuevo": true,
+        "descripcion": ""
+    },
+    {
+        "id": 1666994539259,
+        "titulo": "Samson SX3020",
+        "categoria": 3,
+        "precio": 320800,
+        "subtitulo": "",
+        "imagen": "img-prod-amp-1666994509765.png",
+        "nuevo": true,
+        "descripcion": ""
+    },
+    {
+        "id": 1666994734261,
+        "titulo": "Phonic Powr559RW",
+        "categoria": 3,
+        "precio": 76088,
+        "subtitulo": "",
+        "imagen": "img-prod-amp-1666994674700.png",
+        "nuevo": false,
+        "descripcion": ""
+    },
+    {
+        "id": 1666994906887,
+        "titulo": "",
+        "categoria": 3,
+        "precio": 16000,
+        "subtitulo": "",
+        "imagen": "img-prod-amp-1666994880688.png",
+        "nuevo": false,
+        "descripcion": ""
+    },
+    {
+        "id": 1666994946277,
+        "titulo": "AKG K240ST",
+        "categoria": 4,
+        "precio": 55999,
+        "subtitulo": "",
+        "imagen": "img-prod-acc-1666995698819.png",
+        "nuevo": true,
+        "descripcion": ""
+    },
+    {
+        "id": 1666995442793,
+        "titulo": "Cable HDMI Mallado 15 metros",
+        "categoria": 4,
+        "precio": 1500,
+        "subtitulo": "",
+        "imagen": "img-prod-acc-1666995556465.png",
+        "nuevo": ,
+        "descripcion": ""
+    },
+    {
+        "id": 1666995322942,
+        "titulo": "Airiculares Gamer Melon",
+        "categoria": 4,
+        "precio": 4500,
+        "subtitulo": "",
+        "imagen": "img-prod-acc-1666995295439.png",
+        "nuevo": true,
+        "descripcion": ""
+    }
+]
