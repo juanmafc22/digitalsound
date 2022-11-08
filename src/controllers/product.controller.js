@@ -1,8 +1,21 @@
+const fs = require("fs");
+const path = require("path");
+
+const prodsFilePath = path.join(__dirname, "../data/productos-data-base.json");
+const products = JSON.parse(fs.readFileSync(prodsFilePath, 'utf-8'));
+
 const productsController = {
 
     // Response de la sección Guitarras y Bajos
-    guitarrasYbajos: (req, res) => {
-        res.render("products/guitarras-y-bajos")
+    categoria: (req, res) => {
+
+        let id = req.params.id
+
+        let filtrados = products.filter ( product => {
+            return product.categoria == id;
+        })
+
+        res.render("products/categoria", {filtrados});
     },
 
     // Response para el producto/item que viene por ruta parametrizada con req.params ID

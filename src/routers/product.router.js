@@ -4,7 +4,10 @@ const router = express.Router();
 const productController = require("../controllers/product.controller");
 
 // Ruta de la sección Guitarras y Bajos
-router.get("/guitarras-y-bajos", productController.guitarrasYbajos);
+// router.get("/guitarras-y-bajos", productController.guitarrasYbajos);
+
+// Ruta GET para mostrar las diferentes categorias
+router.get("/categoria/:id", productController.categoria);
 
 // Ruta para el producto que viene por ruta parametrizada con req.params ID
 router.get("/guitarras-y-bajos/:id", productController.item);
