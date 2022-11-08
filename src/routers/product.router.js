@@ -10,7 +10,7 @@ const productController = require("../controllers/product.controller");
 router.get("/categoria/:id", productController.categoria);
 
 // Ruta para el producto que viene por ruta parametrizada con req.params ID
-router.get("/guitarras-y-bajos/:id", productController.item);
+router.get("/:id", productController.item);
 
 // Ruta para el carrito de compras
 router.get("/carrito", productController.carrito);

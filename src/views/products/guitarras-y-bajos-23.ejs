@@ -65,7 +65,7 @@
         </section>
 
         <div class="div-titulo-boton-comprar">
-            <h2 class="titulo-detalle-prod">Bajo eléctrico Jazz Combo</h2>
+            <h2 class="titulo-detalle-prod"><%= producto.titulo %></h2>
             <a href="/productos/carrito"><p class="boton-comprar">Comprar</p></a>
         </div>
 
@@ -74,21 +74,21 @@
             <article class="articulo-detalle-desktop">
 
                 <div>
-                    <p class="prod-destacado__precio"> $95.000</p>
+                    <p class="prod-destacado__precio"> $<%= producto.precio %></p>
                 </div>
 
 
                 <div class="div-interno-art-destacado">
-                    <p class="prod-destacado__titulo-mobile"> Excelente combo para quienes empiezan con el bajo</p>
+                    <p class="prod-destacado__titulo-mobile"> <%= producto.subtitulo %></p>
                 </div>
 
                 <div class="art-detalle-desktop-columnas">
                     <div>
-                        <img class="img-detalle-prod" src="/img/destacados-equipo-guitarra.png">
+                        <img class="img-detalle-prod" src="/img/<%= producto.imagen %>">
                     </div>
                     <div>
                         <p class="texto-detalle-prod">
-                            Excepturi tenetur est velit qui placeat voluptates amet provident tempore, sed itaque rerum corporis, aspernatur inventore voluptate, obcaecati numquam libero delectus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat voluptatem nostrum quibusdam aliquam nihil at consequatur, minus unde sint modi repudiandae officiis veritatis, corporis fugit, placeat ea exercitationem deserunt error. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non amet debitis nesciunt necessitatibus at distinctio quisquam voluptatum veniam officia quae!
+                            <%= producto.descripcion %>
                         </p>
                     </div>
 

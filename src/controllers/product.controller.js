@@ -20,8 +20,14 @@ const productsController = {
 
     // Response para el producto/item que viene por ruta parametrizada con req.params ID
     item: (req, res) => {
-        const id = req.params.id;
-        res.render("products/guitarras-y-bajos-23")
+
+        let id = parseInt(req.params.id);
+
+        let producto = products.filter( product => {
+            return product.id == id;
+        })[0]
+
+        res.render("products/guitarras-y-bajos-23", {producto})
     },
     
     // Response para el carrito de compras 
