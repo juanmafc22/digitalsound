@@ -3,7 +3,7 @@ const express = require("express");
 const path = require("path");
 const mainRouter = require("./routers/main.router");
 const productRouter = require("./routers/product.router");
-const userRouter = require("./routers/user.routers")
+const userRouter = require("./routers/user.routers");
 const methodOverride = require("method-override");
 
 
