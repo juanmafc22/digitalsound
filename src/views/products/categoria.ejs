@@ -63,12 +63,17 @@
         </section>
 
         <h2 class="main-titulo-destacado">
-            <% let categoria = ""; %> 
-            <% filtrados.forEach (filtrado => { %> 
-                <% if (filtrado.categoria == 1) { %>
-            <% } %>
-            <% }) %> 
-
+            <% if (filtrados[0].categoria == 1) { %>
+                Guitarras y Bajos
+            <% } else if (filtrados[0].categoria == 2) { %>
+                Baterias
+            <% } else if (filtrados[0].categoria == 3) { %>
+                Amplificadores
+            <% } else if (filtrados[0].categoria == 4) { %>
+                Accesorios
+            <% } else { %> 
+                Productos
+            <% } %> 
         </h2>
 
 
