@@ -10,7 +10,7 @@ const productController = require("../controllers/product.controller");
 router.get("/categoria/:id", productController.categoria);
 
 // Ruta para el producto que viene por ruta parametrizada con req.params ID
-router.get("/:id", productController.item);
+router.get("/detalle/:id", productController.item);
 
 // Ruta para el carrito de compras
 router.get("/carrito", productController.carrito);
@@ -22,8 +22,7 @@ router.get("/landing-abm", productController.abm);
 router.get("/creacion-producto", productController.formulario);
 
 // Ruta para el la pag de creacion de productos, viene por POST del landing
-// router.post("/creacion-producto", productController.creacion);
-
+router.post("/creacion-producto", productController.creacion);
 
 // Ruta para el la pag de baja de productos, viene por POST del landing
 router.post("/baja-producto", productController.baja);

@@ -62,6 +62,11 @@ const productsController = {
         res.render("products/alta-producto");
     },
 
+    // POST para crear un producto nuevo
+    creacion: (req, res) => {
+        console.log(req.body)
+    },
+
     // Reponse para baja de un producto
     baja: (req, res) => {
         res.render("products/baja-producto");
