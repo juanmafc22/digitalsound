@@ -31,11 +31,28 @@ const productsController = {
 
     // Response para la pag de ABM de productos 
     abm: (req, res) => {
-        res.render("products/landing-abm")
+
+        let guitarras = products.filter (product => {
+            return product.categoria == 1;
+        });
+
+        let baterias = products.filter (product => {
+            return product.categoria == 2;
+        });
+
+        let amplificadores = products.filter (product => {
+            return product.categoria == 3;
+        });
+
+        let accesorios = products.filter (product => {
+            return product.categoria == 4;
+        });
+
+        res.render("products/landing-abm", {guitarras, baterias, amplificadores, accesorios});
     },
 
-    // Reponse para la creacion un producto
-    creacion: (req, res) => {
+    // Peticon GET para acceder al formulario de creacion de productos
+    formulario: (req, res) => {
         res.render("products/alta-producto");
     },
 
