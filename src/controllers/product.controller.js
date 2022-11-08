@@ -64,7 +64,19 @@ const productsController = {
 
     // POST para crear un producto nuevo
     creacion: (req, res) => {
-        console.log(req.body)
+        let newProduct = {
+            "id": Date.now(),
+            "titulo": req.body.nombre-prod,
+            "categoria": 4,
+            "precio": req.body.precio-prod,
+            "subtitulo": req.body.subtitulo-prod,
+            "imagen": req.body.foto-prod,
+            "nuevo": req.body.nuevo,
+            "destacado": true,
+            "descripcion": "Donec eget blandit nunc, eu tempus quam. Suspendisse et pretium urna, in aliquam mauris. Duis cursus porttitor magna, id hendrerit mauris porta pretium. Sed sit amet facilisis nunc. "
+        }
+
+        console.log(req.body);
     },
 
     // Reponse para baja de un producto

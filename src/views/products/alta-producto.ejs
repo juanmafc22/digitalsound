@@ -37,7 +37,7 @@
 
             <article class="articulo-detalle-desktop">
             
-                <form action="" method="post">
+                <form action="/" method="POST">
                     <div class="div-select-alta">
                         <label class="label-alta-prod" for="nombre-prod">Nombre del producto </label>
                         <input class="input-abm" type="text" name="nombre-prod" placeholder="Ingresar el nombre del producto" required>
@@ -51,12 +51,26 @@
                         <input class="input-abm" type="text" name="subtitulo-prod" placeholder="Ingresar el subtitulo del producto" required>
                     </div>
                     <div class="div-select-alta">
+                        <label class="label-alta-prod" for="categoria-prod">Categoria </label>
+                        <select class="input-abm" name="categoria-prod" required>
+                            <option value="guitarras-y-bajos">Guitarras y bajos</option>
+                            <option value="baterias">Baterias</option>
+                            <option value="amplificadores">Amplificadores</option>
+                            <option value="teclados">Teclados</option>
+                            <option value="accesorios">Accesorios</option>
+                        </select>
+                    </div>
+                    <div class="div-select-alta">
                         <label class="label-alta-prod" for="foto-prod">Foto del producto </label>
                         <input class="input-abm" type="file"  name="foto-prod" accept=".jpg, .jpeg, .png" required>
                     </div>
                     <div class="div-select">
                         <label class="label-alta-prod" for="nuevo-prod">El producto es nuevo?</label>
-                        <span class="texto-span">Si</span><input class="abm-radiobutton" type="radio" name="nuevo" value="si"><span class="texto-span">No</span><input class="abm-radiobutton" type="radio" name="nuevo" value="no">
+                        <span class="texto-span">Si</span><input class="abm-radiobutton" type="radio" name="nuevo" value="1"><span class="texto-span">No</span><input class="abm-radiobutton" type="radio" name="nuevo" value="0">
+                    </div>
+                    <div class="div-select">
+                        <label class="label-alta-prod" for="destacado-prod">El producto es un lanzamiento destacado?</label>
+                        <span class="texto-span">Si</span><input class="abm-radiobutton" type="radio" name="lanzamiento" value="1"><span class="texto-span">No</span><input class="abm-radiobutton" type="radio" name="viejo" value="0">
                     </div>
                     <div class="div-select-alta">
                         <label class="label-alta-prod" for="info-prod">Información adicional</label>
