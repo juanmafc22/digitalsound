@@ -19,9 +19,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-// Ruta de la sección Guitarras y Bajos
-// router.get("/guitarras-y-bajos", productController.guitarrasYbajos);
-
 // Ruta GET para mostrar las diferentes categorias
 router.get("/categoria/:id", productController.categoria);
 
@@ -40,8 +37,11 @@ router.get("/creacion-producto", productController.formulario);
 // Ruta para el la pag de creacion de productos, viene por POST del landing
 router.post("/creacion-producto", upload.single('fotoProd'), productController.creacion);
 
+// Ruta GET para acceder a la confirmacion de baja de productos
+router.get("/baja-producto/:id", productController.confirmarBaja);
+
 // Ruta para el la pag de baja de productos, viene por POST del landing
-router.post("/baja-producto", productController.baja);
+router.post("/baja-producto/:id", productController.eliminar);
 
 // Ruta para el la pag de edicion de productos, viene por POST del landing
 router.post("/edicion-producto", productController.editar);

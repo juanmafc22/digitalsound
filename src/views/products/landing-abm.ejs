@@ -46,25 +46,25 @@
                 <p class="texto-abm">Elegir un producto para Modificar o Dar de Baja</p>
                 <p>GUITARRAS Y BAJOS<br>
                     <% guitarras.forEach (guitarra => { %> 
-                    <a href="/productos/editar/<%= guitarra.id %>">Editar</a> | <a href="/productos/eliminar/<%= guitarra.id %>">Eliminar</a> | ID <%= guitarra.id %> | <%= guitarra.titulo %> <br>
+                    <a href="/productos/editar/<%= guitarra.id %>">Editar</a> | <a href="/productos/baja-producto/<%= guitarra.id %>">Eliminar</a> | ID <%= guitarra.id %> | <%= guitarra.titulo %> <br>
                     <% }) %> 
                 </p>
                 <br>
                 <p>BATERIAS<br>
                     <% baterias.forEach (bateria => { %> 
-                    <a href="/productos/editar/<%= bateria.id %>">Editar</a> | <a href="/productos/eliminar/<%= bateria.id %>">Eliminar</a> | ID <%= bateria.id %> | <%= bateria.titulo %> <br>
+                    <a href="/productos/editar/<%= bateria.id %>">Editar</a> | <a href="/productos/baja-producto/<%= bateria.id %>">Eliminar</a> | ID <%= bateria.id %> | <%= bateria.titulo %> <br>
                     <% }) %> 
                 </p>
                 <br>
                 <p>AMPLIFICADORES<br>
                     <% amplificadores.forEach (amplificador => { %> 
-                    <a href="/productos/editar/<%= amplificador.id %>">Editar</a> | <a href="/productos/eliminar/<%= amplificador.id %>">Eliminar</a> | ID <%= amplificador.id %> | <%= amplificador.titulo %> <br>
+                    <a href="/productos/editar/<%= amplificador.id %>">Editar</a> | <a href="/productos/baja-producto/<%= amplificador.id %>">Eliminar</a> | ID <%= amplificador.id %> | <%= amplificador.titulo %> <br>
                     <% }) %> 
                 </p>
                 <br>
                 <p>ACCESORIOS<br>
                     <% accesorios.forEach (accesorio => { %> 
-                    <a href="/productos/editar/<%= accesorio.id %>">Editar</a> | <a href="/productos/eliminar/<%= accesorio.id %>">Eliminar</a> | ID <%= accesorio.id %> | <%= accesorio.titulo %> <br>
+                    <a href="/productos/editar/<%= accesorio.id %>">Editar</a> | <a href="/productos/baja-producto/<%= accesorio.id %>">Eliminar</a> | ID <%= accesorio.id %> | <%= accesorio.titulo %> <br>
                     <% }) %> 
 
                 <!-- 

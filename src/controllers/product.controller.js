@@ -17,8 +17,6 @@ const productsController = {
             return categorie.id == id;
         })[0]
 
-        console.log(categoria)
-
         let filtrados = products.filter ( product => {
             return product.categoria == id;
         })
@@ -93,8 +91,24 @@ const productsController = {
     },
 
     // Reponse para baja de un producto
-    baja: (req, res) => {
-        res.render("products/baja-producto");
+    confirmarBaja: (req, res) => {
+        let id = req.params.id
+        let producto = products.filter( product => {
+            return product.id == id;
+        })[0]
+
+        res.render("products/baja-producto", {producto});
+    },
+
+    eliminar: (req,res) => {
+        let idToDelete = parseInt(req.params.id)
+        let productsMod = products.filter( product => {
+            return product.id != idToDelete;
+        })
+
+        fs.writeFileSync(prodsFilePath, JSON.stringify(productsMod))
+
+        res.redirect('/productos/landing-abm')
     },
 
     // Reponse para editar de un producto
