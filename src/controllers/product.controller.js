@@ -76,7 +76,8 @@ const productsController = {
             "categoria": parseInt(req.body.categoriaProd),
             "precio": parseInt(req.body.precioProd),
             "subtitulo": req.body.subtituloProd,
-            "imagen": req.body.fotoProd,
+            "imagen": req.file.filename,
+            // "imagen": req.body.fotoProd,
             "nuevo": req.body.nuevo == '1' ? true:false,
             "destacado": req.body.lanzamiento == '1' ? true:false,
             "descripcion": req.body.descripcionProd
@@ -84,7 +85,7 @@ const productsController = {
 
         products.push(newProduct)
 
-        fs.writeFileSync(prodsFilePath, JSON.stringify(products))
+        fs.writeFileSync(prodsFilePath, JSON.stringify(products, null, " "))
 
         let redirectPath = 'categoria/'+newProduct.categoria.toString()
         res.redirect(redirectPath)
