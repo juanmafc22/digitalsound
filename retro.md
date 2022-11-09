@@ -1,6 +1,6 @@
 ### Retrospectiva al 09-11-2022
 
-Este sprint dejó en evidencia las fortalezas y los puntos a mejorar de cada uno de los integrantes del equipo. Logramos cumplir con los objetivos planteados gracias a la solidaridad de los mas experimentados, que siempre estuvieron a disposición para ayudar, explicar o reseolver lo fuese necesario. Creo que el punto a destacar es la  comunicación entre los miembros, ya que gracias a esto nos pudimos anticipar a diversas problematicas, permitiendonos así, resolverlas en tiempo y forma.   
+Este sprint dejó en evidencia las fortalezas y los puntos a mejorar de cada uno de los integrantes del equipo. Logramos cumplir con los objetivos planteados gracias a la solidaridad de los mas experimentados, que siempre estuvieron a disposición para ayudar, explicar o resolver lo fuese necesario. Creo que el punto a destacar es la  comunicación entre los miembros, ya que gracias a esto nos pudimos anticipar a diversas problematicas, permitiendonos así, resolverlas en tiempo y forma.   
 
 ### Retrospectiva al 24-10-2022
 
