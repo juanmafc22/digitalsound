@@ -107,14 +107,19 @@ const productsController = {
             return product.id != idToDelete;
         })
 
-        fs.writeFileSync(prodsFilePath, JSON.stringify(productsMod))
+        fs.writeFileSync(prodsFilePath, JSON.stringify(productsMod, null, " "))
 
         res.redirect('/productos/landing-abm')
     },
 
     // Reponse para editar de un producto
     editar: (req, res) => {
-        res.render("products/edicion-producto");
+        let id = req.params.id
+        let editable = products.find( product => {
+            return product.id == id
+        })
+
+        res.render("products/edicion-producto", {editable});
     },
 
 

@@ -2,81 +2,173 @@
 
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Digital Sound 🎶</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo+Narrow:wght@400;700&family=Archivo:wght@200;400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo+Narrow:wght@400;700&family=Archivo:wght@200;400;700;900&display=swap"
+      rel="stylesheet"
+    />
 
+    <link rel="stylesheet" href="/css/principal.css" />
 
-    <link rel="stylesheet" href="/css/principal.css">
-
-    <script src="https://kit.fontawesome.com/be2f25d2d7.js" crossorigin="anonymous"></script>
-
-</head>
-<body>
-
+    <script
+      src="https://kit.fontawesome.com/be2f25d2d7.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <%- include("../partials/header-modulo-admin") %>
 
     <main>
-        <!-- Seccion del main para listar las diferentes categorias
+      <!-- Seccion del main para listar las diferentes categorias
             1. Guitarras y bajos
             2. Baterias
             3. Amplificadores
             4. Accesorios
         -->
 
-        <div class="div-titulo-boton-comprar">
-            <h2 class="titulo-alta-prod">ABM de productos: Ediciónn de un producto existente</h2>
-        </div>
+      <div class="div-titulo-boton-comprar">
+        <h2 class="titulo-alta-prod">
+          ABM de productos: Edición de producto existente.
+        </h2>
+      </div>
 
-        <section class="prods-destacados">
-
-            <article class="articulo-detalle-desktop">
-            
-                <form action="" method="post">
-                    <div class="div-select-alta">
-                        <label class="label-alta-prod" for="nombre-prod">Nombre del producto </label>
-                        <input class="input-abm" type="text" name="nombre-prod" placeholder="Bajo Eléctrico Jazz Combo" required>
-                    </div>
-                    <div class="div-select-alta">
-                        <label class="label-alta-prod" for="precio-prod">Precio del producto </label>
-                        <input class="input-abm-precio" type="text" name="precio-prod" placeholder="95000" required>
-                    </div>
-                    <div class="div-select-alta">
-                        <label class="label-alta-prod" for="subtitulo-prod">Subtitulo del producto </label>
-                        <input class="input-abm" type="text" name="subtitulo-prod" placeholder="Excelente combo para quienes empiezan con el bajo" required>
-                    </div>
-                    <div class="div-select-alta">
-                        <label class="label-alta-prod" for="foto-prod">Foto del producto </label>
-                        <input class="input-abm" type="file"  name="foto-prod" accept=".jpg, .jpeg, .png" required>
-                    </div>
-                    <div class="div-select">
-                        <label class="label-alta-prod" for="nuevo-prod">El producto es nuevo?</label>
-                        <span class="texto-span">Si</span><input class="abm-radiobutton" type="radio" name="nuevo" value="si"><span class="texto-span">No</span><input class="abm-radiobutton" type="radio" name="nuevo" value="no">
-                    </div>
-                    <div class="div-select-alta">
-                        <label class="label-alta-prod" for="info-prod">Información adicional</label>
-                        <textarea class="textarea-abm" placeholder="Excepturi tenetur est velit qui placeat voluptates amet provident tempore, sed itaque rerum corporis, aspernatur inventore voluptate, obcaecati numquam libero delectus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat voluptatem nostrum quibusdam aliquam nihil at consequatur, minus unde sint modi repudiandae officiis veritatis, corporis fugit, placeat ea exercitationem deserunt error. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non amet debitis nesciunt necessitatibus at distinctio quisquam voluptatum veniam officia quae!" required></textarea>
-                    </div>
-                    <div class="div-select">
-                        <button class="boton-abm" type="submit">EDITAR el producto</button>
-                        <button class="boton-abm" type="reset">Borrar el formulario</button>
-                    </div>
-                </form>
-
-               
-            </article>
-
-          
-        </section>
-        
+      <section class="prods-destacados">
+        <article class="articulo-detalle-desktop">
+          <form action="" method="POST" enctype="multipart/form-data">
+            <div class="div-select-alta">
+              <label class="label-alta-prod" for="nombreProd"
+                >Nombre del producto
+              </label>
+              <input
+                class="input-abm"
+                type="text"
+                name="nombreProd"
+                value="<%= editable.titulo %> "
+                required
+              />
+            </div>
+            <div class="div-select-alta">
+              <label class="label-alta-prod" for="precioProd"
+                >Precio del producto
+              </label>
+              <input
+                class="input-abm-precio"
+                type="text"
+                name="precioProd"
+                value="<%= editable.precio %> "
+                required
+              />
+            </div>
+            <div class="div-select-alta">
+              <label class="label-alta-prod" for="subtitulProd"
+                >Subtitulo del producto
+              </label>
+              <input
+                class="input-abm"
+                type="text"
+                name="subtituloProd"
+                value="<%= editable.subtitulo %> "
+                required
+              />
+            </div>
+            <div class="div-select-alta">
+              <label class="label-alta-prod" for="categoriaProd"
+                >Categoria
+              </label>
+              <select class="input-abm" name="categoriaProd" required>
+                <option></option>
+              </select>
+            </div>
+            <div class="div-select-alta">
+              <label class="label-alta-prod" for="fotoProd"
+                >Foto del producto: sí no se elige una nueva foto, se utilizará
+                la que estaba por defecto.
+              </label>
+              <input
+                class="input-abm"
+                type="file"
+                name="fotoProd"
+                accept=".jpg, .jpeg, .png"
+                required
+              />
+            </div>
+            <div class="div-select">
+              <label class="label-alta-prod" for="nuevo-prod">El producto es nuevo?</label>
+              <span class="texto-span">Si</span>
+              <input
+              class="abm-radiobutton"
+              type="radio"
+              name="nuevo"
+              value="1"
+              <% if (editable.nuevo == true) {%>
+                checked
+              <%}  %> 
+              />
+              
+              <span class="texto-span">No</span>
+              <input
+                class="abm-radiobutton"
+                type="radio"
+                name="nuevo"
+                value="0"
+                <% if (editable.nuevo == false) {%>
+                    checked
+                  <%}  %> 
+              />
+            </div>
+            <div class="div-select">
+              <label class="label-alta-prod" for="destacado-prod"
+                >El producto es un lanzamiento destacado?</label
+              >
+              <span class="texto-span">Si</span
+              ><input
+                class="abm-radiobutton"
+                type="radio"
+                name="lanzamiento"
+                value="1"
+                <% if (editable.destacado == true) {%>
+                    checked
+                  <%}  %> 
+              /><span class="texto-span">No</span
+              ><input
+                class="abm-radiobutton"
+                type="radio"
+                name="viejo"
+                value="0"
+                <% if (editable.destacado == false) {%>
+                    checked
+                  <%}  %> 
+              />
+            </div>
+            <div class="div-select-alta">
+              <label class="label-alta-prod" for="descripcionProd"
+                >Información adicional</label
+              >
+              <textarea
+                class="textarea-abm"
+                name="descripcionProd"
+                
+                required
+              ><%= editable.descripcion %> </textarea>
+            </div>
+            <div class="div-select">
+              <button class="boton-abm" type="submit">Dar de ALTA</button>
+              <button class="boton-abm" type="reset">
+                Borrar el formulario
+              </button>
+            </div>
+          </form>
+        </article>
+      </section>
     </main>
 
     <%- include("../partials/footer") %>
-    
-</body>
+  </body>
 </html>

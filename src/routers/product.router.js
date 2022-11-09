@@ -47,7 +47,10 @@ router.get("/baja-producto/:id", productController.confirmarBaja);
 router.post("/baja-producto/:id", productController.eliminar);
 
 // Ruta para el la pag de edicion de productos, viene por POST del landing
-router.post("/edicion-producto", productController.editar);
+router.get("/editar/:id", productController.editar);
+
+// Ruta para el la pag de edicion de productos, viene por POST del landing
+router.get("/editar/:id", productController.editar);
 
 
 module.exports = router;
