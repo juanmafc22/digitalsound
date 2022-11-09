@@ -44,23 +44,40 @@
                 </form>
 
                 <p class="texto-abm">Elegir un producto para Modificar o Dar de Baja</p>
+                <p>GUITARRAS Y BAJOS<br>
+                    <% guitarras.forEach (guitarra => { %> 
+                    <a href="/productos/editar/<%= guitarra.id %>">Editar</a> | <a href="/productos/eliminar/<%= guitarra.id %>">Eliminar</a> | ID <%= guitarra.id %> | <%= guitarra.titulo %> <br>
+                    <% }) %> 
+                </p>
+                <br>
+                <p>BATERIAS<br>
+                    <% baterias.forEach (bateria => { %> 
+                    <a href="/productos/editar/<%= bateria.id %>">Editar</a> | <a href="/productos/eliminar/<%= bateria.id %>">Eliminar</a> | ID <%= bateria.id %> | <%= bateria.titulo %> <br>
+                    <% }) %> 
+                </p>
+                <br>
+                <p>AMPLIFICADORES<br>
+                    <% amplificadores.forEach (amplificador => { %> 
+                    <a href="/productos/editar/<%= amplificador.id %>">Editar</a> | <a href="/productos/eliminar/<%= amplificador.id %>">Eliminar</a> | ID <%= amplificador.id %> | <%= amplificador.titulo %> <br>
+                    <% }) %> 
+                </p>
+                <br>
+                <p>ACCESORIOS<br>
+                    <% accesorios.forEach (accesorio => { %> 
+                    <a href="/productos/editar/<%= accesorio.id %>">Editar</a> | <a href="/productos/eliminar/<%= accesorio.id %>">Eliminar</a> | ID <%= accesorio.id %> | <%= accesorio.titulo %> <br>
+                    <% }) %> 
 
+                <!-- 
                 <form action="edicion-producto" method="post">
                     <div class="div-select">
                         <select class="select-abm" name="guitarras-y-bajos" id="guitarras-y-bajos">
                             <option>Elegir una Guitarra o Bajo --- </option>
-                            <% guitarras.forEach (guitarra => { %> 
-                            <option value="<%= guitarra.id %> ">ID <%= guitarra.id %> - <%= guitarra.titulo %> </option>
-                            <% }) %> 
                           </select>
                     </div>
 
                     <div class="div-select">
                         <select class="select-abm" name="baterias" id="baterias">
                             <option>Elegir una Bateria --- </option>
-                            <% baterias.forEach (bateria => { %> 
-                            <option value="<%= bateria.id %> ">ID <%= bateria.id %>  - <%= bateria.titulo %> </option>
-                            <% }) %> 
                         </select>
                     </div>
                     <div class="div-select">
@@ -90,7 +107,7 @@
 
                 </form>
 
-               
+            -->   
                 
             </article>
 
