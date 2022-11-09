@@ -2,7 +2,9 @@ const fs = require("fs");
 const path = require("path");
 
 const prodsFilePath = path.join(__dirname, "../data/productos-data-base.json");
+const categoriesFilePath = path.join(__dirname, "../data/categorias.json");
 const products = JSON.parse(fs.readFileSync(prodsFilePath, 'utf-8'));
+const categories = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
 
 const productsController = {
 
@@ -59,24 +61,29 @@ const productsController = {
 
     // Peticon GET para acceder al formulario de creacion de productos
     formulario: (req, res) => {
-        res.render("products/alta-producto");
+        res.render("products/alta-producto", {categories});
     },
 
     // POST para crear un producto nuevo
     creacion: (req, res) => {
         let newProduct = {
             "id": Date.now(),
-            "titulo": req.body.nombre-prod,
-            "categoria": 4,
-            "precio": req.body.precio-prod,
-            "subtitulo": req.body.subtitulo-prod,
-            "imagen": req.body.foto-prod,
-            "nuevo": req.body.nuevo,
-            "destacado": true,
-            "descripcion": "Donec eget blandit nunc, eu tempus quam. Suspendisse et pretium urna, in aliquam mauris. Duis cursus porttitor magna, id hendrerit mauris porta pretium. Sed sit amet facilisis nunc. "
-        }
+            "titulo": req.body.nombreProd,
+            "categoria": parseInt(req.body.categoriaProd),
+            "precio": parseInt(req.body.precioProd),
+            "subtitulo": req.body.subtituloProd,
+            "imagen": req.body.fotoProd,
+            "nuevo": req.body.nuevo == '1' ? true:false,
+            "destacado": req.body.lanzamiento == '1' ? true:false,
+            "descripcion": req.body.descripcionProd
+        };
 
-        console.log(req.body);
+        products.push(newProduct)
+
+        fs.writeFileSync(prodsFilePath, JSON.stringify(products))
+
+        let redirectPath = 'categoria/'+newProduct.categoria.toString()
+        res.redirect(redirectPath)
     },
 
     // Reponse para baja de un producto

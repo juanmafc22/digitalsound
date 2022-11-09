@@ -1,0 +1,22 @@
+[
+    {
+        "id" : "1",
+        "name": "Guitarras y Bajos"
+    },
+    {
+        "id" : "2",
+        "name": "Baterias"
+    },
+    {
+        "id" : "3",
+        "name": "Amplificadores"
+    },
+    {
+        "id" : "4",
+        "name": "Accesorios"
+    },
+    {
+        "id" : "5",
+        "name": "Teclados"
+    }
+]
