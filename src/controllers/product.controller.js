@@ -78,9 +78,9 @@ const productsController = {
             "descripcion": req.body.descripcionProd
         };
 
-        products.push(newProduct)
+        //products.push(newProduct)
 
-        fs.writeFileSync(prodsFilePath, JSON.stringify(products))
+        //fs.writeFileSync(prodsFilePath, JSON.stringify(products))
 
         let redirectPath = 'categoria/'+newProduct.categoria.toString()
         res.redirect(redirectPath)
