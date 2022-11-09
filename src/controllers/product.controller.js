@@ -29,7 +29,7 @@ const productsController = {
             return product.id == id;
         })[0]
 
-        res.render("products/guitarras-y-bajos-23", {producto})
+        res.render("products/detalle-producto", {producto})
     },
     
     // Response para el carrito de compras 
