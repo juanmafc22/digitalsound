@@ -13,11 +13,17 @@ const productsController = {
 
         let id = req.params.id
 
+        let categoria = categories.filter( categorie => {
+            return categorie.id == id;
+        })[0]
+
+        console.log(categoria)
+
         let filtrados = products.filter ( product => {
             return product.categoria == id;
         })
 
-        res.render("products/categoria", {filtrados});
+        res.render("products/categoria", {categoria, filtrados});
     },
 
     // Response para el producto/item que viene por ruta parametrizada con req.params ID

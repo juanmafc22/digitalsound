@@ -63,6 +63,8 @@
         </section>
 
         <h2 class="main-titulo-destacado">
+            <%= categoria.name %>
+            <!--
             <% if (filtrados[0].categoria == 1) { %>
                 Guitarras y Bajos
             <% } else if (filtrados[0].categoria == 2) { %>
@@ -73,11 +75,8 @@
                 Accesorios
             <% } else { %> 
                 Productos
-            <% } %> 
+            <% } %> -->
         </h2>
-
-
-
 
         <section class="prods-destacados">
 
@@ -93,7 +92,7 @@
                 </div>
                 <div class="div-interno-art-destacado">
                     <p class="prod-dectacado__precio">$<%= filtrado.precio %> </p>
-                    <a class="prod-destacado__link" href="/productos/guitarras-y-bajos/23"><p class="prod-destacado__button">Ver detalle</p></a>
+                    <a class="prod-destacado__link" href="/productos/detalle/<%= filtrado.id %>"><p class="prod-destacado__button">Ver detalle</p></a>
                 </div>
                 <div class="div-imagen-prod">
                     <img class="prod-destacado__img" src="/img/<%= filtrado.imagen %> ">
