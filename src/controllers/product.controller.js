@@ -119,8 +119,32 @@ const productsController = {
             return product.id == id
         })
 
-        res.render("products/edicion-producto", {editable});
+        res.render("products/edicion-producto", {editable, categories});
     },
+
+    confirmarEdicion: (req, res) => {
+
+        let producto = products.find( product => {
+            return product.id == req.params.id
+        });
+
+        let prodEditado = {
+            "id": producto.id,
+            "titulo": req.body.nombreProd,
+            "categoria": parseInt(req.body.categoriaProd),
+            "precio": parseInt(req.body.precioProd),
+            "subtitulo": req.body.subtituloProd,
+            "imagen": !req.file.filename? producto.imagen: req.file.filename,
+            "nuevo": req.body.nuevo == '1' ? true:false,
+            "destacado": req.body.lanzamiento == '1' ? true:false,
+            "descripcion": req.body.descripcionProd
+        };
+
+        console.log(producto);
+        console.log(prodEditado);
+
+
+    }
 
 
 };

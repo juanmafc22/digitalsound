@@ -82,9 +82,11 @@
               <label class="label-alta-prod" for="categoriaProd"
                 >Categoria
               </label>
-              <select class="input-abm" name="categoriaProd" required>
-                <option></option>
-              </select>
+            <select class="input-abm" name="categoriaProd" value="<%= editable.categoria %>" required>
+                <% for (i=0; i < categories.length; i++) { %>
+                    <option value="<%= categories[i].id %>"><%= categories[i].name %></option>
+                <% } %>
+            </select>
             </div>
             <div class="div-select-alta">
               <label class="label-alta-prod" for="fotoProd"
