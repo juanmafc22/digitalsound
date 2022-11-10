@@ -126,7 +126,7 @@ const productsController = {
 
         let producto = products.find( product => {
             return product.id == req.params.id
-        });
+        });    
 
         let prodEditado = {
             "id": producto.id,
@@ -134,15 +134,23 @@ const productsController = {
             "categoria": parseInt(req.body.categoriaProd),
             "precio": parseInt(req.body.precioProd),
             "subtitulo": req.body.subtituloProd,
-            "imagen": !req.file.filename? producto.imagen: req.file.filename,
+            "imagen": !req.file ? producto.imagen: req.file.filename,
             "nuevo": req.body.nuevo == '1' ? true:false,
             "destacado": req.body.lanzamiento == '1' ? true:false,
             "descripcion": req.body.descripcionProd
         };
 
-        console.log(producto);
-        console.log(prodEditado);
+        let productsReplace = products.filter( product => {
+            return product.id != parseInt(producto.id);
+        }).push(prodEditado)
 
+        console.log(req.body)
+        console.log(prodEditado)
+        console.log(productsReplace)
+
+        //fs.writeFileSync(prodsFilePath, JSON.stringify(productsReplace, null, " "))
+
+        res.redirect('/productos/landing-abm')
 
     }
 
