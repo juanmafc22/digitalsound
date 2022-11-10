@@ -1,0 +1,48 @@
+
+[
+    {
+        "id": 1666985756083,
+        "nombre": "Lord",
+        "apellido": "Voldemort",
+        "email": "elinnombrable@harrypotter.com",
+        "categoria": "usuario",
+        "password": "mistertenebroso",
+        "imagen": "img-usuarios-1666987149191.png"
+    },
+    {
+        "id": 1666986321968,
+        "nombre": "Darth",
+        "apellido": "Vader",
+        "email": "elladooscuro@starwars.com",
+        "categoria": "usuario",
+        "password": "iamyourfather",
+        "imagen": "img-usuarios-1666986690235.png"
+    },
+    {
+        "id": 1666986690235,
+        "nombre": "Hannibal",
+        "apellido": "Lecter",
+        "email": "lecter@sinlenceofthelambs.com",
+        "categoria": "usuario",
+        "password": "asadoconfritas",
+        "imagen": "img-usuarios-1666985756083.png"
+    },
+    {
+        "id": 1666987149191,
+        "nombre": "Gollum",
+        "apellido": "Gollum",
+        "email": "smeagol@lordoftherings.com",
+        "categoria": "usuario",
+        "password": "myprecious",
+        "imagen": "img-usuarios-1666986321968.png"
+    },
+    {
+        "id": 1666987405200,
+        "nombre": "Linus",
+        "apellido": "Torvalds",
+        "email": "pinguino@linux.com.uy",
+        "categoria": "admin",
+        "password": "abajoconlasventanitasdebill",
+        "imagen": "img-usuarios-1666987405200.png"
+    }
+]
