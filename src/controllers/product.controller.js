@@ -142,13 +142,14 @@ const productsController = {
 
         let productsReplace = products.filter( product => {
             return product.id != parseInt(producto.id);
-        }).push(prodEditado)
+        })
+
+        productsReplace.push(prodEditado)
 
         console.log(req.body)
-        console.log(prodEditado)
         console.log(productsReplace)
 
-        //fs.writeFileSync(prodsFilePath, JSON.stringify(productsReplace, null, " "))
+        fs.writeFileSync(prodsFilePath, JSON.stringify(productsReplace, null, " "))
 
         res.redirect('/productos/landing-abm')
 
