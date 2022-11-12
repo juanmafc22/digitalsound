@@ -51,6 +51,12 @@ router.get("/editar/:id", productController.editar);
 // Ruta para el la pag de edicion de productos, viene por POST del landing
 router.post("/editar/:id",  upload.single('fotoProd'), productController.confirmarEdicion);
 
+// Ruta GET para acceder al listado de "Nuevos ingresos"
+router.get("/nuevos-ingresos", productController.nuevosIngresos)
+
+// Ruta GET para acceder al listado de "usados"
+router.get("/usados", productController.usados)
+
 
 
 module.exports = router;

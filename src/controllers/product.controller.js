@@ -150,7 +150,84 @@ const productsController = {
 
         res.redirect('/productos/landing-abm')
 
-    }
+    },
+
+    // Response para accedor a los "nuevos ingresos"
+    nuevosIngresos:  (req, res) => {
+
+        // para todos las categorias de productos, se guardan en variables
+        // todos los productos que pertenezcan a una categoria en particular
+        // Y que sean nuevos (los "nuevos ingresos")
+        let guitarras = products.filter (product => {
+            
+            if (product.categoria == 1 && product.nuevo == true) {
+                return product;
+            }
+        });
+
+        let baterias = products.filter (product => {
+
+            if (product.categoria == 2 && product.nuevo == true) {
+                return product;
+            }
+        });
+
+        let amplificadores = products.filter (product => {
+
+            if (product.categoria == 3 && product.nuevo == true) {
+                return product;
+            }
+        });
+
+        let accesorios = products.filter (product => {
+
+            if (product.categoria == 4 && product.nuevo == true) {
+                return product;
+            }
+        });
+
+        res.render("products/nuevos-ingresos", {guitarras, baterias, amplificadores, accesorios});
+    },
+
+    // Response para accedor a los "nuevos ingresos"
+    usados:  (req, res) => {
+
+        // para todos las categorias de productos, se guardan en variables
+        // todos los productos que pertenezcan a una categoria en particular
+        // Y que sean usados
+        let guitarras = products.filter (product => {
+            
+            if (product.categoria == 1 && product.nuevo == false) {
+                return product;
+            }
+        });
+
+        let baterias = products.filter (product => {
+
+            if (product.categoria == 2 && product.nuevo == false) {
+                return product;
+            }
+        });
+
+        let amplificadores = products.filter (product => {
+
+            if (product.categoria == 3 && product.nuevo == false) {
+                return product;
+            }
+        });
+
+        let accesorios = products.filter (product => {
+
+            if (product.categoria == 4 && product.nuevo == false) {
+                return product;
+            }
+        });
+
+        res.render("products/usados", {guitarras, baterias, amplificadores, accesorios});
+    },
+
+
+
 
 
 };

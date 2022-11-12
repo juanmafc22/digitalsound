@@ -205,12 +205,12 @@ main{
     margin-top: 13px;
     margin-left: 2px;
     padding-bottom: 8px;
-    border-bottom: 1px solid #DDD;
+    border: 1px solid #EEE; 
 }
 
 .div-interno-art-destacado {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     margin-bottom: 5px;
 
@@ -223,7 +223,7 @@ main{
 .prod-dectacado__titulo {
     font-size: 14px;
     font-weight: 700;
-    margin-top: 5px;
+    margin-top: 13px;
 }
 
 .prod-dectacado__precio {
@@ -825,8 +825,13 @@ div.product-quantity i{
     }
  
     .div-imagen-prod {
-        display: block;
+        /* display: block; */
+        display: flex;
+        justify-content: center;
+        margin-top: auto;
+        margin-bottom: auto;
     }
+    
     
     .footer-espacios-iconos {
         margin: 10px;
@@ -878,6 +883,8 @@ div.product-quantity i{
 
     .articulo-destacado {
         width: 21%;
+        display: flex;
+        flex-direction: column;
     }
 
     .header-superior {

@@ -6,7 +6,7 @@
         "precio": 74800,
         "subtitulo": "Este es un subtitulo de la guitarra con ID que termina en 083",
         "imagen": "img-prod-guiYbaj-1666985430204.png",
-        "nuevo": true,
+        "nuevo": false,
         "destacado": false,
         "descripcion": "Quisque lobortis sit amet odio id maximus. Nullam vel augue fringilla, fermentum metus in, aliquam tortor. Curabitur laoreet elit diam, ut varius turpis scelerisque vel. Vestibulum mauris purus, iaculis vitae orci a, consequat porttitor mi. Phasellus quam ante, imperdiet feugiat sem quis, maximus ullamcorper libero."
     },
@@ -17,7 +17,7 @@
         "precio": 300000,
         "subtitulo": "Subtitulo num 3 Oreo Ipsum",
         "imagen": "img-prod-guiYbaj-1666986402096.png",
-        "nuevo": false,
+        "nuevo": true,
         "destacado": true,
         "descripcion": "Mauris at ante eget nisi consectetur tincidunt. Vivamus convallis pulvinar dolor vel convallis. Proin erat tellus, iaculis nec sem sed, malesuada elementum neque. Curabitur facilisis posuere ullamcorper. Sed eget magna eget metus semper luctus eget vitae metus. Maecenas vitae metus risus. Proin vitae fermentum sapien. "
     },
@@ -28,7 +28,7 @@
         "precio": 119000,
         "subtitulo": "Otro sub Titulo mas de los 9",
         "imagen": "img-prod-guiYbaj-1666986737515.png",
-        "nuevo": true,
+        "nuevo": false,
         "destacado": false,
         "descripcion": "Ut fringilla quis lorem vitae aliquet. Nullam scelerisque erat in tellus interdum dictum. In vestibulum leo erat, condimentum cursus leo semper at. Pellentesque ultrices leo magna, sed semper ligula maximus a. "
     },
@@ -61,7 +61,7 @@
         "precio": 119000,
         "subtitulo": "El undecimo ejemplo que tiro",
         "imagen": "img-prod-bat-1666994272534.png",
-        "nuevo": true,
+        "nuevo": false,
         "destacado": false,
         "descripcion": "Phasellus tempor turpis maximus elit mollis, in blandit urna tincidunt. Etiam non vehicula augue. Fusce tempus egestas nisi, vitae mollis dolor eleifend vitae. Cras condimentum,NOB eternos hijos eternos de Central. Hace mas o menos 14 años que no ganan un clásido. JA! "
     },
@@ -72,7 +72,7 @@
         "precio": 320800,
         "subtitulo": "Cuando termina esto?",
         "imagen": "img-prod-amp-1666994509765.png",
-        "nuevo": true,
+        "nuevo": false,
         "destacado": false,
         "descripcion": "Nam maximus nunc vel cursus placerat. Cras sed euismod eros, id tempus tellus. Nulla at dui a tellus aliquam viverra nec vel nisi. Duis eu purus purus. Maecenas aliquam, ex id venenatis commodo, orci nulla malesuada tortor, in ultricies ex ipsum id est."
     },
