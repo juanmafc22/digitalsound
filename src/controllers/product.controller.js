@@ -146,9 +146,6 @@ const productsController = {
 
         productsReplace.push(prodEditado)
 
-        console.log(req.body)
-        console.log(productsReplace)
-
         fs.writeFileSync(prodsFilePath, JSON.stringify(productsReplace, null, " "))
 
         res.redirect('/productos/landing-abm')
