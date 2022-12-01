@@ -19,7 +19,33 @@ const usersController = {
     // peticion por GET para acceder a la pagina de admin de usuarios
     admin: (req, res) => {
 
-        res.render("users/admin-usuarios", {usuarios});
+        res.render("users/landing-abm", {usuarios});
+    },
+
+    // peticion por GET que muestra el formulario de creacion de usuario
+    formulario: (req, res) => {
+
+        res.render("users/alta-usuario");
+    },
+
+    // peticion por POST que crea el usuario
+    creacion: (req, res) => {
+
+        let newUser = {
+            "id": Date.now(),
+            "nombre": req.body.nombre,
+            "apellido": req.body.apellido,
+            "email": req.body.email,
+            "categoria": req.body.categoria,
+            "password": req.body.password,
+            "imagen": req.file.filename
+        };
+
+        usuarios.push(newUser);
+
+        fs.writeFileSync(usersFilePath, JSON.stringify(usuarios, null, " "));
+
+        res.redirect("/users/landing-abm");
     }
 
 
