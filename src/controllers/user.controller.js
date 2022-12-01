@@ -52,7 +52,7 @@ const usersController = {
         res.render("users/alta-usuario");
     },
 
-    // peticion por POST que crea el usuario
+    // Peticion por POST que crea el usuario desde ABM
     creacion: (req, res) => {
 
         let newUser = {
