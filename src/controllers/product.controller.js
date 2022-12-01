@@ -44,23 +44,23 @@ const productsController = {
     // Response para la pag de ABM de productos 
     abm: (req, res) => {
 
-        let guitarras = products.filter (product => {
-            return product.categoria == 1;
-        });
+        // let guitarras = products.filter (product => {
+        //     return product.categoria == 1;
+        // });
 
-        let baterias = products.filter (product => {
-            return product.categoria == 2;
-        });
+        // let baterias = products.filter (product => {
+        //     return product.categoria == 2;
+        // });
 
-        let amplificadores = products.filter (product => {
-            return product.categoria == 3;
-        });
+        // let amplificadores = products.filter (product => {
+        //     return product.categoria == 3;
+        // });
 
-        let accesorios = products.filter (product => {
-            return product.categoria == 4;
-        });
+        // let accesorios = products.filter (product => {
+        //     return product.categoria == 4;
+        // });
 
-        res.render("products/landing-abm", {guitarras, baterias, amplificadores, accesorios});
+        res.render("products/landing-abm", {products, categories});
     },
 
     // Peticon GET para acceder al formulario de creacion de productos
@@ -155,81 +155,26 @@ const productsController = {
     // Response para accedor a los "nuevos ingresos"
     nuevosIngresos:  (req, res) => {
 
-        // para todos las categorias de productos, se guardan en variables
-        // todos los productos que pertenezcan a una categoria en particular
-        // Y que sean nuevos (los "nuevos ingresos")
-        let guitarras = products.filter (product => {
-            
-            if (product.categoria == 1 && product.nuevo == true) {
+        // Refactor. Se miran todos los nuevos ingresos, luego se agrupa por cats en ejs.
+        let nuevosIngresos = products.filter(product => {
+            if (product.destacado == true) {
                 return product;
-            }
-        });
+        }})
 
-        let baterias = products.filter (product => {
-
-            if (product.categoria == 2 && product.nuevo == true) {
-                return product;
-            }
-        });
-
-        let amplificadores = products.filter (product => {
-
-            if (product.categoria == 3 && product.nuevo == true) {
-                return product;
-            }
-        });
-
-        let accesorios = products.filter (product => {
-
-            if (product.categoria == 4 && product.nuevo == true) {
-                return product;
-            }
-        });
-
-        res.render("products/nuevos-ingresos", {guitarras, baterias, amplificadores, accesorios});
+        res.render("products/nuevos-ingresos", {nuevosIngresos, categories});
     },
 
-    // Response para accedor a los "nuevos ingresos"
+    // Response para accedor a los "usados"
     usados:  (req, res) => {
 
-        // para todos las categorias de productos, se guardan en variables
-        // todos los productos que pertenezcan a una categoria en particular
-        // Y que sean usados
-        let guitarras = products.filter (product => {
-            
-            if (product.categoria == 1 && product.nuevo == false) {
+        // Refactor. Se miran todos los usados, luego se agrupa por cats en ejs.
+        let productosUsados = products.filter(product => {
+            if (product.nuevo == false) {
                 return product;
-            }
-        });
+        }})
 
-        let baterias = products.filter (product => {
-
-            if (product.categoria == 2 && product.nuevo == false) {
-                return product;
-            }
-        });
-
-        let amplificadores = products.filter (product => {
-
-            if (product.categoria == 3 && product.nuevo == false) {
-                return product;
-            }
-        });
-
-        let accesorios = products.filter (product => {
-
-            if (product.categoria == 4 && product.nuevo == false) {
-                return product;
-            }
-        });
-
-        res.render("products/usados", {guitarras, baterias, amplificadores, accesorios});
+        res.render("products/usados", {productosUsados, categories});
     },
-
-
-
-
-
 };
 
 module.exports = productsController;

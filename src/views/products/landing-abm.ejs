@@ -1,33 +1,13 @@
-<!-- PAGINA DE EJEMPLO DE UN PRODUCTO INDIVIDUAL -->
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Sound 🎶</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo+Narrow:wght@400;700&family=Archivo:wght@200;400;700;900&display=swap" rel="stylesheet">
-
-
-    <link rel="stylesheet" href="/css/principal.css">
-
-    <script src="https://kit.fontawesome.com/be2f25d2d7.js" crossorigin="anonymous"></script>
-
+    <%- include("../partials/head") %>
 </head>
 <body>
 
     <%- include("../partials/header-modulo-admin") %>
 
     <main>
-        <!-- Seccion del main para listar las diferentes categorias
-            1. Guitarras y bajos
-            2. Baterias
-            3. Amplificadores
-            4. Accesorios
-        -->
 
         <div class="div-titulo-boton-comprar">
             <h2 class="titulo-abm-prods">ABM de productos: Alta, Baja o Modificación.</h2>
@@ -44,73 +24,20 @@
                 </form>
 
                 <p class="texto-abm">Elegir un producto para Modificar o Dar de Baja</p>
-                <p>GUITARRAS Y BAJOS<br>
-                    <% guitarras.forEach (guitarra => { %> 
-                    <a href="/productos/editar/<%= guitarra.id %>">Editar</a> | <a href="/productos/baja-producto/<%= guitarra.id %>">Eliminar</a> | ID <%= guitarra.id %> | <%= guitarra.titulo %> <br>
-                    <% }) %> 
-                </p>
-                <br>
-                <p>BATERIAS<br>
-                    <% baterias.forEach (bateria => { %> 
-                    <a href="/productos/editar/<%= bateria.id %>">Editar</a> | <a href="/productos/baja-producto/<%= bateria.id %>">Eliminar</a> | ID <%= bateria.id %> | <%= bateria.titulo %> <br>
-                    <% }) %> 
-                </p>
-                <br>
-                <p>AMPLIFICADORES<br>
-                    <% amplificadores.forEach (amplificador => { %> 
-                    <a href="/productos/editar/<%= amplificador.id %>">Editar</a> | <a href="/productos/baja-producto/<%= amplificador.id %>">Eliminar</a> | ID <%= amplificador.id %> | <%= amplificador.titulo %> <br>
-                    <% }) %> 
-                </p>
-                <br>
-                <p>ACCESORIOS<br>
-                    <% accesorios.forEach (accesorio => { %> 
-                    <a href="/productos/editar/<%= accesorio.id %>">Editar</a> | <a href="/productos/baja-producto/<%= accesorio.id %>">Eliminar</a> | ID <%= accesorio.id %> | <%= accesorio.titulo %> <br>
-                    <% }) %> 
-
-                <!-- 
-                <form action="edicion-producto" method="post">
-                    <div class="div-select">
-                        <select class="select-abm" name="guitarras-y-bajos" id="guitarras-y-bajos">
-                            <option>Elegir una Guitarra o Bajo --- </option>
-                          </select>
-                    </div>
-
-                    <div class="div-select">
-                        <select class="select-abm" name="baterias" id="baterias">
-                            <option>Elegir una Bateria --- </option>
-                        </select>
-                    </div>
-                    <div class="div-select">
-                        <select class="select-abm" name="amplificadores" id="amplificadores">
-                            <option>Elegir un Amplificador --- </option>
-                            <% amplificadores.forEach (amplificador => { %> 
-                            <option value="<%= amplificador.id %> ">ID <%= amplificador.id %>  - <%= amplificador.titulo %> </option>
-                            <% }) %> 
-                        </select>
-                    </div>
-                    <div class="div-select">
-                        <select class="select-abm" name="accesorios" id="accesorios">
-                            <option>Elegir un Accesorio --- </option>
-                            <% accesorios.forEach (accesorio => { %> 
-                            <option value="<%= accesorio.id %> ">ID <%= accesorio.id %>  - <%= accesorio.titulo %> </option>
-                            <% }) %> 
-                        </select>
-                    </div>
-                    <div class="div-select">
-                        <button class="boton-abm-modificar" type="submit">MODIFICAR el Producto</button>
-                    </div>
-                </form>
-                <form action="baja-producto" method="post">
-                    <div class="div-select">
-                        <button class="boton-abm-baja" type="submit">Dar de BAJA el Producto</button>
-                    </div>
-
-                </form>
-
-            -->   
+                <!-- Refactor -->
+                <% categories.forEach(categorie => { %>
+                    <% let prodsByCat = products.filter(product => {if(product.categoria == categorie.id) return product}) %>
+                    <% if (prodsByCat.length > 0) { %>
+                        <p><%= categorie.name %><br>
+                        <% prodsByCat.forEach (prod => { %> 
+                                <a href="/productos/editar/<%= prod.id %>">Editar</a> | <a href="/productos/baja-producto/<%= prod.id %>">Eliminar</a> | ID <%= prod.id %> | <%= prod.titulo %> <br>
+                                <% }) %> 
+                            </p>
+                            <br>
+                        <% } %>
+                    <% }) %>
                 
             </article>
-
           
         </section>
         

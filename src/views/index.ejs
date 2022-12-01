@@ -1,24 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Sound 🎶</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo+Narrow:wght@400;700&family=Archivo:wght@200;400;700;900&display=swap" rel="stylesheet">
-
-    <!-- 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@200;400;700;900&display=swap" rel="stylesheet"> 
-    -->
-
-    <link rel="stylesheet" href="/css/principal.css">
-
-    <script src="https://kit.fontawesome.com/be2f25d2d7.js" crossorigin="anonymous"></script>
-
+    <%- include("../partials/head") %>
 </head>
 <body>
 
@@ -78,65 +61,10 @@
                         <a class="prod-destacado__link" href="/productos/detalle/<%= destacado.id %> "><p class="prod-destacado__button">Ver detalle</p></a>
                     </div>
                     <div class="div-imagen-prod">
-                        <img class="prod-destacado__img" src="/img/<%= destacado.imagen %> ">
+                        <img class="prod-destacado__img" src="/img/products/<%= destacado.imagen %> ">
                     </div>
                 </article>
             <% }) %> 
-            <!-- 
-            <article class="articulo-destacado">
-                <div class="div-interno-art-destacado">
-                    <p class="prod-dectacado__titulo">Guitarra Fender modelo XRT 2022</p>
-                </div>
-                <div class="div-interno-art-destacado">
-                    <p class="prod-destacado__detalle">
-                        Sapiente voluptate harum veritatis voluptates similique repudiandae minima dignissimos ratione.
-                    </p>
-                </div>
-                <div class="div-interno-art-destacado">
-                    <p class="prod-dectacado__precio">$275.000</p>
-                    <a class="prod-destacado__link" href="#"><p class="prod-destacado__button">Ver detalle</p></a>
-                </div>
-                <div class="div-imagen-prod">
-                    <img class="prod-destacado__img" src="/img/destacados-jasmine-acoustic.png">
-                </div>
-            </article>
-
-            <article class="articulo-destacado">
-                <div class="div-interno-art-destacado">
-                    <p class="prod-dectacado__titulo"> Bajo Eléctrico Jazz Combo</p>
-                </div>
-                <div class="div-interno-art-destacado">
-                    <p class="prod-destacado__detalle">
-                        Excepturi tenetur est velit qui placeat voluptates amet provident tempore, sed itaque rerum corporis, aspernatur inventore voluptate, obcaecati numquam libero delectus.
-                    </p>
-                </div>
-                <div class="div-interno-art-destacado">
-                    <p class="prod-dectacado__precio">$95.000</p>
-                    <a class="prod-destacado__link" href="/productos/guitarras-y-bajos/23"><p class="prod-destacado__button">Ver detalle</p></a>
-                </div>
-                <div class="div-imagen-prod">
-                    <img class="prod-destacado__img" src="/img/destacados-equipo-guitarra.png">
-                </div>
-            </article>
-
-            <article class="articulo-destacado">
-                <div class="div-interno-art-destacado">
-                    <p class="prod-dectacado__titulo">Auriculares inalámbricos Bose 700 black
-                </div>
-                <div class="div-interno-art-destacado">
-                    <p class="prod-destacado__detalle">
-                        Obcaecati dolores ipsum iure eaque amet nisi dicta voluptatem illo similique atque dolorum quo tenetur!           
-                    </p>
-                </div>
-                <div class="div-interno-art-destacado">
-                    <p class="prod-dectacado__precio">$193.000</p>
-                    <a class="prod-destacado__link" href="#"><p class="prod-destacado__button">Ver detalle</p></a>
-                </div>
-                <div class="div-imagen-prod">
-                    <img class="prod-destacado__img" src="/img/destacados-audifonos.png">
-                </div>
-            </article>
-        -->
 
         </section>
         

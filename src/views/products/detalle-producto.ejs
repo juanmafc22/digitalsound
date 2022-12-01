@@ -1,48 +1,21 @@
-<!-- PAGINA DE EJEMPLO DE UN PRODUCTO INDIVIDUAL -->
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Sound 🎶</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo+Narrow:wght@400;700&family=Archivo:wght@200;400;700;900&display=swap" rel="stylesheet">
-
-    <!-- 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@200;400;700;900&display=swap" rel="stylesheet"> 
-    -->
-
-    <link rel="stylesheet" href="/css/principal.css">
-
-    <script src="https://kit.fontawesome.com/be2f25d2d7.js" crossorigin="anonymous"></script>
-
+    <%- include("../partials/head") %>
 </head>
 <body>
 
     <%- include("../partials/header") %>
 
     <main>
-        <!-- Seccion del main para listar las diferentes categorias
-            1. Guitarras y bajos
-            2. Baterias
-            3. Amplificadores
-            4. Accesorios
-        -->
-        <section class="main-listar-secciones">
 
-            <!-- 
+        <!-- <section class="main-listar-secciones">
+       
             <article class="main-article-seccion-ppal">
                 <img class="main-article__img" src="/img/header-guitarras.jpg">
                     <h3 class="article-titulo">GUITARRAS Y BAJOS</h3>
             </article>
-        -->
-            
-            <!--
+                         
             <article class="main-article">
                 <img class="main-article__img" src="/img/article-index-bateria.jpg">
                     <h3 class="article-titulo">BATERIAS</h3>
@@ -60,9 +33,8 @@
                     <h3 class="article-titulo">ACCESORIOS</h3>
                     <a href="#"><p class="article-button">Ver disponibles</p></a>
             </article>
-        -->
 
-        </section>
+        </section> -->
 
         <div class="div-titulo-boton-comprar">
             <h2 class="titulo-detalle-prod"><%= producto.titulo %></h2>
@@ -84,7 +56,7 @@
 
                 <div class="art-detalle-desktop-columnas">
                     <div>
-                        <img class="img-detalle-prod" src="/img/<%= producto.imagen %>">
+                        <img class="img-detalle-prod" src="/img/products/<%= producto.imagen %>">
                     </div>
                     <div>
                         <p class="texto-detalle-prod">
