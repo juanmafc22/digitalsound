@@ -483,6 +483,19 @@ div.control-formulario--name-surname input{
     display: none;
 }
 
+/* ESTILOS DE PERFIL */
+
+.profile-box {
+    text-align: left;
+    display: block;
+    width: 100%;
+    margin: 10px 0px;
+}
+
+.profile-box div {
+    margin: 10px 0px;
+}
+
 /* COMIENZAN LOS ESTILOS DE CARRITO */
 
 .h2-carrito {

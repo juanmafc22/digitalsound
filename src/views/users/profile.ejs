@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <%- include("../partials/head") %>
+    </head>
+    <body>
+        
+        <%- include("../partials/header") %>
+
+        <main class="main-formularios">
+            <div class="body-flexbox">
+                <div class="login-block">
+                    <h2>¡Tu Perfil!</h2>
+                    <p class="legend legend-register">Visualizá tu perfil</p>
+                    <div class="profile-box">
+                        <!--<div class="control-formulario control-formulario--name-surname">
+                            <input placeholder="Nombre">
+                            <input placeholder="Apellido">
+                        </div> Formulario con Nombre y Apellido en misma linea -->
+                        <div class="control-formulario">
+                            <p>Nombre: <%= usuario.nombre %></p>
+                        </div>
+                        <div class="control-formulario">
+                            <p>Apellido: <%= usuario.apellido %></p>
+                        </div>
+                        <div class="control-formulario">
+                            <p>Email: <%= usuario.email %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="vertical-line" style="height: 150px">
+                </div>
+            </div>
+        </main>        
+       
+        <%- include("../partials/footer") %>
+
+    </body>
+</html>
