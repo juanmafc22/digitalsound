@@ -22,34 +22,84 @@
         <section class="prods-destacados">
 
             <article class="articulo-detalle-desktop">
-            
-                <form action="/users/creacion-usuario" method="POST" enctype="multipart/form-data">
+                <!-- <% if(locals.errors) { %>
+                    <% for (let error in errors ) { %>
+                        <p class="form-error"><%= errors[error].msg %></p>
+                    <% } %>
+                <% } %> -->
+                <form action="/users/alta-usuario" method="POST" enctype="multipart/form-data">
 
                     <input type="hidden" name="categoria" value="admin">
 
                     <div class="div-select-alta">
-                        <label class="label-alta-prod" for="nombre">Nombre del usuario </label>
-                        <input class="input-abm" type="text" name="nombre" id="nombre" placeholder="Nombre del usuario" required>
+                        <label class="label-alta-prod" for="nombre">Nombre</label>
+                        <input 
+                            class="input-abm" 
+                            type="text" 
+                            name="nombre" 
+                            id="nombre" 
+                            value="<%= locals.oldData ? oldData.nombre : null %>"
+                        >
+                        <% if (locals.errors && errors.nombre) { %>
+                            <p class="form-error"><%= errors.nombre.msg %></p>
+                        <% } %>
                     </div>
                     <div class="div-select-alta">
-                        <label class="label-alta-prod" for="apellido">Apellido del usuario </label>
-                        <input class="input-abm" type="text" name="apellido" id="apellido" placeholder="Apellido del usuario" required>
+                        <label class="label-alta-prod" for="apellido">Apellido</label>
+                        <input 
+                            class="input-abm" 
+                            type="text" 
+                            name="apellido" 
+                            id="apellido"
+                            value="<%= locals.oldData ? oldData.apellido : null %>"
+                        >
+                        <% if (locals.errors && errors.apellido) { %>
+                            <p class="form-error"><%= errors.apellido.msg %></p>
+                        <% } %>
                     </div>
                     <div class="div-select-alta">
-                        <label class="label-alta-prod" for="email">Email del usuario </label>
-                        <input class="input-abm" type="email" name="email" id="email" placeholder="Email del usuario" required>
+                        <label class="label-alta-prod" for="email">Email</label>
+                        <input 
+                            class="input-abm" 
+                            type="email" 
+                            name="email" 
+                            id="email" 
+                            value="<%= locals.oldData ? oldData.email : null %>"
+                        >
+                        <% if (locals.errors && errors.email) { %>
+                            <p class="form-error"><%= errors.email.msg %></p>
+                        <% } %>
                     </div>
                     <div class="div-select-alta">
                         <label class="label-alta-prod" for="foto">Foto del usuario </label>
-                        <input class="input-abm" type="file"  name="foto" itemref="foto" accept=".jpg, .jpeg, .png" required>
+                        <input class="input-abm" type="file"  name="foto" itemref="foto" accept=".jpg, .jpeg, .png">
+                        <% if (locals.errors && errors.foto) { %>
+                            <p class="form-error"><%= errors.foto.msg %></p>
+                        <% } %>
                     </div>
                     <div class="div-select-alta">
-                        <label class="label-alta-prod" for="password">Elegir un password </label>
-                        <input class="input-abm" type="password" name="password" id="password" placeholder="Elegir un password" required>
+                        <label class="label-alta-prod" for="password">Contraseña</label>
+                        <input 
+                            class="input-abm" 
+                            type="password" 
+                            name="password" 
+                            id="password" 
+                        >
+                        <% if (locals.errors && errors.password) { %>
+                            <p class="form-error"><%= errors.password.msg %></p>
+                        <% } %>
                     </div>
                     <div class="div-select-alta">
-                        <label class="label-alta-prod" for="password2">Repetir el password </label>
-                        <input class="input-abm" type="password" name="password2" id="password2" placeholder="Repetir el password" required>
+                        <label class="label-alta-prod" for="password2">Repetir contraseña</label>
+                        <input 
+                            class="input-abm" 
+                            type="password" 
+                            name="password2" 
+                            id="password2" 
+                        >
+                        <% if (locals.errors && errors.password2) { %>
+                            <p class="form-error"><%= errors.password2.msg %></p>
+                        <% } %>
                     </div>
                     <div class="div-select">
                         <button class="boton-abm" type="submit">Dar de ALTA</button>

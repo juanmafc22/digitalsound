@@ -780,6 +780,12 @@ div.product-quantity i{
     padding: 5px;
 }
 
+.form-error {
+    color: red;
+    font-size: 12px;
+    padding: 5px 0px;
+}
+
 .textarea-abm {
     font-size: 14px;
     width: 350px;

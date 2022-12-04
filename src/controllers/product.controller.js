@@ -60,7 +60,7 @@ const productsController = {
         //     return product.categoria == 4;
         // });
 
-        res.render("products/landing-abm", {products, categories});
+        res.render("products/abm-producto", {products, categories});
     },
 
     // Peticon GET para acceder al formulario de creacion de productos
@@ -109,7 +109,7 @@ const productsController = {
 
         fs.writeFileSync(prodsFilePath, JSON.stringify(productsMod, null, " "))
 
-        res.redirect('/productos/landing-abm')
+        res.redirect('/productos/abm-producto')
     },
 
     // Reponse para editar de un producto
@@ -148,7 +148,7 @@ const productsController = {
 
         fs.writeFileSync(prodsFilePath, JSON.stringify(productsReplace, null, " "))
 
-        res.redirect('/productos/landing-abm')
+        res.redirect('/productos/abm-producto')
 
     },
 

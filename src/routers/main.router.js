@@ -11,5 +11,14 @@ router.get("/index", mainController.index)
 router.get("/", mainController.index)
 router.get("/home", mainController.index)
 
+router.get('/pruebaSesh', function(req,res){
+    if (req.session.numberV == undefined) {
+        req.session.numberV = 0;
+    }
+
+    req.session.numberV ++;
+
+    res.send(`Es la sesion numero: ${req.session.numberV}`)
+})
 
 module.exports = router;

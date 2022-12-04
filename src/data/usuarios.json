@@ -52,5 +52,14 @@
   "categoria": "admin",
   "password": "fideo",
   "imagen": "img-usuarios-1669888246839.png"
+ },
+ {
+  "id": 1670112113796,
+  "nombre": "Joaquin",
+  "apellido": "Giannetti",
+  "email": "jq.giannetti@gmail.com",
+  "categoria": "admin",
+  "password": "Monito123.",
+  "imagen": "img-usuarios-1670112113770.jpg"
  }
 ]
