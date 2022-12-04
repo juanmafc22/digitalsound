@@ -6,6 +6,9 @@
         <!-- div con el resto de los iconos alineados a la derecha-->
         </div>
         <div class="header-otrosIconos">
+            <% if (locals.usuario) { %>
+                <p class="header-links"><%= usuario.nombre %></p>
+            <% } %>
             <a class="header-links" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
             <a class="header-links" href="/users/login"><i class="fa-solid fa-right-to-bracket"></i></a>
             <a class="header-links" href="/users/registro"><i class="fa-solid fa-user"></i></a>

@@ -14,7 +14,7 @@ const mainController = {
             return product.destacado == true;
         });
 
-        res.render("index", {destacados});
+        res.render("index", {destacados, usuario : req.session.usuarioLogeado});
     },
 
 };

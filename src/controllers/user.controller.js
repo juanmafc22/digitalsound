@@ -45,25 +45,17 @@ const usersController = {
     processLogin: (req, res) => {
         let resultValidation = validationResult(req);
         let usuarioALogearse
-        // console.log(resultValidation)
 
         if (resultValidation.errors.length > 0) {
-            // console.log('Hubo errores')
             return res.render('users/login', {
                 errors: resultValidation.mapped()
             })
         }
         else {
-            // console.log('No hubo errores')
             for (i = 0; i < usuarios.length; i++) {
-                // console.log('Recorro el usuario' + i)
                 if (usuarios[i].email == req.body.email) {
-                    // console.log('Coincide el mail')
                     if (req.body.password == usuarios[i].password) {
-                        // console.log('Coincide la pass')
                         usuarioALogearse = usuarios[i]
-                        // console.log('Usuario encontrado')
-                        // console.log(usuarioALogearse);
                         break;
                         
                     }
@@ -71,7 +63,6 @@ const usersController = {
             }
 
             if (usuarioALogearse == undefined) {
-                // console.log('Cred Invalidas')
                 return res.render('users/login', {
                     errors: [{msg: 'Credenciales invalidas'}]
                 })
@@ -81,7 +72,7 @@ const usersController = {
         req.session.usuarioLogeado = usuarioALogearse;
         if (req.body.remember != undefined) {
             res.cookie('recordame',
-            usuarioALoguearse.id,
+            usuarioALogearse.id,
             {maxAge: 60000})
         }
 
