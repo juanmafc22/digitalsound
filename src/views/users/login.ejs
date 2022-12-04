@@ -10,6 +10,11 @@
         <main class="main-formularios">
             <div class="login-block">
                 <h2>Iniciar sesión o <a href="/users/registro">crear una cuenta</a></h2>
+                <% if(locals.errors) { %>
+                    <% for (let error in errors ) { %>
+                        <p class="form-error"><%= errors[error].msg %></p>
+                    <% } %>
+                <% } %>
                 <form action="/users/login" method="POST" class="form-ingreso">
                     <div class="control-formulario">
                         <input type="email" name="email" placeholder=" Email" >

@@ -3,6 +3,9 @@ const path = require('path');
 const multer = require('multer');
 const router = express.Router(); 
 const { body } = require('express-validator')
+const guestMiddleware = require('../middlewares/guestMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware');
+
 
 const userController = require("../controllers/user.controller");
 const usersController = require("../controllers/user.controller");
@@ -70,7 +73,7 @@ router.get("/login", userController.login);
 
 router.post('/login', validationsLogin, usersController.processLogin)
 
-router.get("/registro", userController.registro);
+router.get("/registro", guestMiddleware, userController.registro);
 
 // ruta por GET para acceder a la pagina de administracion de usuarios, solo accesible como
 // usuarios admin

@@ -5,7 +5,9 @@ const mainRouter = require("./routers/main.router");
 const productRouter = require("./routers/product.router");
 const userRouter = require("./routers/user.routers");
 const methodOverride = require("method-override");
+const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const recordameMiddleware = require('./middlewares/recordameMiddleware')
 
 // -------| express()
 const app = express();
@@ -22,9 +24,11 @@ app.listen(serverPort, () => {
 // -------| middlewares (app.use)
 app.use(express.static(path.join(__dirname, "../public")));  // ubicación de la carpeta "public/static" con las img/css/js, etc
 app.use(express.urlencoded({ extended: false})); // preparar la app para que trabaje con metodo POST
+app.use(cookieParser());
 app.use(express.json());
 app.use(methodOverride("_method")); // preparar la app para que trabaje con metodos PUT y DELETE
 app.use(session({secret : 'Digitalsound123!'}))
+app.use(recordameMiddleware);
 
 // -------| template engines: ejs y path a ejs
 app.set("view engine", "ejs");
