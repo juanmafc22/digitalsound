@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { validationResult, body } = require('express-validator')
+const bcrypt = require('bcryptjs')
 
 const usersFilePath = path.join(__dirname, "../data/usuarios.json");
 const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
@@ -54,7 +55,7 @@ const usersController = {
         else {
             for (i = 0; i < usuarios.length; i++) {
                 if (usuarios[i].email == req.body.email) {
-                    if (req.body.password == usuarios[i].password) {
+                    if (bcrypt.compareSync(req.body.password, usuarios[i].password)) {
                         usuarioALogearse = usuarios[i]
                         break;
                         
@@ -108,7 +109,7 @@ const usersController = {
             "apellido": req.body.apellido,
             "email": req.body.email,
             "categoria": req.body.categoria,
-            "password": req.body.password,
+            "password": bcrypt.hashSync(req.body.password, 10),
             "imagen": req.file.filename
         };
 

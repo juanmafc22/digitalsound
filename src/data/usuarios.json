@@ -61,5 +61,14 @@
   "categoria": "admin",
   "password": "Monito123.",
   "imagen": "img-usuarios-1670112113770.jpg"
+ },
+ {
+  "id": 1670183464711,
+  "nombre": "Pepe",
+  "apellido": "Argento",
+  "email": "pepea@fatiga.com",
+  "categoria": "admin",
+  "password": "$2a$10$o7v4SkWbr3iThnaV9mfwrO9EhAtW.9Raq0IOQcqd9npKDh8Mnrr2.",
+  "imagen": "img-usuarios-1670183464708.jpg"
  }
 ]
