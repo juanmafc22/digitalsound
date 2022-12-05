@@ -5,6 +5,8 @@ const router = express.Router();
 
 const productController = require("../controllers/product.controller");
 
+const authMiddleware = require('../middlewares/authMiddleware');
+
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
         cb(null, 'public/img');
@@ -27,8 +29,8 @@ router.get("/categoria/:id", productController.categoria);
 // Ruta para el producto que viene por ruta parametrizada con req.params ID
 router.get("/detalle/:id", productController.item);
 
-// Ruta para el carrito de compras
-router.get("/carrito", productController.carrito);
+// Ruta para el carrito de compras. Solo accesible a usuarios logeados.
+router.get("/carrito", authMiddleware, productController.carrito);
 
 // Ruta para el landing page del ABM de productos
 router.get("/landing-abm", productController.abm);

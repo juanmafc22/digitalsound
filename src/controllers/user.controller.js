@@ -9,6 +9,7 @@ const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 const usersController = {
 
+
     registro: (req, res) => {
 
         res.render("users/registro")

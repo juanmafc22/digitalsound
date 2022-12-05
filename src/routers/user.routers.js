@@ -27,22 +27,22 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+// GET y POST para el login. Solo accesible a usuarios no logeados
 router.get("/login", guestMiddleware, userController.login);
 
 router.post('/login', validationsLogin, userController.processLogin)
 
+// GET y POST para que un usuario nuevo se registre. Solo accesible a usuarios no logeados
 router.get("/registro", guestMiddleware, userController.registro);
 
 router.post("/registro", guestMiddleware, validationUserRegister, userController.creacionUsuario);
 
-// ruta por GET para acceder a la pagina de administracion de usuarios, solo accesible como
-// usuarios admin
+// GET para acceder a la pagina de administracion de usuarios, solo accesible como usuarios admin
 router.get("/abm-usuario", userController.admin)
 
-// ruta GET para acceder al formularo de creacion de usuario admin
+// GET y POST para acceder al formularo de creacion de usuario admin
 router.get("/alta-usuario", userController.formulario);
 
-// ruta POST para dar de alta el nuevo usuario admin
 router.post("/alta-usuario", upload.single("foto"), validationAdminRegister, userController.creacionAdmin);
 
 module.exports = router;
