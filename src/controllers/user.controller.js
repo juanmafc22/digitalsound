@@ -17,24 +17,30 @@ const usersController = {
     // POST para crear un usuario nuevo
 
     creacionUsuario: (req, res) => {
+        const resultValidation = validationResult(req);
 
-        let newUsuario = {
+        if (resultValidation.errors.length > 0) {
+            return res.render("users/registro", {
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            })
+        }
+
+        let newUser = {
             "id": Date.now(),
             "nombre": req.body.nombre,
             "apellido": req.body.apellido,
             "email": req.body.email,
-            //"categoria": "usuario",
-            "password": req.body.contraseña,
-            //"imagen": "img-usuarios-1666987149191.png" 
-
-           
+            "categoria": "usuario",
+            "password": bcrypt.hashSync(req.body.password, 10),
+            "imagen": null
         };
 
-        usuarios.push(newUsuario);
+        usuarios.push(newUser);
 
-        fs.writeFileSync(usuariosFilePath, JSON.stringify(usuario, null, " "));
+        fs.writeFileSync(usersFilePath, JSON.stringify(usuarios, null, " "));
         
-        res.redirect("users/login");
+        res.redirect("login");
 
     },
 
@@ -93,7 +99,7 @@ const usersController = {
     },
 
     // Peticion por POST que crea el usuario desde ABM
-    creacion: (req, res) => {
+    creacionAdmin: (req, res) => {
         const resultValidation = validationResult(req);
 
         if (resultValidation.errors.length > 0) {

@@ -70,5 +70,14 @@
   "categoria": "admin",
   "password": "$2a$10$o7v4SkWbr3iThnaV9mfwrO9EhAtW.9Raq0IOQcqd9npKDh8Mnrr2.",
   "imagen": "img-usuarios-1670183464708.jpg"
+ },
+ {
+  "id": 1670206320569,
+  "nombre": "Catalina",
+  "apellido": "Lagrande",
+  "email": "catarom@rusia.com",
+  "categoria": "usuario",
+  "password": "$2a$10$iknYrzN9bNZjBAQL95kUseJZyjyZvkfhYMnbxIksGNtz4ZxFU0lQK",
+  "imagen": null
  }
 ]

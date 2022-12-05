@@ -10,7 +10,7 @@ const authMiddleware = require('../middlewares/authMiddleware');
 const userController = require("../controllers/user.controller");
 const usersController = require("../controllers/user.controller");
 
-const validations = [
+const validationsAdmin = [
     body('nombre').notEmpty().withMessage('Necesitas completar tu nombre'),
     body('apellido').notEmpty().withMessage('Necesitas completar tu apellido'),
     body('email')
@@ -47,6 +47,27 @@ const validations = [
     })
 ]
 
+const validationsUser = [
+    body('nombre').notEmpty().withMessage('Necesitas completar tu nombre'),
+    body('apellido').notEmpty().withMessage('Necesitas completar tu apellido'),
+    body('email')
+        .notEmpty().withMessage('Necesitas ingresar un email').bail()
+        .isEmail().withMessage('Necesitas ingresar un email valido'),
+    body('password')
+        .notEmpty().withMessage('Necesitas ingresar una contraseña').bail()
+        .isStrongPassword().withMessage('La contraseña necesita al menos: 8 char, 1 num, 1 may, 1 min, 1 simbolo'),
+    body('password2')
+        .notEmpty().withMessage('Necesitas repetir la constraseña').bail()
+        .custom((value, { req }) => {
+            let oldPass = req.body.password;
+            if (oldPass != value) {
+                throw new Error('Las contraseñas no coinciden')
+            }
+            
+            return true
+        })
+]
+
 const validationsLogin = [
     body('email')
         .notEmpty().withMessage('Ingrese su email').bail()
@@ -75,6 +96,8 @@ router.post('/login', validationsLogin, usersController.processLogin)
 
 router.get("/registro", guestMiddleware, userController.registro);
 
+router.post("/registro", guestMiddleware, validationsUser, userController.creacionUsuario);
+
 // ruta por GET para acceder a la pagina de administracion de usuarios, solo accesible como
 // usuarios admin
 router.get("/abm-usuario", userController.admin)
@@ -83,7 +106,7 @@ router.get("/abm-usuario", userController.admin)
 router.get("/alta-usuario", userController.formulario);
 
 // ruta POST para dar de alta el nuevo usuario admin
-router.post("/alta-usuario", upload.single("foto"), validations, userController.creacion);
+router.post("/alta-usuario", upload.single("foto"), validationsAdmin, userController.creacionAdmin);
 
 module.exports = router;
 

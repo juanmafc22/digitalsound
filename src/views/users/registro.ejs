@@ -12,25 +12,26 @@
                 <div class="login-block">
                     <h2>¡Crea una cuenta!</h2>
                     <p class="legend legend-register">Crear una cuenta es rápido, fácil y gratis! Con ella vas a poder acceder a todas las facilidades que tenemos para ofrecerte</p>
-                    <form action="/users" method="POST" class="form-ingreso">
-                        <!--<div class="control-formulario control-formulario--name-surname">
-                            <input placeholder="Nombre">
-                            <input placeholder="Apellido">
-                        </div> Formulario con Nombre y Apellido en misma linea -->
+                    <% if(locals.errors) { %>
+                        <% for (let error in errors ) { %>
+                            <p class="form-error"><%= errors[error].msg %></p>
+                        <% } %>
+                    <% } %>
+                    <form action="/users/registro" method="POST" class="form-ingreso">
                         <div class="control-formulario">
-                            <input placeholder=" Nombre" name = "nombre" id = "nombre">
+                            <input type='text' placeholder="Nombre" name = "nombre" id = "nombre" value="<%= locals.oldData ? oldData.nombre : null %>">
                         </div>
                         <div class="control-formulario">
-                            <input placeholder=" Apellido" name = "apellido" id = "apellido">
+                            <input type='text' placeholder=" Apellido" name = "apellido" id = "apellido" value="<%= locals.oldData ? oldData.apellido : null %>">
                         </div>
                         <div class="control-formulario">
-                            <input placeholder=" Email" name = "email" id = "email">
+                            <input type='email' placeholder=" Email" name = "email" id = "email" value="<%= locals.oldData ? oldData.email : null %>">
                         </div>
                         <div class="control-formulario">
-                            <input placeholder=" Contraseña" name = "contraseña" id = "contraseña">
+                            <input type='password' placeholder=" Contraseña" name = "password" id = "password">
                         </div>
                         <div class="control-formulario">
-                            <input placeholder=" Repetir contraseña">
+                            <input type='password' placeholder="Repetir contraseña" name = "password2" id = "password2">
                         </div>
                         <button type="submit" class="button button--submit">Crear cuenta</button>
                         </form>
