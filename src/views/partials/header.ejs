@@ -25,6 +25,11 @@
             <a href="#">Marcas</a> |
             <a href="/productos/nuevos-ingresos">Nuevos Ingresos</a> |
             <a href="/productos/usados">Usados</a>
+            <% if (locals.usuario) { %>
+                <% if(usuario.categoria == "admin") { %>
+                    | <a style="font-weight: bold" href="/productos/abm-productos">Modo ADMIN</a> 
+                <% } else { null } %>
+            <% } %>
         </p>
     </div>
     <!-- div para el logo -->

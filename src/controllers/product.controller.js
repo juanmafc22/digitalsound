@@ -21,7 +21,7 @@ const productsController = {
             return product.categoria == id;
         })
 
-        res.render("products/categoria", {categoria, filtrados});
+        res.render("products/categoria", {categoria, filtrados, usuario : req.session.usuarioLogeado});
     },
 
     // Response para el producto/item que viene por ruta parametrizada con req.params ID
@@ -33,39 +33,22 @@ const productsController = {
             return product.id == id;
         })[0]
 
-        res.render("products/detalle-producto", {producto})
+        res.render("products/detalle-producto", {producto, usuario : req.session.usuarioLogeado})
     },
     
     // Response para el carrito de compras 
     carrito: (req, res) => {
-        res.render("products/carrito")
+        res.render("products/carrito", {usuario : req.session.usuarioLogeado})
     },
 
     // Response para la pag de ABM de productos 
     abm: (req, res) => {
-
-        // let guitarras = products.filter (product => {
-        //     return product.categoria == 1;
-        // });
-
-        // let baterias = products.filter (product => {
-        //     return product.categoria == 2;
-        // });
-
-        // let amplificadores = products.filter (product => {
-        //     return product.categoria == 3;
-        // });
-
-        // let accesorios = products.filter (product => {
-        //     return product.categoria == 4;
-        // });
-
-        res.render("products/abm-producto", {products, categories});
+        res.render("products/abm-producto", {products, categories, usuario : req.session.usuarioLogeado});
     },
 
     // Peticon GET para acceder al formulario de creacion de productos
     formulario: (req, res) => {
-        res.render("products/alta-producto", {categories});
+        res.render("products/alta-producto", {categories, usuario : req.session.usuarioLogeado});
     },
 
     // POST para crear un producto nuevo
@@ -98,7 +81,7 @@ const productsController = {
             return product.id == id;
         })[0]
 
-        res.render("products/baja-producto", {producto});
+        res.render("products/baja-producto", {producto, usuario : req.session.usuarioLogeado});
     },
 
     eliminar: (req,res) => {
@@ -119,7 +102,7 @@ const productsController = {
             return product.id == id
         })
 
-        res.render("products/edicion-producto", {editable, categories});
+        res.render("products/edicion-producto", {editable, categories, usuario : req.session.usuarioLogeado});
     },
 
     confirmarEdicion: (req, res) => {
@@ -161,7 +144,7 @@ const productsController = {
                 return product;
         }})
 
-        res.render("products/nuevos-ingresos", {nuevosIngresos, categories});
+        res.render("products/nuevos-ingresos", {nuevosIngresos, categories, usuario : req.session.usuarioLogeado});
     },
 
     // Response para accedor a los "usados"
@@ -173,7 +156,7 @@ const productsController = {
                 return product;
         }})
 
-        res.render("products/usados", {productosUsados, categories});
+        res.render("products/usados", {productosUsados, categories, usuario : req.session.usuarioLogeado});
     },
 };
 

@@ -90,13 +90,13 @@ const usersController = {
     // peticion por GET para acceder a la pagina de admin de usuarios
     admin: (req, res) => {
 
-        res.render("users/abm-usuario", {usuarios});
+        res.render("users/abm-usuario", {usuarios, usuario : req.session.usuarioLogeado});
     },
 
     // peticion por GET que muestra el formulario de creacion de usuario
     formulario: (req, res) => {
 
-        res.render("users/alta-usuario");
+        res.render("users/alta-usuario", {usuario : req.session.usuarioLogeado});
     },
 
     // Peticion por POST que crea el usuario desde ABM

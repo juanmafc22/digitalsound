@@ -13,7 +13,7 @@ const mainController = {
 
             return product.destacado == true;
         });
-
+        
         res.render("index", {destacados, usuario : req.session.usuarioLogeado});
     },
 

@@ -6,6 +6,7 @@ const router = express.Router();
 const productController = require("../controllers/product.controller");
 
 const authMiddleware = require('../middlewares/authMiddleware');
+const adminMiddleware = require('../middlewares/adminMiddleware');
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -33,22 +34,22 @@ router.get("/detalle/:id", productController.item);
 router.get("/carrito", authMiddleware, productController.carrito);
 
 // Ruta para el landing page del ABM de productos
-router.get("/landing-abm", productController.abm);
+router.get("/abm-productos", adminMiddleware, productController.abm);
 
 // Ruta GET para acceder el fomulario de creacion de productos
-router.get("/creacion-producto", productController.formulario);
+router.get("/creacion-producto", adminMiddleware, productController.formulario);
 
 // Ruta para el la pag de creacion de productos, viene por POST del landing
 router.post("/creacion-producto", upload.single('fotoProd'), productController.creacion);
 
 // Ruta GET para acceder a la confirmacion de baja de productos
-router.get("/baja-producto/:id", productController.confirmarBaja);
+router.get("/baja-producto/:id", adminMiddleware, productController.confirmarBaja);
 
 // Ruta para el la pag de baja de productos, viene por POST del landing
 router.post("/baja-producto/:id", productController.eliminar);
 
 // Ruta para el la pag de edicion de productos, viene por POST del landing
-router.get("/editar/:id", productController.editar);
+router.get("/editar/:id", adminMiddleware, productController.editar);
 
 // Ruta para el la pag de edicion de productos, viene por POST del landing
 router.post("/editar/:id",  upload.single('fotoProd'), productController.confirmarEdicion);

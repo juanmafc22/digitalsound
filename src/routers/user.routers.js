@@ -6,6 +6,7 @@ const router = express.Router();
 const { body } = require('express-validator')
 
 const userController = require("../controllers/user.controller");
+const adminMiddleware = require('../middlewares/adminMiddleware');
 
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
@@ -41,10 +42,10 @@ router.get("/registro", guestMiddleware, userController.registro);
 router.post("/registro", guestMiddleware, validationUserRegister, userController.creacionUsuario);
 
 // GET para acceder a la pagina de administracion de usuarios, solo accesible como usuarios admin
-router.get("/abm-usuario", userController.admin)
+router.get("/abm-usuarios", adminMiddleware, userController.admin)
 
 // GET y POST para acceder al formularo de creacion de usuario admin
-router.get("/alta-usuario", userController.formulario);
+router.get("/alta-usuario", adminMiddleware, userController.formulario);
 
 router.post("/alta-usuario",  upload.single("foto"), validationAdminRegister, userController.creacionAdmin);
 

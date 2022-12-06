@@ -9,6 +9,9 @@
             MÓDULO ADMIN
         </div>
         <div class="header-otrosIconos-admin">
+            <% if (locals.usuario) { %>
+                <p class="header-links"><%= usuario.nombre %></p>
+            <% } %>
             <a class="header-links" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
             <a class="header-links" href="#"><i class="fa-solid fa-user"></i></a>
             <a class="header-links" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -28,7 +31,7 @@
     </div>
     <div class="header-navDesktop-bottomNav">
         <p class="header-navText">
-            <a href="/productos/landing-abm">ABM de productos</a> | <a href="/users/landing-abm">ABM de usuarios</a>
+            <a href="/productos/abm-productos">ABM de productos</a> | <a href="/users/abm-usuarios">ABM de usuarios</a>
         </p>
     </div>
     <!-- div para el logo -->
