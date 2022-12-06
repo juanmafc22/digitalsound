@@ -23,6 +23,9 @@ const storage = multer.diskStorage({
 
         cb(null, newFileName);
     }
+    // fileFilter: function(req, file, cb) {
+
+    // }
 });
 
 const upload = multer({ storage: storage });
@@ -43,7 +46,7 @@ router.get("/abm-usuario", userController.admin)
 // GET y POST para acceder al formularo de creacion de usuario admin
 router.get("/alta-usuario", userController.formulario);
 
-router.post("/alta-usuario", upload.single("foto"), validationAdminRegister, userController.creacionAdmin);
+router.post("/alta-usuario",  upload.single("foto"), validationAdminRegister, userController.creacionAdmin);
 
 module.exports = router;
 
