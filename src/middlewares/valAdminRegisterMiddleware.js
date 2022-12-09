@@ -8,7 +8,7 @@ module.exports = [
         .isEmail().withMessage('Necesitas ingresar un email valido'),
     body('password')
         .notEmpty().withMessage('Necesitas ingresar una contraseña').bail()
-        .isStrongPassword().withMessage('La contraseña necesita al menos: 8 char, 1 num, 1 may, 1 min, 1 simbolo'),
+        .isStrongPassword().withMessage('La contraseña necesita: 8 Caracteres, 1 Número, 1 Mayusc, 1 Minusc, 1 Símbolo'),
     body('password2')
         .notEmpty().withMessage('Necesitas repetir la constraseña').bail()
         .custom((value, { req }) => {
