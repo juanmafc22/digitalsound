@@ -19,22 +19,22 @@
           <form action="" method="POST" enctype="multipart/form-data">
             <div class="div-select-alta">
               <label class="label-alta-prod" for="nombreProd">Nombre del producto</label>
-              <input class="input-abm" type="text" name="nombreProd" value="<%= editable.titulo %>" required/>
+              <input class="input-abm" type="text" name="nombreProd" value="<%= editable.product_name %>" required/>
             </div>
             <div class="div-select-alta">
               <label class="label-alta-prod" for="precioProd">Precio del producto</label>
-              <input class="input-abm-precio" type="text" name="precioProd" value="<%= editable.precio %>" required/>
+              <input class="input-abm-precio" type="text" name="precioProd" value="<%= editable.product_price %>" required/>
             </div>
             <div class="div-select-alta">
               <label class="label-alta-prod" for="subtitulProd">Subtitulo del producto</label>
-              <input class="input-abm" type="text" name="subtituloProd" value="<%= editable.subtitulo %>" required/>
+              <input class="input-abm" type="text" name="subtituloProd" value="<%= editable.product_description_short %>" required/>
             </div>
             <div class="div-select-alta">
               <label class="label-alta-prod" for="categoriaProd">Categoria</label>
               <select class="input-abm" name="categoriaProd" required>
               <% categories.forEach ( categorie => { %>
-                <% if (categorie.id == editable.categoria) { %>
-                        <option value="<%= categorie.id %>" selected="selected"><%= categorie.name %></option>
+                <% if (categorie.id == editable.category_id) { %>
+                        <option value="<%= categorie.id %>" selected="selected"><%= categorie.category_name %></option>
                 <% } else { %>
                         <option value="<%= categorie.id %>"><%= categorie.name %></option>
                 <% } %>
@@ -46,13 +46,13 @@
               <input class="input-abm" type="file" name="fotoProd" accept=".jpg, .jpeg, .png"/>
             </div>
             <div class="div-select">
-              <label class="label-alta-prod" for="nuevo-prod">El producto es nuevo?</label>
+              <label class="label-alta-prod" for="nuevo-prod">El producto es usado?</label>
               <span class="texto-span">Si</span>
               <input class="abm-radiobutton" type="radio" name="nuevo" value="1"
-              <% if (editable.nuevo == true) {%> checked <%}  %> />
+              <% if (editable.flag_used_product == true) {%> checked <%}  %> />
               <span class="texto-span">No</span>
               <input class="abm-radiobutton" type="radio" name="nuevo" value="0"
-                <% if (editable.nuevo == false) {%> checked <%}  %> />
+                <% if (editable.flag_used_product == false) {%> checked <%}  %> />
             </div>
             <div class="div-select">
               <label class="label-alta-prod" for="destacado-prod"
@@ -64,7 +64,7 @@
                 type="radio"
                 name="lanzamiento"
                 value="1"
-                <% if (editable.destacado == true) {%>
+                <% if (editable.flag_hot_product == true) {%>
                     checked
                   <%}  %> 
               /><span class="texto-span">No</span
@@ -73,14 +73,14 @@
                 type="radio"
                 name="viejo"
                 value="0"
-                <% if (editable.destacado == false) {%>
+                <% if (editable.flag_hot_product == false) {%>
                     checked
                   <%}  %> 
               />
             </div>
             <div class="div-select-alta">
               <label class="label-alta-prod" for="descripcionProd">Información adicional</label>
-              <textarea class="textarea-abm" name="descripcionProd" equired><%= editable.descripcion %></textarea>
+              <textarea class="textarea-abm" name="descripcionProd" equired><%= editable.product_description_long %></textarea>
             </div>
             <div class="div-select">
               <button class="boton-abm" type="submit">MODIFICAR</button>

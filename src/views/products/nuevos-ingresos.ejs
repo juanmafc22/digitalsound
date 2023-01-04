@@ -14,28 +14,28 @@
         </section>
         <!-- Refactor -->
         <% categories.forEach(categorie => { %>
-            <% let nuevosIngresosByCat = nuevosIngresos.filter(nuevoIngreso => {if(nuevoIngreso.categoria == categorie.id) return nuevoIngreso}) %>
+            <% let nuevosIngresosByCat = nuevosIngresos.filter(nuevoIngreso => {if(nuevoIngreso.category_id == categorie.id) return nuevoIngreso}) %>
             <% if (nuevosIngresosByCat.length > 0) { %>
                 <h2 class="main-titulo-destacado">
-                    <%= categorie.name %>
+                    <%= categorie.category_name %>
                 </h2>
                 <section class="prods-destacados">
                     <% nuevosIngresosByCat.forEach (ingreso => { %> 
                         <article class="articulo-destacado">
                             <div class="div-interno-art-destacado">
-                                <p class="prod-dectacado__titulo"> <%= ingreso.titulo %> </p>
+                                <p class="prod-dectacado__titulo"> <%= ingreso.product_name %> </p>
                             </div>
                             <div class="div-interno-art-destacado">
                                 <p class="prod-destacado__detalle">
-                                    <%= ingreso.subtitulo %>
+                                    <%= ingreso.product_description_short %>
                                 </p>
                             </div>
                             <div class="div-interno-art-destacado">
-                                <p class="prod-dectacado__precio">$<%= ingreso.precio %> </p>
+                                <p class="prod-dectacado__precio">$<%= ingreso.product_price %> </p>
                                 <a class="prod-destacado__link" href="/productos/detalle/<%= ingreso.id %>"><p class="prod-destacado__button">Ver detalle</p></a>
                             </div>
                             <div class="div-imagen-prod">
-                                <img class="prod-destacado__img" src="/img/products/<%= ingreso.imagen %> ">
+                                <img class="prod-destacado__img" src="/img/products/<%= ingreso.product_images %> ">
                             </div>
                         </article>
                     <% }) %>

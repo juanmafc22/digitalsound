@@ -2,8 +2,8 @@ const fs = require("fs");
 const path = require("path");
 let db = require("../../database/models")
 
-const prodsFilePath = path.join(__dirname, "../data/productos-data-base.json");
-const categoriesFilePath = path.join(__dirname, "../data/categorias.json");
+// const prodsFilePath = path.join(__dirname, "../data/productos-data-base.json");
+// const categoriesFilePath = path.join(__dirname, "../data/categorias.json");
 // const products = JSON.parse(fs.readFileSync(prodsFilePath, 'utf-8'));
 // const categories = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
 
@@ -70,8 +70,8 @@ const productsController = {
             product_price: parseInt(req.body.precioProd),
             product_images: req.file.filename,
             flag_hot_product: req.body.lanzamiento == '1' ? true:false,
-            flag_used_product: req.body.nuevo == '0' ? true:false,
-            category_id: parseInt(req.body.categoriaProd),
+            flag_used_product: req.body.usado == '1' ? true:false,
+            category_id: parseInt(req.body.categoriaProd)
         })
         .then(function() {
             let redirectPath = 'categoria/'+req.body.categoriaProd.toString()
@@ -121,41 +121,58 @@ const productsController = {
 
     // Reponse para editar de un producto
     editar: (req, res) => {
-        let id = req.params.id
-        let editable = products.find( product => {
-            return product.id == id
-        })
+        promesaCategoria = db.Categoria.findAll()
+        promesaProductos = db.Producto.findByPk(req.params.id)
 
-        res.render("products/edicion-producto", {editable, categories, usuario : req.session.usuarioLogeado});
+        Promise.all([promesaCategoria,promesaProductos])
+        .then(function([categories,editable]) {
+            res.render("products/edicion-producto", {editable, categories, usuario : req.session.usuarioLogeado});
+        })
     },
 
     confirmarEdicion: (req, res) => {
-
-        let producto = products.find( product => {
-            return product.id == req.params.id
-        });    
-
-        let prodEditado = {
-            "id": producto.id,
-            "titulo": req.body.nombreProd,
-            "categoria": parseInt(req.body.categoriaProd),
-            "precio": parseInt(req.body.precioProd),
-            "subtitulo": req.body.subtituloProd,
-            "imagen": !req.file ? producto.imagen: req.file.filename,
-            "nuevo": req.body.nuevo == '1' ? true:false,
-            "destacado": req.body.lanzamiento == '1' ? true:false,
-            "descripcion": req.body.descripcionProd
-        };
-
-        let productsReplace = products.filter( product => {
-            return product.id != parseInt(producto.id);
+        promesaProductos = db.Producto.findByPk(req.params.id)
+        .then(producto => {
+            db.Producto.update({
+                product_name: req.body.nombreProd,
+                product_description_short: req.body.subtituloProd,
+                product_description_long : req.body.descripcionProd,
+                product_price: parseInt(req.body.precioProd),
+                product_images: !req.file ? producto.product_images: req.file.filename,
+                flag_hot_product: req.body.lanzamiento == '1' ? true:false,
+                flag_used_product: req.body.usado == '1' ? true:false,
+                category_id: parseInt(req.body.categoriaProd)
+            }, {
+                where: {id : req.params.id}
+            })
         })
+        .then(() => {
+            res.redirect('/productos/abm-productos')
+        })
+        
+        // let producto = products.find( product => {
+        //     return product.id == req.params.id
+        // });    
 
-        productsReplace.push(prodEditado)
+        // let prodEditado = {
+        //     "id": producto.id,
+        //     "titulo": req.body.nombreProd,
+        //     "categoria": parseInt(req.body.categoriaProd),
+        //     "precio": parseInt(req.body.precioProd),
+        //     "subtitulo": req.body.subtituloProd,
+        //     "imagen": !req.file ? producto.imagen: req.file.filename,
+        //     "nuevo": req.body.nuevo == '1' ? true:false,
+        //     "destacado": req.body.lanzamiento == '1' ? true:false,
+        //     "descripcion": req.body.descripcionProd
+        // };
 
-        fs.writeFileSync(prodsFilePath, JSON.stringify(productsReplace, null, " "))
+        // let productsReplace = products.filter( product => {
+        //     return product.id != parseInt(producto.id);
+        // })
 
-        res.redirect('/productos/abm-producto')
+        // productsReplace.push(prodEditado)
+
+        // fs.writeFileSync(prodsFilePath, JSON.stringify(productsReplace, null, " "))
 
     },
 
@@ -163,24 +180,31 @@ const productsController = {
     nuevosIngresos:  (req, res) => {
 
         // Refactor. Se miran todos los nuevos ingresos, luego se agrupa por cats en ejs.
-        let nuevosIngresos = products.filter(product => {
-            if (product.destacado == true) {
-                return product;
-        }})
+        promesaCategoria = db.Categoria.findAll()
+        promesaProductos = db.Producto.findAll({
+            where: {flag_hot_product: 1}
+        })
 
-        res.render("products/nuevos-ingresos", {nuevosIngresos, categories, usuario : req.session.usuarioLogeado});
+        Promise.all([promesaCategoria,promesaProductos])
+        .then(function([categories,nuevosIngresos]) {
+            res.render("products/nuevos-ingresos", {nuevosIngresos, categories, usuario : req.session.usuarioLogeado}); 
+        })
+
     },
 
     // Response para accedor a los "usados"
     usados:  (req, res) => {
 
         // Refactor. Se miran todos los usados, luego se agrupa por cats en ejs.
-        let productosUsados = products.filter(product => {
-            if (product.nuevo == false) {
-                return product;
-        }})
+        promesaCategoria = db.Categoria.findAll()
+        promesaProductos = db.Producto.findAll({
+            where: {flag_used_product: 1}
+        })
 
-        res.render("products/usados", {productosUsados, categories, usuario : req.session.usuarioLogeado});
+        Promise.all([promesaCategoria,promesaProductos])
+        .then(function([categories,productosUsados]) {
+            res.render("products/usados", {productosUsados, categories, usuario : req.session.usuarioLogeado});
+        })
     },
 };
 
