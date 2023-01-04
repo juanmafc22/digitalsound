@@ -1,22 +1,22 @@
 modules.export = {
   "development": {
-    "username": "root",
+    "username": "localhost",
     "password": null,
-    "database": "database_development",
+    "database": "digital_sound",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": null,
-    "database": "database_test",
+    "database": "localhost",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": null,
-    "database": "database_production",
+    "database": "localhost",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }

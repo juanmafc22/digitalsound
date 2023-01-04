@@ -16,7 +16,10 @@ module.exports = function(sequelize, dataTypes) {
             type: dataTypes.STRING
         },
         product_price: {
-            type: dataTypes.FLOAT(9,2)
+            type: dataTypes.FLOAT(11,2)
+        },
+        product_images: {
+            type: dataTypes.STRING
         },
         flag_new_product: {
             type: dataTypes.INTEGER
