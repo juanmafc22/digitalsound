@@ -1,28 +1,32 @@
 const fs = require("fs");
 const path = require("path");
-//const db = require("../database/models")
+let db = require("../../database/models")
 
 const prodsFilePath = path.join(__dirname, "../data/productos-data-base.json");
 const categoriesFilePath = path.join(__dirname, "../data/categorias.json");
 const products = JSON.parse(fs.readFileSync(prodsFilePath, 'utf-8'));
-const categories = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
+// const categories = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
 
 const productsController = {
 
     // Response de la sección Guitarras y Bajos
     categoria: (req, res) => {
 
-        let id = req.params.id
-
-        let categoria = categories.filter( categorie => {
-            return categorie.id == id;
-        })[0]
-
-        let filtrados = products.filter ( product => {
-            return product.categoria == id;
+        db.Categoria.findAll()
+        .then(categories => {
+            let id = req.params.id
+    
+            let categoria = categories.filter( categorie => {
+                return categorie.id == id;
+            })[0]
+    
+            let filtrados = products.filter ( product => {
+                return product.categoria == id;
+            })
+    
+            res.render("products/categoria", {categoria, filtrados, usuario : req.session.usuarioLogeado});
         })
 
-        res.render("products/categoria", {categoria, filtrados, usuario : req.session.usuarioLogeado});
     },
 
     // Response para el producto/item que viene por ruta parametrizada con req.params ID

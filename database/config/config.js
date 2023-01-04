@@ -1,6 +1,6 @@
-modules.export = {
+module.exports = {
   "development": {
-    "username": "localhost",
+    "username": "root",
     "password": null,
     "database": "digital_sound",
     "host": "127.0.0.1",

@@ -13,10 +13,10 @@ module.exports = function(sequelize, dataTypes) {
             type: dataTypes.INTEGER
         },
         cart_date_created: {
-            type: dataTypes.DATETIME
+            type: dataTypes.DATE
         },
         cart_date_checkout: {
-            type: dataTypes.DATETIME
+            type: dataTypes.DATE
         }
 
     };
