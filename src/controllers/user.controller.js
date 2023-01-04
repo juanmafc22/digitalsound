@@ -81,7 +81,7 @@ const usersController = {
         if (req.body.remember != undefined) {
             res.cookie('recordame',
             usuarioALogearse.id,
-            {maxAge: 60000})
+            {maxAge: 1000*60*60})
         }
 
         res.redirect('/index')

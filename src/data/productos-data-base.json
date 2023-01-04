@@ -1,7 +1,7 @@
 [
     {
         "id": 1666985756083,
-        "titulo": "Guitarra eléctrica Les Paul Standard",
+        "titulo": "Guitarra Eléctrica Les Paul Standard",
         "categoria": 1,
         "precio": 74800,
         "subtitulo": "Este es un subtitulo de la guitarra con ID que termina en 083",
@@ -12,7 +12,7 @@
     },
     {
         "id": 1666986321968,
-        "titulo": "Guit. Elec Jazzmaster",
+        "titulo": "Guitarra Eléctrica Jazzmaster",
         "categoria": 1,
         "precio": 300000,
         "subtitulo": "Subtitulo num 3 Oreo Ipsum",

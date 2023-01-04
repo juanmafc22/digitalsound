@@ -37,7 +37,7 @@
         </section> -->
 
         <div class="div-titulo-boton-comprar">
-            <h2 class="titulo-detalle-prod"><%= producto.titulo %></h2>
+            <h2 class="titulo-detalle-prod"><%= producto.product_name %></h2>
             <a href="/productos/carrito"><p class="boton-comprar">Comprar</p></a>
         </div>
 
@@ -46,21 +46,21 @@
             <article class="articulo-detalle-desktop">
 
                 <div>
-                    <p class="prod-destacado__precio"> $<%= producto.precio %></p>
+                    <p class="prod-destacado__precio"> $<%= producto.product_price %></p>
                 </div>
 
 
                 <div class="div-interno-art-destacado">
-                    <p class="prod-destacado__titulo-mobile"> <%= producto.subtitulo %></p>
+                    <p class="prod-destacado__titulo-mobile"> <%= producto.product_description_short %></p>
                 </div>
 
                 <div class="art-detalle-desktop-columnas">
                     <div>
-                        <img class="img-detalle-prod" src="/img/products/<%= producto.imagen %>">
+                        <img class="img-detalle-prod" src="/img/products/<%= producto.product_images %>">
                     </div>
                     <div>
                         <p class="texto-detalle-prod">
-                            <%= producto.descripcion %>
+                            <%= producto.product_description_long %>
                         </p>
                     </div>
 

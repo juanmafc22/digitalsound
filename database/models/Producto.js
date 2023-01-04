@@ -12,7 +12,10 @@ module.exports = function(sequelize, dataTypes) {
         product_name : {
             type: dataTypes.STRING
         },
-        product_description : {
+        product_description_short : {
+            type: dataTypes.STRING
+        },
+        product_description_long : {
             type: dataTypes.STRING
         },
         product_price: {
@@ -21,7 +24,7 @@ module.exports = function(sequelize, dataTypes) {
         product_images: {
             type: dataTypes.STRING
         },
-        flag_new_product: {
+        flag_hot_product: {
             type: dataTypes.INTEGER
         },
         flag_used_product: {

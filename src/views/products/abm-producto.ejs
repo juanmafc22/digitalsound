@@ -26,11 +26,11 @@
                 <p class="texto-abm">Elegir un producto para Modificar o Dar de Baja</p>
                 <!-- Refactor -->
                 <% categories.forEach(categorie => { %>
-                    <% let prodsByCat = products.filter(product => {if(product.categoria == categorie.id) return product}) %>
+                    <% let prodsByCat = products.filter(product => {if(product.category_id == categorie.id) return product}) %>
                     <% if (prodsByCat.length > 0) { %>
-                        <p><%= categorie.name %><br>
+                        <p><%= categorie.category_name %><br>
                         <% prodsByCat.forEach (prod => { %> 
-                                <a href="/productos/editar/<%= prod.id %>">Editar</a> | <a href="/productos/baja-producto/<%= prod.id %>">Eliminar</a> | ID <%= prod.id %> | <%= prod.titulo %> <br>
+                                <a href="/productos/editar/<%= prod.id %>">Editar</a> | <a href="/productos/baja-producto/<%= prod.id %>">Eliminar</a> | ID <%= prod.id %> | <%= prod.product_name %> <br>
                                 <% }) %> 
                             </p>
                             <br>

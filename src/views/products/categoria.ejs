@@ -22,19 +22,19 @@
             <% filtrados.forEach (filtrado => { %> 
             <article class="articulo-destacado">
                 <div class="div-interno-art-destacado">
-                    <p class="prod-dectacado__titulo"> <%= filtrado.titulo %> </p>
+                    <p class="prod-dectacado__titulo"> <%= filtrado.product_name %> </p>
                 </div>
                 <div class="div-interno-art-destacado">
                     <p class="prod-destacado__detalle">
-                        <%= filtrado.subtitulo %>
+                        <%= filtrado.product_description_short %>
                     </p>
                 </div>
                 <div class="div-interno-art-destacado">
-                    <p class="prod-dectacado__precio">$<%= filtrado.precio %> </p>
+                    <p class="prod-dectacado__precio">$<%= filtrado.product_price %> </p>
                     <a class="prod-destacado__link" href="/productos/detalle/<%= filtrado.id %>"><p class="prod-destacado__button">Ver detalle</p></a>
                 </div>
                 <div class="div-imagen-prod">
-                    <img class="prod-destacado__img" src="/img/products/<%= filtrado.imagen %> ">
+                    <img class="prod-destacado__img" src="/img/products/<%= filtrado.product_images %> ">
                 </div>
             </article>
             <% }) %>

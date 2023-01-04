@@ -4,7 +4,7 @@ let db = require("../../database/models")
 
 const prodsFilePath = path.join(__dirname, "../data/productos-data-base.json");
 const categoriesFilePath = path.join(__dirname, "../data/categorias.json");
-const products = JSON.parse(fs.readFileSync(prodsFilePath, 'utf-8'));
+// const products = JSON.parse(fs.readFileSync(prodsFilePath, 'utf-8'));
 // const categories = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
 
 const productsController = {
@@ -12,18 +12,14 @@ const productsController = {
     // Response de la sección Guitarras y Bajos
     categoria: (req, res) => {
 
-        db.Categoria.findAll()
-        .then(categories => {
-            let id = req.params.id
-    
-            let categoria = categories.filter( categorie => {
-                return categorie.id == id;
-            })[0]
-    
-            let filtrados = products.filter ( product => {
-                return product.categoria == id;
-            })
-    
+        let idCategoria = req.params.id
+        promesaCategoria = db.Categoria.findByPk(idCategoria)
+        promesaProductos = db.Producto.findAll({
+            where: {category_id: idCategoria}
+        })
+
+        Promise.all([promesaCategoria,promesaProductos])
+        .then(function([categoria,filtrados]) {    
             res.render("products/categoria", {categoria, filtrados, usuario : req.session.usuarioLogeado});
         })
 
@@ -32,13 +28,11 @@ const productsController = {
     // Response para el producto/item que viene por ruta parametrizada con req.params ID
     item: (req, res) => {
 
-        let id = parseInt(req.params.id);
+        db.Producto.findByPk(req.params.id)
+        .then(producto => {
+            res.render("products/detalle-producto", {producto, usuario : req.session.usuarioLogeado})
+        })
 
-        let producto = products.filter( product => {
-            return product.id == id;
-        })[0]
-
-        res.render("products/detalle-producto", {producto, usuario : req.session.usuarioLogeado})
     },
     
     // Response para el carrito de compras 
@@ -48,56 +42,81 @@ const productsController = {
 
     // Response para la pag de ABM de productos 
     abm: (req, res) => {
-        res.render("products/abm-producto", {products, categories, usuario : req.session.usuarioLogeado});
+        promesaCategoria = db.Categoria.findAll()
+        promesaProductos = db.Producto.findAll()
+
+        Promise.all([promesaCategoria,promesaProductos])
+        .then(function([categories,products]) {    
+            res.render("products/abm-producto", {products, categories, usuario : req.session.usuarioLogeado});
+        })
+
     },
 
     // Peticon GET para acceder al formulario de creacion de productos
     formulario: (req, res) => {
-        res.render("products/alta-producto", {categories, usuario : req.session.usuarioLogeado});
+        db.Categoria.findAll()
+        .then(categories => {
+            res.render("products/alta-producto", {categories, usuario : req.session.usuarioLogeado});
+        })
     },
 
     // POST para crear un producto nuevo
     creacion: (req, res) => {
-        let newProduct = {
-            "id": Date.now(),
-            "titulo": req.body.nombreProd,
-            "categoria": parseInt(req.body.categoriaProd),
-            "precio": parseInt(req.body.precioProd),
-            "subtitulo": req.body.subtituloProd,
-            "imagen": req.file.filename,
-            // "imagen": req.body.fotoProd,
-            "nuevo": req.body.nuevo == '1' ? true:false,
-            "destacado": req.body.lanzamiento == '1' ? true:false,
-            "descripcion": req.body.descripcionProd
-        };
+        
+        db.Producto.create({
+            product_name: req.body.nombreProd,
+            product_description_short: req.body.subtituloProd,
+            product_description_long : req.body.descripcionProd,
+            product_price: parseInt(req.body.precioProd),
+            product_images: req.file.filename,
+            flag_hot_product: req.body.lanzamiento == '1' ? true:false,
+            flag_used_product: req.body.nuevo == '0' ? true:false,
+            category_id: parseInt(req.body.categoriaProd),
+        })
+        .then(function() {
+            let redirectPath = 'categoria/'+req.body.categoriaProd.toString()
+            res.redirect(redirectPath)
+        })
+        // let newProduct = {
+        //     "id": Date.now(),
+        //     "titulo": req.body.nombreProd,
+        //     "categoria": parseInt(req.body.categoriaProd),
+        //     "precio": parseInt(req.body.precioProd),
+        //     "subtitulo": req.body.subtituloProd,
+        //     "imagen": req.file.filename,
+        //     // "imagen": req.body.fotoProd,
+        //     "nuevo": req.body.nuevo == '1' ? true:false,
+        //     "destacado": req.body.lanzamiento == '1' ? true:false,
+        //     "descripcion": req.body.descripcionProd
+        // };
 
-        products.push(newProduct)
+        // products.push(newProduct)
 
-        fs.writeFileSync(prodsFilePath, JSON.stringify(products, null, " "))
+        // fs.writeFileSync(prodsFilePath, JSON.stringify(products, null, " "))
 
-        let redirectPath = 'categoria/'+newProduct.categoria.toString()
-        res.redirect(redirectPath)
     },
 
     // Reponse para baja de un producto
     confirmarBaja: (req, res) => {
-        let id = req.params.id
-        let producto = products.filter( product => {
-            return product.id == id;
-        })[0]
-
-        res.render("products/baja-producto", {producto, usuario : req.session.usuarioLogeado});
+        db.Producto.findByPk(req.params.id)
+        .then(producto => {
+            res.render("products/baja-producto", {producto, usuario : req.session.usuarioLogeado});
+        })
     },
 
     eliminar: (req,res) => {
-        let idToDelete = parseInt(req.params.id)
-        let productsMod = products.filter( product => {
-            return product.id != idToDelete;
+        db.Producto.destroy({
+            where: {id: req.params.id}
         })
+        .then(() => {
+            res.redirect('/productos/abm-productos')
+        })
+        // let idToDelete = parseInt(req.params.id)
+        // let productsMod = products.filter( product => {
+        //     return product.id != idToDelete;
+        // })
 
-        fs.writeFileSync(prodsFilePath, JSON.stringify(productsMod, null, " "))
-
-        res.redirect('/productos/abm-producto')
+        // fs.writeFileSync(prodsFilePath, JSON.stringify(productsMod, null, " "))
     },
 
     // Reponse para editar de un producto
