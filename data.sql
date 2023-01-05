@@ -1,70 +1,6 @@
-DROP DATABASE IF EXISTS digital_sound;
-CREATE DATABASE digital_sound;
-USE digital_sound;
-
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE `users` (
-	`id` int(10) NOT NULL AUTO_INCREMENT,
-    `user_first_name` varchar(100) NOT NULL,
-    `user_last_name` varchar(100) NOT NULL,
-    `user_email` varchar(100) NOT NULL,
-    `user_password` varchar(100) NOT NULL,
-    `user_image` varchar(100),
-    `user_type` varchar(10) NOT NULL,
-	PRIMARY KEY (`id`)
-    -- KEY `users_user_type_id_foreign` (`user_type_id`)
-    -- CONSTRAINT `user_user_type_id_foreign` FOREIGN KEY (`user_type_id`) REFERENCES `profiles` (`id`)
-    );
-    
-INSERT INTO `users` VALUES (1, 'Pepe', 'Argento', 'pepea@fatiga.com', '$2a$10$o7v4SkWbr3iThnaV9mfwrO9EhAtW.9Raq0IOQcqd9npKDh8Mnrr2.', 'img-usuarios-1670183464708.jpg', 'admin'),
+INSERT INTO `users` VALUES 
+(1, 'Pepe', 'Argento', 'pepea@fatiga.com', '$2a$10$o7v4SkWbr3iThnaV9mfwrO9EhAtW.9Raq0IOQcqd9npKDh8Mnrr2.', 'img-usuarios-1670183464708.jpg', 'admin'),
 (2, 'Catalina', 'Lagrande', 'catarom@rusia.com', '$2a$10$iknYrzN9bNZjBAQL95kUseJZyjyZvkfhYMnbxIksGNtz4ZxFU0lQK', null, 'usuario');
-    
-DROP TABLE IF EXISTS `profiles`;
-CREATE TABLE `profiles` (
-	`id` int(10) NOT NULL AUTO_INCREMENT,
-    `user_type_name` varchar(10) NOT NULL,
-    PRIMARY KEY (`id`)
-);
-    
-DROP TABLE IF EXISTS `carts`;
-CREATE TABLE `carts` (
-	`id` int(10) NOT NULL AUTO_INCREMENT,
-    `user_id` int(10) NOT NULL,
-    `flag_is_open` bool NOT NULL,
-    `cart_date_created` datetime NOT NULL,
-    `cart_date_checkout` datetime,
-    PRIMARY KEY (`id`),
-    KEY `cart_user_id_foreign` (`user_id`)
-);
-
-DROP TABLE IF EXISTS `carts_products`;
-CREATE TABLE `carts_products` (
-	`id` int(10) NOT NULL AUTO_INCREMENT,
-    `product_id` int(10) NOT NULL,
-    `cart_id` int(10) NOT NULL,
-    PRIMARY KEY (`id`),
-    KEY `cart_product_product_id_foreign` (`product_id`),
-	KEY `cart_product_cart_id_foreign` (`cart_id`)
-);
-
-DROP TABLE IF EXISTS `products`;
-CREATE TABLE `products` (
-	`id` int(10) NOT NULL AUTO_INCREMENT,
-    `product_name` varchar(100) NOT NULL,
-    `product_description_short` varchar(400) NOT NULL,
-    `product_description_long` varchar(400) NOT NULL,
-    `product_price` decimal(11,2) NOT NULL,
-    `product_images` varchar(400) NOT NULL,
-    `flag_hot_product` bool,
-    `flag_used_product` bool,
-	`category_id` int(10) NOT NULL,
-    `brand_id` int(10),
-    `promotion_id` int(10),
-    PRIMARY KEY (`id`),
-    KEY `product_category_id_foreign` (`category_id`),
-    KEY `product_brand_id_foreign` (`brand_id`),
-    KEY `product_promotion_id_foreign` (`promotion_id`)
-);
 
 INSERT INTO `products` VALUES 
 (1,"Guitarra eléctrica Les Paul Standard","Este es un subtitulo de la guitarra con ID que termina en 083","Quisque lobortis sit amet odio id maximus. Nullam vel augue fringilla, fermentum metus in, aliquam tortor. Curabitur laoreet elit diam, ut varius turpis scelerisque vel. Vestibulum mauris purus, iaculis vitae orci a, consequat porttitor mi. Phasellus quam ante, imperdiet feugiat sem quis, maximus ullamcorper libero.",74800,"img-prod-guiYbaj-1666985430204.png",false,false,1,NULL,NULL),
@@ -80,31 +16,8 @@ INSERT INTO `products` VALUES
 (11,"Cable HDMI Mallado 15 metros","Rosario Central un cable a tierra","Nulla nec pulvinar erat. Donec massa nunc, ullamcorper non tellus a, imperdiet mollis ligula. Pellentesque sit amet enim nec odio malesuada tempus eget in odio. Vestibulum cursus dictum mauris quis maximus. Maecenas nec sem massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. ",1500,"img-prod-acc-1666995556465.png",false,false,4,NULL,NULL),
 (12,"Airiculares Gamer Melon","Cuanto producto gamer!","Donec eget blandit nunc, eu tempus quam. Suspendisse et pretium urna, in aliquam mauris. Duis cursus porttitor magna, id hendrerit mauris porta pretium. Sed sit amet facilisis nunc. ",4500,"img-prod-acc-1666995295439.png",true,true,4,NULL,NULL);
 
-DROP TABLE IF EXISTS `categories`;
-CREATE TABLE `categories` (
-	`id` int(10) NOT NULL AUTO_INCREMENT,
-    `category_name` varchar(50) NOT NULL,
-    PRIMARY KEY (`id`)
-);
-
-INSERT INTO `categories` VALUES (1, 'Guitarras y Bajos'),(2,'Baterias'),(3,'Amplificadores'),(4,'Accesorios');
-
-DROP TABLE IF EXISTS `brands`;
-CREATE TABLE `brands` (
-	`id` int(10) NOT NULL AUTO_INCREMENT,
-    `brand_name` varchar(50) NOT NULL,
-    PRIMARY KEY (`id`)
-);
-
-DROP TABLE IF EXISTS `promotions`;
-CREATE TABLE `promotions` (
-	`id` int(10) NOT NULL AUTO_INCREMENT,
-    `promotion_name` varchar(50) NOT NULL,
-    `promotion_discount_amount` decimal(3,2),
-    PRIMARY KEY (`id`)
-);
- 
-
-
-
-
+INSERT INTO `categories` VALUES 
+(1, 'Guitarras y Bajos'),
+(2,'Baterias'),
+(3,'Amplificadores'),
+(4,'Accesorios');
