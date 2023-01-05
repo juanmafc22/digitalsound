@@ -7,7 +7,7 @@
         </div>
         <div class="header-otrosIconos">
             <% if (locals.usuario) { %>
-                <p class="header-links"><%= usuario.nombre %></p>
+                <p class="header-links"><%= usuario.user_first_name %></p>
             <% } %>
             <a class="header-links" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
             <a class="header-links" href="/users/login"><i class="fa-solid fa-right-to-bracket"></i></a>
@@ -26,7 +26,7 @@
             <a href="/productos/nuevos-ingresos">Nuevos Ingresos</a> |
             <a href="/productos/usados">Usados</a>
             <% if (locals.usuario) { %>
-                <% if(usuario.categoria == "admin") { %>
+                <% if(usuario.user_type == "admin") { %>
                     | <a style="font-weight: bold" href="/productos/abm-productos">Modo ADMIN</a> 
                 <% } else { null } %>
             <% } %>

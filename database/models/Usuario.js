@@ -21,8 +21,11 @@ module.exports = function(sequelize, dataTypes) {
         user_password: {
             type: dataTypes.STRING
         },
-        user_type_id: {
-            type: dataTypes.INTEGER
+        user_image: {
+            type: dataTypes.STRING
+        },
+        user_type: {
+            type: dataTypes.STRING
         }
 
     };
@@ -34,12 +37,12 @@ module.exports = function(sequelize, dataTypes) {
 
     let Usuario = sequelize.define(alias, cols, config)
 
-    Usuario.associate = function(models) {
-        Usuario.belongsTo(models.Perfil, {
-            as: 'perfil',
-            foreignKey: 'user_type_id'
-        })
-    }
+    // Usuario.associate = function(models) {
+    //     Usuario.belongsTo(models.Perfil, {
+    //         as: 'perfil',
+    //         foreignKey: 'user_type_id'
+    //     })
+    // }
 
     return Usuario
 }

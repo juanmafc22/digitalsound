@@ -2,9 +2,10 @@ const fs = require("fs");
 const path = require("path");
 const { validationResult, body } = require('express-validator')
 const bcrypt = require('bcryptjs')
+let db = require("../../database/models")
 
-const usersFilePath = path.join(__dirname, "../data/usuarios.json");
-const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+// const usersFilePath = path.join(__dirname, "../data/usuarios.json");
+// const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 
 const usersController = {
@@ -27,21 +28,33 @@ const usersController = {
             })
         }
 
-        let newUser = {
-            "id": Date.now(),
-            "nombre": req.body.nombre,
-            "apellido": req.body.apellido,
-            "email": req.body.email,
-            "categoria": "usuario",
-            "password": bcrypt.hashSync(req.body.password, 10),
-            "imagen": null
-        };
+        db.Usuario.create({
+            user_first_name: req.body.nombre,
+            user_last_name: req.body.apellido,
+            user_email: req.body.email,
+            user_password: bcrypt.hashSync(req.body.password, 10),
+            user_images: null,
+            user_type: "usuario"
+        })
+        .then(() => {
+            res.redirect("login");
+        })
 
-        usuarios.push(newUser);
+        // let newUser = {
+        //     "id": Date.now(),
+        //     "nombre": req.body.nombre,
+        //     "apellido": req.body.apellido,
+        //     "email": req.body.email,
+        //     "categoria": "usuario",
+        //     "password": bcrypt.hashSync(req.body.password, 10),
+        //     "imagen": null
+        // };
 
-        fs.writeFileSync(usersFilePath, JSON.stringify(usuarios, null, " "));
+        // usuarios.push(newUser);
+
+        // fs.writeFileSync(usersFilePath, JSON.stringify(usuarios, null, " "));
         
-        res.redirect("login");
+        // res.redirect("login");
 
     },
 
@@ -59,38 +72,44 @@ const usersController = {
                 errors: resultValidation.mapped()
             })
         }
+
         else {
-            for (i = 0; i < usuarios.length; i++) {
-                if (usuarios[i].email == req.body.email) {
-                    if (bcrypt.compareSync(req.body.password, usuarios[i].password)) {
-                        usuarioALogearse = usuarios[i]
-                        break;
-                        
+            db.Usuario.findAll()
+            .then(usuarios => {
+                for (i = 0; i < usuarios.length; i++) {
+                    if (usuarios[i].user_email == req.body.email) {
+                        if (bcrypt.compareSync(req.body.password, usuarios[i].user_password)) {
+                            usuarioALogearse = usuarios[i]
+                            break;
+                        }
                     }
                 }
-            }
 
-            if (usuarioALogearse == undefined) {
-                return res.render('users/login', {
-                    errors: [{msg: 'Credenciales invalidas'}]
-                })
-            }
-        }
+                if (usuarioALogearse == undefined) {
+                    return res.render('users/login', {
+                        errors: [{msg: 'Credenciales invalidas'}]
+                    })
+                };
         
-        req.session.usuarioLogeado = usuarioALogearse;
-        if (req.body.remember != undefined) {
-            res.cookie('recordame',
-            usuarioALogearse.id,
-            {maxAge: 1000*60*60})
-        }
+                req.session.usuarioLogeado = usuarioALogearse;
 
-        res.redirect('/index')
+                if (req.body.remember != undefined) {
+                    res.cookie('recordame',
+                    usuarioALogearse.id,
+                    {maxAge: 1000*60*60})
+                }
+
+                res.redirect('/index')
+            })
+        }
     },
 
     // peticion por GET para acceder a la pagina de admin de usuarios
     admin: (req, res) => {
-
-        res.render("users/abm-usuario", {usuarios, usuario : req.session.usuarioLogeado});
+        db.Usuario.findAll()
+        .then(usuarios => {
+            res.render("users/abm-usuario", {usuarios, usuario : req.session.usuarioLogeado});
+        })
     },
 
     // peticion por GET que muestra el formulario de creacion de usuario
@@ -110,23 +129,33 @@ const usersController = {
             })
         }
 
-        let newUser = {
-            "id": Date.now(),
-            "nombre": req.body.nombre,
-            "apellido": req.body.apellido,
-            "email": req.body.email,
-            "categoria": 'admin',
-            "password": bcrypt.hashSync(req.body.password, 10),
-            "imagen": req.file.filename
-        };
+        db.Usuario.create({
+            user_first_name: req.body.nombre,
+            user_last_name: req.body.apellido,
+            user_email: req.body.email,
+            user_password: bcrypt.hashSync(req.body.password, 10),
+            user_images: req.file.filename,
+            user_type: "admin"
+        })
+        .then(() => {
+            res.redirect("/users/abm-usuarios");
+        })
 
-        console.log(newUser)
+        // let newUser = {
+        //     "id": Date.now(),
+        //     "nombre": req.body.nombre,
+        //     "apellido": req.body.apellido,
+        //     "email": req.body.email,
+        //     "categoria": 'admin',
+        //     "password": bcrypt.hashSync(req.body.password, 10),
+        //     "imagen": req.file.filename
+        // };
 
-        usuarios.push(newUser);
+        // usuarios.push(newUser);
 
-        fs.writeFileSync(usersFilePath, JSON.stringify(usuarios, null, " "));
+        // fs.writeFileSync(usersFilePath, JSON.stringify(usuarios, null, " "));
 
-        res.redirect("/users/abm-usuario");
+        // res.redirect("/users/abm-usuario");
     }
 
 

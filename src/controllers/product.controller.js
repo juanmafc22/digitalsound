@@ -77,6 +77,7 @@ const productsController = {
             let redirectPath = 'categoria/'+req.body.categoriaProd.toString()
             res.redirect(redirectPath)
         })
+
         // let newProduct = {
         //     "id": Date.now(),
         //     "titulo": req.body.nombreProd,
@@ -131,7 +132,7 @@ const productsController = {
     },
 
     confirmarEdicion: (req, res) => {
-        promesaProductos = db.Producto.findByPk(req.params.id)
+        db.Producto.findByPk(req.params.id)
         .then(producto => {
             db.Producto.update({
                 product_name: req.body.nombreProd,

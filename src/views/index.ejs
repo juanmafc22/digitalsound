@@ -48,19 +48,19 @@
             <% destacados.forEach (destacado => { %> 
                 <article class="articulo-destacado">
                     <div class="div-interno-art-destacado">
-                        <p class="prod-dectacado__titulo"><%= destacado.titulo %> </p>
+                        <p class="prod-dectacado__titulo"><%= destacado.product_name %> </p>
                     </div>
                     <div class="div-interno-art-destacado">
                         <p class="prod-destacado__detalle">
-                            <%= destacado.detalle %>
+                            <%= destacado.product_detail %>
                         </p>
                     </div>
                     <div class="div-interno-art-destacado">
-                        <p class="prod-dectacado__precio">$<%= destacado.precio %> </p>
+                        <p class="prod-dectacado__precio">$<%= destacado.product_price %> </p>
                         <a class="prod-destacado__link" href="/productos/detalle/<%= destacado.id %> "><p class="prod-destacado__button">Ver detalle</p></a>
                     </div>
                     <div class="div-imagen-prod">
-                        <img class="prod-destacado__img" src="/img/products/<%= destacado.imagen %> ">
+                        <img class="prod-destacado__img" src="/img/products/<%= destacado.product_images %> ">
                     </div>
                 </article>
             <% }) %> 

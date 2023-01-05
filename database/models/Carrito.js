@@ -9,6 +9,9 @@ module.exports = function(sequelize, dataTypes) {
             primaryKey: true,
             autoIncrement: true
         },
+        user_id: {
+            type: dataTypes.INTEGER
+        },
         flag_is_open: {
             type: dataTypes.INTEGER
         },

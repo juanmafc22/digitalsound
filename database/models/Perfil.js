@@ -22,12 +22,12 @@ module.exports = function(sequelize, dataTypes) {
 
     let Perfil = sequelize.define(alias, cols, config)
 
-    Perfil.associate = function(models) {
-        Perfil.hasMany(models.Usuario, {
-            as: 'perfil',
-            foreignKey: 'user_type_id'
-        })
-    }
+    // Perfil.associate = function(models) {
+    //     Perfil.hasMany(models.Usuario, {
+    //         as: 'perfil',
+    //         foreignKey: 'user_type_id'
+    //     })
+    // }
 
     return Perfil
 }
