@@ -41,26 +41,26 @@
 
         </section>
 
-        <h2 class="main-titulo-destacado">Productos Destacados</h2>
+        <h2 class="main-titulo-destacado"><%=title%></h2>
 
         <section class="prods-destacados">
 
-            <% destacados.forEach (destacado => { %> 
+            <% results.forEach (result => { %> 
                 <article class="articulo-destacado">
                     <div class="div-interno-art-destacado">
-                        <p class="prod-dectacado__titulo"><%= destacado.product_name %> </p>
+                        <p class="prod-dectacado__titulo"><%= result.product_name %> </p>
                     </div>
                     <div class="div-interno-art-destacado">
                         <p class="prod-destacado__detalle">
-                            <%= destacado.product_detail %>
+                            <%= result.product_detail %>
                         </p>
                     </div>
                     <div class="div-interno-art-destacado">
-                        <p class="prod-dectacado__precio">$<%= destacado.product_price %> </p>
-                        <a class="prod-destacado__link" href="/productos/detalle/<%= destacado.id %> "><p class="prod-destacado__button">Ver detalle</p></a>
+                        <p class="prod-dectacado__precio">$<%= result.product_price %> </p>
+                        <a class="prod-destacado__link" href="/productos/detalle/<%= result.id %> "><p class="prod-destacado__button">Ver detalle</p></a>
                     </div>
                     <div class="div-imagen-prod">
-                        <img class="prod-destacado__img" src="/img/products/<%= destacado.product_images %> ">
+                        <img class="prod-destacado__img" src="/img/products/<%= result.product_images %> ">
                     </div>
                 </article>
             <% }) %> 

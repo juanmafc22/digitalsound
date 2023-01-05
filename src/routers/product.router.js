@@ -60,6 +60,7 @@ router.get("/nuevos-ingresos", productController.nuevosIngresos)
 // Ruta GET para acceder al listado de "usados"
 router.get("/usados", productController.usados)
 
-
+// Ruta Search
+router.get("/search", productController.search)
 
 module.exports = router;

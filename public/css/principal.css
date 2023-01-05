@@ -418,7 +418,7 @@ footer {
     padding-top: 10px;
 }
 
-div.control-formulario input,button{
+div.control-formulario input{
     margin: 2px;
     width: 60%;
     border-width: 1px;

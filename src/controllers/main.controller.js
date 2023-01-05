@@ -1,5 +1,3 @@
-const fs = require("fs");
-const path = require("path");
 const db = require("../../database/models")
 
 // const prodsFilePath = path.join(__dirname, "../data/productos-data-base.json");
@@ -13,11 +11,10 @@ const mainController = {
         db.Producto.findAll({
             where: {flag_hot_product: 1}
         })
-        .then(destacados => {
-        console.log(req.session.usuarioLogeado)
-        res.render("index", {destacados, usuario : req.session.usuarioLogeado});
+        .then(results => {
+        res.render("index", {title: 'Productos Destacados', results, usuario : req.session.usuarioLogeado});
         })
-    },
+    }
 
 };
 

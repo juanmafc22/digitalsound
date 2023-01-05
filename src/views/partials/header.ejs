@@ -9,7 +9,10 @@
             <% if (locals.usuario) { %>
                 <p class="header-links"><%= usuario.user_first_name %></p>
             <% } %>
-            <a class="header-links" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <form action="/productos/search" method="GET">
+                <input type="text" name="value" id="value">
+                <button type=submit class="header-links"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
             <a class="header-links" href="/users/login"><i class="fa-solid fa-right-to-bracket"></i></a>
             <a class="header-links" href="/users/registro"><i class="fa-solid fa-user"></i></a>
             <a class="header-links" href="/productos/carrito"><i class="fa-solid fa-cart-shopping"></i></a>

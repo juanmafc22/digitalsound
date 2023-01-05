@@ -1,6 +1,6 @@
-const fs = require("fs");
-const path = require("path");
 let db = require("../../database/models")
+const Op = db.Sequelize.Op
+const url = require('url')
 
 // const prodsFilePath = path.join(__dirname, "../data/productos-data-base.json");
 // const categoriesFilePath = path.join(__dirname, "../data/categorias.json");
@@ -207,6 +207,19 @@ const productsController = {
             res.render("products/usados", {productosUsados, categories, usuario : req.session.usuarioLogeado});
         })
     },
+    search: (req, res) => {
+        let queryString = url.parse(req.url, true).query
+        db.Producto.findAll({
+            where: {
+                product_name: {
+                    [Op.like]: "%"+queryString.value+"%"
+                }
+            }
+        })
+        .then(results => {
+            res.render("index", {title: 'Resultados de Búsqueda',results, usuario : req.session.usuarioLogeado})
+        })
+    }
 };
 
 module.exports = productsController;
