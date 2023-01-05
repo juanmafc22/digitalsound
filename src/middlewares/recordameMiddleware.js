@@ -1,23 +1,19 @@
+let path = require('path');
+let fs = require('fs');
+const db = require("../../database/models");
+
 function recordameMiddleware(req,res,next) {
-    let path = require('path');
-    let fs = require('fs')
-    
-    const usersFilePath = path.join(__dirname, "../data/usuarios.json");
-    const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-    let usuarioALogearse
 
     if (req.cookies.recordame != undefined && req.session.usuarioLogeado == undefined) {
-        for (i = 0; i < usuarios.length; i++) {
-            if (usuarios[i].id == req.cookies.recordame) {
-                usuarioALogearse = usuarios[i]
-                break;
-                }
-            }
-            req.session.usuarioLogeado = usuarioALogearse
-        }
+        db.Usuario.findByPk(req.cookies.recordame)
+        .then(usuario => {
+            req.session.usuarioLogeado = usuario
+            console.log(req.session.usuarioLogeado)
+        })
+    }
 
     next();
 
-    }
+}
 
 module.exports = recordameMiddleware
