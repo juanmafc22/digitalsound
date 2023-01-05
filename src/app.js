@@ -4,6 +4,7 @@ const path = require("path");
 const mainRouter = require("./routers/main.router");
 const productRouter = require("./routers/product.router");
 const userRouter = require("./routers/user.routers");
+const cartRouter = require("./routers/cart.router");
 const methodOverride = require("method-override");
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
@@ -27,7 +28,7 @@ app.use(express.urlencoded({ extended: false})); // preparar la app para que tra
 app.use(cookieParser());
 app.use(express.json());
 app.use(methodOverride("_method")); // preparar la app para que trabaje con metodos PUT y DELETE
-app.use(session({secret : 'Digitalsound123!'}))
+app.use(session({secret : 'Digitalsound123!'}));
 app.use(recordameMiddleware);
 
 // -------| template engines: ejs y path a ejs
@@ -39,6 +40,7 @@ app.set("views", path.join(__dirname, "./views"));
 app.use("/", mainRouter);
 app.use("/productos", productRouter);
 app.use("/users", userRouter);
+app.use("/cart", cartRouter);
 
 
 // Seteo inicial de error 404

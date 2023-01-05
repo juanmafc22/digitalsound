@@ -36,9 +36,9 @@ const productsController = {
     },
     
     // Response para el carrito de compras 
-    carrito: (req, res) => {
-        res.render("products/carrito", {usuario : req.session.usuarioLogeado})
-    },
+    // carrito: (req, res) => {
+    //     res.render("products/carrito", {usuario : req.session.usuarioLogeado})
+    // },
 
     // Response para la pag de ABM de productos 
     abm: (req, res) => {

@@ -31,7 +31,7 @@ router.get("/categoria/:id", productController.categoria);
 router.get("/detalle/:id", productController.item);
 
 // Ruta para el carrito de compras. Solo accesible a usuarios logeados.
-router.get("/carrito", authMiddleware, productController.carrito);
+// router.get("/carrito", authMiddleware, productController.carrito);
 
 // Ruta para el landing page del ABM de productos
 router.get("/abm-productos", adminMiddleware, productController.abm);

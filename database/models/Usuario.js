@@ -37,12 +37,12 @@ module.exports = function(sequelize, dataTypes) {
 
     let Usuario = sequelize.define(alias, cols, config)
 
-    // Usuario.associate = function(models) {
-    //     Usuario.belongsTo(models.Perfil, {
-    //         as: 'perfil',
-    //         foreignKey: 'user_type_id'
-    //     })
-    // }
+    Usuario.associate = function(models) {
+        Usuario.hasMany(models.Carrito, {
+            as: 'carrito',
+            foreignKey: 'user_id'
+        })
+    }
 
     return Usuario
 }

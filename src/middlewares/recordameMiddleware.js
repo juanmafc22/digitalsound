@@ -8,7 +8,6 @@ function recordameMiddleware(req,res,next) {
         db.Usuario.findByPk(req.cookies.recordame)
         .then(usuario => {
             req.session.usuarioLogeado = usuario
-            console.log(req.session.usuarioLogeado)
         })
     }
 
