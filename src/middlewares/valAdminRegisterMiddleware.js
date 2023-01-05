@@ -1,12 +1,25 @@
 const { body } = require('express-validator')
 const path = require('path')
+const db = require("../../database/models");
 
 module.exports = [
     body('nombre').notEmpty().withMessage('Necesitas completar tu nombre'),
     body('apellido').notEmpty().withMessage('Necesitas completar tu apellido'),
     body('email')
         .notEmpty().withMessage('Necesitas ingresar un email').bail()
-        .isEmail().withMessage('Necesitas ingresar un email valido'),
+        .isEmail().withMessage('Necesitas ingresar un email valido')
+        .custom((value) => {
+            return db.Usuario.findOne({
+                where: {
+                    user_email: value
+                }
+            })
+            .then(user => {
+                if(user) {
+                    return Promise.reject('Este email ya se encuentra registrado')
+                } 
+            })
+        }),
     body('password')
         .notEmpty().withMessage('Necesitas ingresar una contraseña').bail()
         .isStrongPassword().withMessage('La contraseña necesita: 8 Caracteres, 1 Número, 1 Mayusc, 1 Minusc, 1 Símbolo'),
