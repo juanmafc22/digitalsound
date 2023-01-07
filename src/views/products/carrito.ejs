@@ -33,15 +33,15 @@
             <div class="section-precio-cant">
                 <div class="section-precio-cant__contenedor-precio">
                     <p class="section-precio-cant__contenedor-precio--txt-precio">Subtotal </p>
-                    <p class="section-precio-cant__contenedor-precio--txt-precio">$10.300,00</p>
+                    <p class="section-precio-cant__contenedor-precio--txt-precio">$<%=cartValue%></p>
                 </div>
                 <div class="section-precio-cant__contenedor-iva">
                     <p class="section-precio-cant__contenedor-precio--txt-iva">IVA </p>
-                    <p class="section-precio-cant__contenedor-precio--txt-iva">$400</p>
+                    <p class="section-precio-cant__contenedor-precio--txt-iva">$<%=cartValue*0.21%></p>
                 </div>
                 <div class="section-precio-cant__contenedor-grand-total">
                     <p class="section-precio-cant__contenedor-precio--grand-total">Total </p>
-                    <p class="section-precio-cant__contenedor-precio--grand-total">$10.700,00</p>
+                    <p class="section-precio-cant__contenedor-precio--grand-total">$<%=cartValue*1.21%></p>
                 </div>
                 <div class="section-precio-cant__contenedor-cant">
                     <p class="section-precio-cant__contenedor-precio--txt-cant" >3 items cargados</p>
@@ -56,22 +56,23 @@
         </section>
         <!-- section principal del carrito donde se muestra la info de los productos-->
         <section class="products">
-            <article class="cart-product">
+            <% cartProducts.forEach(product => { %>
+                <article class="cart-product">
                 <div class="product-info">
                     <div class="product-image">
-                        <img src="/img/products/fender-jazz-bass.jpg">
+                        <img src="/img/products/<%=product.product_images%>">
                     </div>
                     <div class="product-details">
-                        <h4>Fender Jazz Bass 60th Aniversary</h4>
-                        <p class="sku">SKU #XXX</p>
+                        <h4><%=product.product_name%></h4>
+                        <p class="sku">SKU <%=product.id%></p>
                         <div class="product-description">
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit dolorum libero eligendi sequi quos consequatur neque? Laborum, veritatis! Deleniti facere obcaecati dolorem hic similique sequi, nobis repudiandae aperiam vel modi?</p>
+                            <p><%=product.product_description_short%></p>
                         </div>
                     </div>
                 </div>
                 <div class="price-quantity">
                     <div class="price-quantity-div">
-                        $1.234
+                        $<%=product.product_price%>
                     </div>
                     <div class="product-quantity-div">
                         <i class="fa-solid fa-square-minus"></i>
@@ -79,37 +80,11 @@
                         <i class="fa-solid fa-square-plus"></i>
                     </div>
                     <div class="price-x-quantity">
-                        $1.234 * Q
+                        $<%=product.product_price%> * Q
                     </div>
                 </div>
             </article>
-            <article class="cart-product">
-                <div class="product-info">
-                    <div class="product-image">
-                        <img src="/img/products/tama-dynasync.jpg">
-                    </div>
-                    <div class="product-details">
-                        <h4>Tama HSSd1 Dyna-Sync</h4>
-                        <p class="sku">SKU #XXX</p>
-                        <div class="product-description">
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit dolorum libero eligendi sequi quos consequatur neque? Laborum, veritatis! Deleniti facere obcaecati dolorem hic similique sequi, nobis repudiandae aperiam vel modi?</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="price-quantity">
-                    <div class="price-quantity-div">
-                        $1.234
-                    </div>
-                    <div class="product-quantity-div">
-                        <i class="fa-solid fa-square-minus"></i>
-                        <input type="tel" name="shopping-cart-quantity" class="quantity-input">
-                        <i class="fa-solid fa-square-plus"></i>
-                    </div>
-                    <div class="price-x-quantity">
-                        $1.234 * Q
-                    </div>
-                </div>
-            </article>
+            <% }) %>
         </section>
 
     </main>

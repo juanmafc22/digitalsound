@@ -7,15 +7,20 @@ const cartController = {
 
         let promCarrito = db.Carrito.findOne(
             // 1
-            {where: [{user_id : req.session.usuarioLogeado.id},{cart_date_checkout : {[Op.eq]: null}}]}
-            ,{include: ['producto']});
+            {where: [{user_id : req.session.usuarioLogeado.id},{cart_date_checkout : {[Op.eq]: null}}]
+            ,include: ['producto']});
         let promProductos = db.Producto.findAll();
 
         Promise
         .all([promCarrito,promProductos])
         .then(([carrito, productos]) => {
-            console.log(carrito)
-            res.render("products/carrito", {usuario : req.session.usuarioLogeado})
+            let cartProducts = carrito.producto
+            let cartValue
+            cartProducts.forEach(product => {
+                cartValue += parseInt(product.product_price)
+            })
+            console.log(cartProducts)
+            res.render("products/carrito", {cartProducts, cartValue, usuario : req.session.usuarioLogeado})
         })
     },
 }
