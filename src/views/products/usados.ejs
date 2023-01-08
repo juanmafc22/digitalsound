@@ -31,7 +31,7 @@
                                 </p>
                             </div>
                             <div class="div-interno-art-destacado">
-                                <p class="prod-dectacado__precio">$<%= prodUsado.product_price %> </p>
+                                <p class="prod-dectacado__precio">$<%= parseInt(prodUsado.product_price).toLocaleString() %> </p>
                                 <a class="prod-destacado__link" href="/productos/detalle/<%= prodUsado.id %>"><p class="prod-destacado__button">Ver detalle</p></a>
                             </div>
                             <div class="div-imagen-prod">
