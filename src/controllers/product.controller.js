@@ -34,6 +34,8 @@ const productsController = {
         })
 
     },
+
+    //
     
     // Response para el carrito de compras 
     // carrito: (req, res) => {

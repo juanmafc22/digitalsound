@@ -609,9 +609,9 @@ p.sku{
 }
 
 .product-details div.product-description{
-    margin-top: 2px;
+    margin-top: 10px;
     height: 55%;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 
 .product-details div.product-description p{

@@ -33,12 +33,14 @@
                     <h3 class="article-titulo">ACCESORIOS</h3>
                     <a href="#"><p class="article-button">Ver disponibles</p></a>
             </article>
-
+            /
         </section> -->
 
         <div class="div-titulo-boton-comprar">
             <h2 class="titulo-detalle-prod"><%= producto.product_name %></h2>
-            <a href="/productos/carrito"><p class="boton-comprar">Comprar</p></a>
+            <form method="POST" action="/cart/agregar-producto/<%=producto.id%>">
+                <button type="submit" class="boton-comprar">Añadir al Carrito</button>
+            </form>
         </div>
 
         <section class="prods-destacados">

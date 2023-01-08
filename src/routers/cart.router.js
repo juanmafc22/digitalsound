@@ -9,4 +9,8 @@ const adminMiddleware = require('../middlewares/adminMiddleware');
 
 router.get("/", authMiddleware, cartController.carrito);
 
+router.post('/agregar-producto/:id', authMiddleware, cartController.addProduct)
+
+router.get('/quitar-producto/:id', authMiddleware, cartController.removeProduct)
+
 module.exports = router
