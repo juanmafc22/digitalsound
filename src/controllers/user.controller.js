@@ -104,6 +104,12 @@ const usersController = {
         }
     },
 
+    logout: (req,res) => {
+        req.session.usuarioLogeado = undefined
+        res.cookie('recordame', '', {maxAge: 0})
+        res.redirect('/index')
+    },
+
     // peticion por GET para acceder a la pagina de admin de usuarios
     admin: (req, res) => {
         db.Usuario.findAll()

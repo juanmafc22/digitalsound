@@ -49,5 +49,7 @@ router.get("/alta-usuario", adminMiddleware, userController.formulario);
 
 router.post("/alta-usuario",  upload.single("foto"), validationAdminRegister, userController.creacionAdmin);
 
+router.get("/logout", authMiddleware, userController.logout);
+
 module.exports = router;
 
