@@ -33,7 +33,7 @@
             <div class="section-precio-cant">
                 <div class="section-precio-cant__contenedor-precio">
                     <p class="section-precio-cant__contenedor-precio--txt-precio">Total </p>
-                    <p class="section-precio-cant__contenedor-precio--txt-precio">$<%=cartValue%></p>
+                    <p class="section-precio-cant__contenedor-precio--txt-precio">$<%=cartValue.toLocaleString()%></p>
                 </div>
                 <!-- <div class="section-precio-cant__contenedor-iva">
                     <p class="section-precio-cant__contenedor-precio--txt-iva">IVA </p>
@@ -73,7 +73,7 @@
                 </div>
                 <div class="price-quantity">
                     <div class="price-quantity-div">
-                        $<%=product.product_price%>
+                        $<%=parseInt(product.product_price).toLocaleString()%>
                     </div>
                     <div class="product-quantity-div">
                         <i class="fa-solid fa-square-minus"></i>
@@ -81,7 +81,7 @@
                         <i class="fa-solid fa-square-plus"></i>
                     </div>
                     <div class="price-x-quantity">
-                        $<%=product.product_price%> * Q
+                        $<%=parseInt(product.product_price).toLocaleString()%> * Q
                     </div>
                 </div>
             </article>

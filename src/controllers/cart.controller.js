@@ -15,7 +15,7 @@ const cartController = {
         .all([promCarrito,promProductos])
         .then(([carrito, productos]) => {
             let cartProducts = carrito.producto
-            let cartValue
+            let cartValue = 0
             cartProducts.forEach(product => {
                 cartValue += parseInt(product.product_price)
             })
