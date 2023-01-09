@@ -38,6 +38,9 @@ module.exports = function(sequelize, dataTypes) {
         },
         promotion_id: {
             type: dataTypes.INTEGER
+        },
+        product_stock: {
+            type: dataTypes.INTEGER
         }
 
     };
@@ -71,6 +74,11 @@ module.exports = function(sequelize, dataTypes) {
             foreignKey: 'product_id',
             otherKey: 'cart_id',
             timestamps: false
+        });
+
+        Producto.hasMany(models.Carrito_Producto, {
+            as: 'carrito_producto',
+            foreignKey: 'product_id'
         })
 
     }

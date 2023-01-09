@@ -77,7 +77,7 @@
                     </div>
                     <div class="product-quantity-div">
                         <i class="fa-solid fa-square-minus"></i>
-                        <input type="tel" name="shopping-cart-quantity" class="quantity-input">
+                        <input type="tel" name="shopping-cart-quantity" class="quantity-input" value="<%=prodQuantities.filter(prod => {return prod.product_id == product.id})[0].product_quantity%>">
                         <i class="fa-solid fa-square-plus"></i>
                     </div>
                     <div class="price-x-quantity">
